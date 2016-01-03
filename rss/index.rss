@@ -1,0 +1,315 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Chris Brown</title><description>Thoughts, stories and ideas.</description><link>http:///</link><generator>Ghost 0.6</generator><lastBuildDate>Sat, 02 Jan 2016 23:24:31 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>My new $1 Blog</title><description>How I created a blog for next to no money using Ghost Blogging Engine</description><link>http:///my-new-blog/</link><guid isPermaLink="false">fd7b3b1e-c466-4bfb-95ac-38d1d5b86314</guid><dc:creator>Chris Brown</dc:creator><pubDate>Sat, 26 Dec 2015 17:44:24 GMT</pubDate><media:content url="http:///content/images/2015/12/ghost-1-.png" medium="image"/><content:encoded>&lt;img src="http:///content/images/2015/12/ghost-1-.png" alt="My new $1 Blog"&gt;&lt;p&gt;As a self employed software developer it is essential to have some form of web presence.&lt;/p&gt;
+
+&lt;p&gt;I previously had a bespoke &lt;a href="http://www.zirafon.org"&gt;website&lt;/a&gt; using latest tech and hosted on azure used primary as a portfolio piece that was attached to my email domain.&lt;/p&gt;
+
+&lt;p&gt;Alongside this I had a technical blog at &lt;a href="http://zirafon-blog.blogspot.co.uk"&gt;blogspot&lt;/a&gt;. I found keeping both up to date required more time than I had. &lt;em&gt;As a result i decided to amalgamate.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Apart from anything, I didn't like the fact my blog was detached from my personal domain. As a developer if you blog, you need to own that content and the obvious way to do so is to ensure it is housed under your personal domain. In my case this was &lt;a href="http://blog.zirafon.org"&gt;blog.*&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As a developer if you blog, you need to own that content ...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So the next question is, which blog engine do I use. Because I don't know how often I would blog, it needed to be &lt;strong&gt;1. free&lt;/strong&gt; and preferably &lt;a href="http:///my-new-blog/#opensource"&gt;&lt;strong&gt;2. open source&lt;/strong&gt;&lt;/a&gt;. It also needed to be &lt;strong&gt;3. fast&lt;/strong&gt; and because im putting my name and reputation as a software developer it needs to be &lt;strong&gt;4. extensible&lt;/strong&gt; so I can customize it. The final requirement is that I wanted it to be a &lt;strong&gt;5. markdown&lt;/strong&gt; blog engine.&lt;/p&gt;
+
+&lt;h2 id="blogengine"&gt;Blog Engine&lt;/h2&gt;
+
+&lt;h5 id="anamefreea1free"&gt;&lt;a name="free"&gt;&lt;/a&gt; 1. Free&lt;/h5&gt;
+
+&lt;p&gt;As previously mentioned im moving from &lt;a href="http://azure.com"&gt;Azure&lt;/a&gt; which is a paid product, not expensive but because the blog is effectively a static site then why do I need heavy compute power? I don't and while I already knew of free blog offerings, most platforms have paid plugins. For example having custom domains etc. So I set a challenge for myself to see how cheap I can keep it, and preferably lets keep it free without losing functionality.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;...lets keep it free without losing functionality.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id="anameopensourcea2opensource"&gt;&lt;a name="opensource"&gt;&lt;/a&gt;2. Open Source&lt;/h5&gt;
+
+&lt;p&gt;Im pretty passionate about open source software. I've profited from it previously and contributed where appropriate. But typically open source projects have best community support and starting out on a new project, this is important! And obviously this helps with being &lt;a href="http:///my-new-blog/#extensible"&gt;&lt;strong&gt;4. extensible&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id="anamefasta3fast"&gt;&lt;a name="fast"&gt;&lt;/a&gt;3. Fast&lt;/h5&gt;
+
+&lt;p&gt;This is an obvious one, it just makes for an awful UX experience. There are various blog engines out there that focus on this as a main feature but they always come at a trade-off.&lt;/p&gt;
+
+&lt;h5 id="anameextensiblea4extensible"&gt;&lt;a name="extensible"&gt;&lt;/a&gt;4. Extensible&lt;/h5&gt;
+
+&lt;p&gt;It's easy to extend and refactor open source work but once you fork from the source then it's difficult to keep up to date with new versions. I want to be able to use the engine of the blogging platform but I dont want to be tied to the default theme, I want to painlessly make a bespoke solution from a base product.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I want to painlessly make a despoke solution from a base product&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id="anamemarkdowna5markdown"&gt;&lt;a name="markdown"&gt;&lt;/a&gt;5. Markdown&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; is the defaco readme language and is something I use daily and im hopeful it will make blogging faster and allow me to create rich content with a small amount of effort.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.. rich content with a small amount of effort.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So to cut a long story short, I choose &lt;a href="https://ghost.org/"&gt;Ghost&lt;/a&gt;. This blog is less about why than how and you can find lots of writing about the same subject &lt;a href="http://bit.ly/1RX3GPx"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="solution"&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;So the title of this blog is &lt;mark&gt;My new $1 Blog&lt;/mark&gt; and this is largely true. Its effectively the cost of a domain, everything else is free.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ghost.org/"&gt;Ghost Blog Engine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Its hosted on &lt;a href="https://github.com/chris-brown/chris-brown.github.io"&gt;github pages&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I write my blog pages locally and push the changes up using &lt;a href="https://github.com/axitkhurana/buster"&gt;ghost-buster&lt;/a&gt;, a Ghost static site gen.&lt;/li&gt;
+&lt;li&gt;I've created a new theme which is available &lt;a href="https://github.com/chris-brown/Masonry-Ghost-Theme"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Im really pleased with the result so far, it's pretty basic at the moment but its work in progress. Please get in touch i'll be keen to hear your thoughts of the theme. Any issues can be added &lt;a href="https://github.com/chris-brown/Masonry-Ghost-Theme/issues"&gt;here&lt;/a&gt;. Thanks for reading.&lt;/p&gt;</content:encoded></item><item><title>Welcome to Ghost</title><description>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list&lt;/p&gt;</description><link>http:///welcome-to-ghost/</link><guid isPermaLink="false">218198f9-9286-48c8-b99a-2f6fcad1bd61</guid><category>Getting Started</category><dc:creator>Chris Brown</dc:creator><pubDate>Fri, 31 Jul 2015 06:57:37 GMT</pubDate><content:encoded>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!&lt;/p&gt;
+
+&lt;h2 id="gettingstarted"&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;Ghost uses something called Markdown for writing. Essentially, it's a shorthand way to manage your post formatting as you write!&lt;/p&gt;
+
+&lt;p&gt;Writing in Markdown is really easy. In the left hand panel of Ghost, you simply write as you normally would. Where appropriate, you can use &lt;em&gt;shortcuts&lt;/em&gt; to &lt;strong&gt;style&lt;/strong&gt; your content. For example, a list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Item number one&lt;/li&gt;
+&lt;li&gt;Item number two
+&lt;ul&gt;&lt;li&gt;A nested item&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;A final item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;or with numbers!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Remember to buy some milk  &lt;/li&gt;
+&lt;li&gt;Drink the milk  &lt;/li&gt;
+&lt;li&gt;Tweet that I remembered to buy the milk, and drank it&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="links"&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;Want to link to a source? No problem. If you paste in a URL, like &lt;a href="http://ghost.org"&gt;http://ghost.org&lt;/a&gt; - it'll automatically be linked up. But if you want to customise your anchor text, you can do that too! Here's a link to &lt;a href="http://ghost.org"&gt;the Ghost website&lt;/a&gt;. Neat.&lt;/p&gt;
+
+&lt;h3 id="whataboutimages"&gt;What about Images?&lt;/h3&gt;
+
+&lt;p&gt;Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://ghost.org/images/ghost.png" alt="The Ghost Logo"&gt;&lt;/p&gt;
+
+&lt;p&gt;Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload:&lt;/p&gt;
+
+&lt;h3 id="quoting"&gt;Quoting&lt;/h3&gt;
+
+&lt;p&gt;Sometimes a link isn't enough, you want to quote someone on what they've said. Perhaps you've started using a new blogging platform and feel the sudden urge to share their slogan? A quote might be just the way to do it!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ghost - Just a blogging platform&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="workingwithcode"&gt;Working with Code&lt;/h3&gt;
+
+&lt;p&gt;Got a streak of geek? We've got you covered there, too. You can write inline &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces of indentation gets you there. &lt;br&gt;
+    .awesome-thing {
+        display: block;
+        width: 100%;
+    }&lt;/p&gt;
+
+&lt;h3 id="readyforabreak"&gt;Ready for a Break?&lt;/h3&gt;
+
+&lt;p&gt;Throw 3 or more dashes down on any new line and you've got yourself a fancy new divider. Aw yeah.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="advancedusage"&gt;Advanced Usage&lt;/h3&gt;
+
+&lt;p&gt;There's one fantastic secret about Markdown. If you want, you can write plain old HTML and it'll still work! Very flexible.&lt;/p&gt;
+
+&lt;p&gt;&lt;input type="text" placeholder="I'm an input field!"&gt;&lt;/p&gt;
+
+&lt;p&gt;That should be enough to get you started. Have fun - and let us know what you think :)&lt;/p&gt;</content:encoded></item><item><title>Conflicts with Umbraco 7 install and ReSharper.</title><description>&lt;p&gt;Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting&lt;/p&gt;</description><link>http:///conflicts_with_umbraco_7_install_and_re_sharper/</link><guid isPermaLink="false">51e2966e-03de-4581-a53e-2a9f2a190219</guid><category>Umbraco</category><dc:creator>Chris Brown</dc:creator><pubDate>Sat, 14 Mar 2015 21:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting with the front end. Typically its performance but there are a whole heap of issues that effect large sites that im not going to go into on this particular blog. &lt;/p&gt;
+
+&lt;p&gt;This post is about Umbraco 7 installation. Its an obscure one so I thought I would mention it here to aid folk in the future. &lt;/p&gt;
+
+&lt;p&gt;Basically when you install  and you come across the following error.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Install failed. Rolling back...  
+install-package : Expected "$(_PublishProfileSet)" to evaluate to a boolean instead of "", in condition "$(_PublishProfileSet) And '$(PublishProfileName)'  
+=='' And '$(WebPublishProfileFile)'==''". C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\Web\Microsoft.Web.Publishing.targets 
+At line:1 char:1  
++ install-package umbracocms
++ CategoryInfo : NotSpecified: (:) [Install-Package], InvalidProjectFileException 
++ FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It's a known conflict error between Resharper and the install. Further details can be found &lt;a href="https://youtrack.jetbrains.com/issue/RSRP-419513"&gt;here&lt;/a&gt;. But in brief. &lt;mark&gt;Disable Resharper and try again&lt;/mark&gt;.&lt;/p&gt;
+
+&lt;p&gt;Worked for me. I believe the issue is resolved in v9 of ReSharper but further comments would be appreciated. &lt;/p&gt;
+
+&lt;p&gt;To disable/Suspend ReSharper &lt;/p&gt;
+
+&lt;p&gt;Navigate to:  &lt;code&gt;Tools -&amp;gt; Options -&amp;gt; ReSharper -&amp;gt; Suspend Now&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://4.bp.blogspot.com/-95XA1XrpPMQ/VQSlozP6pjI/AAAAAAAAA9M/FgNtdlOe9Qc/s1600/resharper-suspend.png" alt="alt"&gt;&lt;/p&gt;</content:encoded></item><item><title>Intro into the OWIN specification and a Hello world example of Katana</title><description>&lt;h2 id="gettingstartedwithowinandkatana"&gt;Getting Started with OWIN and Katana&lt;/h2&gt;
+
+&lt;p&gt;Firstly, lets start by trying to identify what the specification is. The following text is taken from &lt;a href="http://owin.org/"&gt;owin.org&lt;/a&gt; pecification is. The following text is taken from &lt;a href="http://owin.org/"&gt;owin.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OWIN defines a standard interface between .NET web servers and web applications. The goal of&lt;/p&gt;&lt;/blockquote&gt;</description><link>http:///intro_into_the_owin_specification_and_a_hello_world_example_of_katana/</link><guid isPermaLink="false">b5152334-6fc5-4c7d-8576-45262cf610c6</guid><category>Aspnet</category><category>Owin</category><category>Katana</category><dc:creator>Chris Brown</dc:creator><pubDate>Tue, 03 Mar 2015 22:58:00 GMT</pubDate><content:encoded>&lt;h2 id="gettingstartedwithowinandkatana"&gt;Getting Started with OWIN and Katana&lt;/h2&gt;
+
+&lt;p&gt;Firstly, lets start by trying to identify what the specification is. The following text is taken from &lt;a href="http://owin.org/"&gt;owin.org&lt;/a&gt; pecification is. The following text is taken from &lt;a href="http://owin.org/"&gt;owin.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OWIN defines a standard interface between .NET web servers and web applications. The goal of the OWIN interface is to decouple server and application, encourage the development of simple modules for .NET web development&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Or in other words; &lt;a href="http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana"&gt;Katana&lt;/a&gt;, the Microsoft implementation of OWIN, is basically an answer to &lt;a href="http://nodejs.org/"&gt;node.js&lt;/a&gt; just like the ASP.NET MVC framework was the answer to &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;** &lt;/p&gt;
+
+&lt;p&gt;This is evident when we compare the two hello world web server implementations;&lt;/p&gt;
+
+&lt;h3 id="1nodewebserverinitiation"&gt;1. Node Web server initiation&lt;/h3&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/23aaad30f8063c1af02b.js"&gt;&lt;/script&gt;
+
+&lt;h3 id="2katanaselfhostingwebserver"&gt;2. Katana self hosting web server&lt;/h3&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/598a0010b43dcc605544.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Now this is evidently a high level comparison between the 2 but it suggests my point. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;Katana&lt;/u&gt;&lt;/strong&gt;, is a collection of projects for supporting and implementing the OWIN specification. The value here is that it creates an abstraction between the web server and application. Meaning it completely decouples server dependencies away from our application. This then introduces the concept of, &lt;mark&gt;use what we need and nothing more&lt;/mark&gt;. &lt;/p&gt;
+
+&lt;p&gt;Significantly it includes OWIN support for System.Web and System.Net.HttpListener. &lt;/p&gt;
+
+&lt;p&gt;This is an obvious benefit when you review a typical .NET application and notice the dependent reference &lt;a href="https://msdn.microsoft.com/en-us/library/system.web%28v=vs.113%29.aspx"&gt;System.Web.dll&lt;/a&gt;; which is over 2.5MB and includes over 10 years of retrofitted development. &lt;/p&gt;
+
+&lt;p&gt;Where node uses &lt;a href="https://www.npmjs.com/"&gt;Node Package Manager&lt;/a&gt;, Microsoft uses &lt;a href="http://www.nuget.org/"&gt;NuGet&lt;/a&gt; to manage these modules. &lt;/p&gt;
+
+&lt;p&gt;For this blog post, this is where the comparison stops between these two technologies. I dont want to dwel upon it, however for further readings checkout this &lt;a href="http://www.salmanq.com/blog/net-and-node-js-performance-comparison/2013/03/"&gt;performance comparison article&lt;/a&gt;; &lt;em&gt;NB. At the time of this blog publication the article was over a year old so the result will no doubt vary.&lt;/em&gt; &lt;/p&gt;
+
+&lt;p&gt;MSFT's decision to open source their forthcoming ONE ASP.NET platform has meant the open source community has supported the Katana implementation well. Significant support that you can pull down today includes; &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Owin"&gt;Web API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Owin/"&gt;SignalR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nuget.org/packages/Nancy.Owin/"&gt;Nancy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I've used a couple of these projects on a basic hello world application. Its a self hosted project running from a console app. But a follow up post will include a Linux host. This is available on GitHub for downloading, forking, or contributing.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/chris-brown/katana-web-hello-world-demo"&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe frameborder="0" height="30px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=chris-brown&amp;amp;repo=katana-web-hello-world-demo&amp;amp;type=watch&amp;amp;count=true&amp;amp;size=large&amp;amp;v=2" width="160px" style="float:left;"&gt;&lt;/iframe&gt;</content:encoded></item><item><title>Concatenating multiple rows into one column in T-SQL</title><description>&lt;p&gt;This post looks at how to deliminate many rows into one single column. &lt;/p&gt;
+
+&lt;p&gt;I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. &lt;/p&gt;
+
+&lt;p&gt;There are many ways to do this but the most&lt;/p&gt;</description><link>http:///concatenating_multiple_rows_into_one_column_in_t_sql/</link><guid isPermaLink="false">0bfbbb86-60b2-4421-bdb6-253a64c23e54</guid><category>Sql</category><dc:creator>Chris Brown</dc:creator><pubDate>Mon, 29 Dec 2014 14:17:00 GMT</pubDate><content:encoded>&lt;p&gt;This post looks at how to deliminate many rows into one single column. &lt;/p&gt;
+
+&lt;p&gt;I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. &lt;/p&gt;
+
+&lt;p&gt;There are many ways to do this but the most performant way is actually the simplest too. &lt;/p&gt;
+
+&lt;p&gt;The most common approach which most people fall back to would be to iterate through the collection using a Cursor and format a string that way. For many reasons this is not a good idea, from memory to potential deadlock issues to name 2. &lt;/p&gt;
+
+&lt;p&gt;For this demo im going to comma deliminate all my tables into a single column for me to then copy this value straight into my to then save as a CSV. &lt;/p&gt;
+
+&lt;p&gt;My data looks like the following. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ProductReview  
+StoreEventPage  
+AuditLog  
+Author  
+TimeLine  
+TimeLineEvent  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now using the &lt;a href="https://gist.github.com/chris-brown/560464dd6ae980c8d41a"&gt;gist&lt;/a&gt; below. I can combine the result set of these string values and concatinate them to one string variable.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/560464dd6ae980c8d41a.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Now again this is commonly done but note the &lt;a href="http://msdn.microsoft.com/en-us/library/ms190349.aspx"&gt;COALESCE expression&lt;/a&gt;. This avoids having duplicated commas and removes null values. The COALESCE expression is a syntactic shortcut for the CASE expression, when the first argument is NULL, COALESCE returns NULL.&lt;/p&gt;
+
+&lt;p&gt;The end result is the following which we can now save as a csv. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ProductReview,StoreEventPage,AuditLog,Author,TimeLine,TimeLineEvent  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks for reading. Always appreciate hearing your thoughts and comments. &lt;br&gt;
+Checkout my &lt;a href="http://www.zirafon.org/"&gt;website&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Setting up precompiled handlerbars.js templates and using grunt to compile them</title><description>&lt;h3 id="whatisjavascripttemplating"&gt;What is Javascript Templating&lt;/h3&gt;
+
+&lt;p&gt;Good place to start is to describe what exactly &lt;a href="http://en.wikipedia.org/wiki/JavaScript_templating"&gt;JS Templating&lt;/a&gt; is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.&lt;/p&gt;
+
+&lt;p&gt;Now sure&lt;/p&gt;</description><link>http:///setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/</link><guid isPermaLink="false">3d62b42d-ad08-4154-a016-cf3a45320cc9</guid><category>Grunt</category><category>Javascript</category><category>Handlebars.js</category><category>Js Templates</category><dc:creator>Chris Brown</dc:creator><pubDate>Tue, 23 Dec 2014 23:46:00 GMT</pubDate><content:encoded>&lt;h3 id="whatisjavascripttemplating"&gt;What is Javascript Templating&lt;/h3&gt;
+
+&lt;p&gt;Good place to start is to describe what exactly &lt;a href="http://en.wikipedia.org/wiki/JavaScript_templating"&gt;JS Templating&lt;/a&gt; is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.&lt;/p&gt;
+
+&lt;p&gt;Now sure Angular and Knockout are pretty popular approaches for rich client side data-binding but in alot of cases they are too bloated and overkill for certain scenarios.&lt;/p&gt;
+
+&lt;p&gt;Say I have a legacy app that uses a heavy amount of JQuery (pretty common scenario for me!) and im tasked to render data from a REST API endpoint to the UI. I dont want to add a whole new client side dependency just to render the data. JS Templating, in particular &lt;a href="http://handlebarsjs.com/precompilation.html"&gt;Handlebars precompiler&lt;/a&gt;, is perfect for this scenario.&lt;/p&gt;
+
+&lt;p&gt;For more detailed comparisons between templating libraries and performance reviews, please refer to the links below.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://viget.com/extend/benchmarking-javascript-templating-libraries"&gt;http://viget.com/extend/benchmarking-javascript-templating-libraries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.sorescode.com/2010/09/12/benchmarks.html"&gt;http://www.sorescode.com/2010/09/12/benchmarks.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src="http://chart.apis.google.com/chart?chxl=1:|ms&amp;amp;chxp=1,50&amp;amp;chxr=0,0,1000&amp;amp;chxt=y,y&amp;amp;chbh=a,15&amp;amp;chs=500x300&amp;amp;cht=bvg&amp;amp;chco=FFCC33,FF9900,3072F3,224499&amp;amp;chds=0,1000,0,1000,0,1000,0,1000&amp;amp;chd=t:98|202.5|309.2|889.8&amp;amp;chdl=Simple+Handlebars|Simple+Mustache|Loop+Handlebars|Loop+Mustache&amp;amp;chtt=Handlebars.js+%26+Mustache.js+Benchmarks" alt="" title=""&gt; &lt;/p&gt;
+
+&lt;p&gt;Its not always that straight forward a decision but if you need close control of your markup then its a great approach. There are many alternative approaches, from utilising client side UI controls like &lt;a href="http://www.telerik.com/kendo-ui"&gt;Kendo UI&lt;/a&gt; or &lt;a href="http://www.infragistics.com/products/jquery"&gt;Infragistics Web Controls&lt;/a&gt; to previously mentioned &lt;a href="https://docs.angularjs.org/guide/templates"&gt;Angular JS templates&lt;/a&gt; or &lt;a href="http://knockoutjs.com/examples/grid.html"&gt;Knockout data-binding&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The UI controls are an opinionated out-of -the-box solution while Angular and Knockout require their sizable libraries. &lt;/p&gt;
+
+&lt;h4 id="gettingstarted"&gt;Getting Started&lt;/h4&gt;
+
+&lt;p&gt;The source for this demo can be obtained &lt;a href="https://github.com/chris-brown/handlebarsjs-grunt-setup"&gt;here&lt;/a&gt; I haven't created any grunt tasks, im just bringing it all together to offer a solution for this demo. &lt;br&gt;
+Using &lt;a href="https://www.npmjs.com/search?q=handlebars"&gt;node package manage&lt;/a&gt; I install the following packages.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;grunt&lt;/li&gt;
+&lt;li&gt;grunt-handlebars-compilar&lt;/li&gt;
+&lt;li&gt;grunt-contrib-watch&lt;/li&gt;
+&lt;li&gt;handlebars&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please note im using v1.3.0 of the handlebars package. If you copy the following &lt;strong&gt;&lt;a href="https://github.com/chris-brown/handlebarsjs-grunt-setup/blob/master/package.json"&gt;Package.json&lt;/a&gt;&lt;/strong&gt; into the root directory, then these packages can be added automatically by running the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;npm install  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The benefit of using precompiled handlebar templates is that we only now need to use the runtime library. Once minified this is only a 7kb file. &lt;br&gt;
+Copy the file to your solution directory. The file should be located in the following location. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\node_modules\handlebars\dist\handlebars.runtime.min.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Im then going to create a directory for my templates to live and then create my first handlebar template file. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir templates  
+echo. 2&amp;gt;templates/demo-list.handlebars  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The next step is to configure the grunt file. &lt;a href="http://gruntjs.com/configuring-tasks"&gt;This&lt;/a&gt; link will give you further details as to how and why we do this. Below configures the handlebars task with the compile target. I then associate this task to the watch task.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/188ec32bd15ac8878a68.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;This will now run the handlebars task when a file defined in the watch file pattern is changed and saved. &lt;br&gt;
+To test this, run the following command. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;grunt watch  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And edit the contents of the template. &lt;/p&gt;
+
+&lt;p&gt;This should then create &lt;code&gt;scripts/handlebars-templates.js&lt;/code&gt; file. &lt;/p&gt;
+
+&lt;h4 id="puttingitalltogether"&gt;Putting it all together&lt;/h4&gt;
+
+&lt;p&gt;All thats left to do now is to fetch our arbitrary data and render the markup. To do this ive used githubs free api as you can see from the gist of my gist below.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/8d815606f93a483a671d.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Finally we add the JS references to our page and the container we want to render the markup inside and were done.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/chris-brown/2f44e86c588240209ff6.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;All the code for this demo has been added to github so please feel free to pull it down &lt;a href="https://github.com/chris-brown/handlebarsjs-grunt-setup"&gt;here&lt;/a&gt;. &lt;br&gt;
+Any queries please let me know and vist my website for more contact details. &lt;/p&gt;
+
+&lt;p&gt;Thanks for reading. Always appreciate your thoughts and comments. &lt;br&gt;
+Checkout my &lt;a href="http://www.zirafon.org"&gt;website&lt;/a&gt; for further info and contact details.&lt;/p&gt;</content:encoded></item></channel></rss>

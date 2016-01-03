@@ -1,38 +1,37 @@
-<!DOCTYPE html>
-<html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Setting up precompiled handlerbars.js templates and using grunt to compile them</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css@v=4c5cc323aa" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3124fd2859">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
 
-    <link rel="canonical" href="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" />
+    <link rel="canonical" href="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/">
     
-    <meta property="og:site_name" content="Chris Brown" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Setting up precompiled handlerbars.js templates and using grunt to compile them" />
-    <meta property="og:description" content="What is Javascript Templating Good place to start is to describe what exactly JS Templating is and what a good use-case could be. For me, I have data that I&#x27;ve retrieved client side and I need to transform it into..." />
-    <meta property="og:url" content="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" />
-    <meta property="article:published_time" content="2014-12-23T23:46:00.001Z" />
-    <meta property="article:modified_time" content="2016-01-02T22:37:33.722Z" />
-    <meta property="article:tag" content="Grunt" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="Handlebars.js" />
-    <meta property="article:tag" content="Js Templates" />
+    <meta property="og:site_name" content="Chris Brown">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Setting up precompiled handlerbars.js templates and using grunt to compile them">
+    <meta property="og:description" content="What is Javascript Templating Good place to start is to describe what exactly JS Templating is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into...">
+    <meta property="og:url" content="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/">
+    <meta property="article:published_time" content="2014-12-23T23:46:00.001Z">
+    <meta property="article:modified_time" content="2016-01-02T22:37:33.722Z">
+    <meta property="article:tag" content="Grunt">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Handlebars.js">
+    <meta property="article:tag" content="Js Templates">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Setting up precompiled handlerbars.js templates and using grunt to compile them" />
-    <meta name="twitter:description" content="What is Javascript Templating Good place to start is to describe what exactly JS Templating is and what a good use-case could be. For me, I have data that I&#x27;ve retrieved client side and I need to transform it into..." />
-    <meta name="twitter:url" content="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Setting up precompiled handlerbars.js templates and using grunt to compile them">
+    <meta name="twitter:description" content="What is Javascript Templating Good place to start is to describe what exactly JS Templating is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into...">
+    <meta name="twitter:url" content="http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/">
     
     <script type="application/ld+json">
 {
@@ -55,8 +54,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.6" />
-    <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http://blog.zirafon.org/rss/" />
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http://blog.zirafon.org/rss/index.rss">
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -72,14 +71,14 @@
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
-    <a href="index.html#" class="nav-close">
+    <a href="#" class="nav-close">
         <span class="hidden">Close</span>
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://blog.zirafon.org/">Home</a></li>
             <li class="nav-about" role="presentation"><a href="http://blog.zirafon.org/about/">About</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http://blog.zirafon.org/rss/">Subscribe</a>
+    <a class="subscribe-button icon-feed" href="http://blog.zirafon.org/rss/index.rss">Subscribe</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -92,7 +91,7 @@
 <header class="main-header post-head no-cover">
     <nav class="main-nav  clearfix">
         
-            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
 </header>
 
@@ -102,7 +101,7 @@
         <header class="post-header">
             <h1 class="post-title">Setting up precompiled handlerbars.js templates and using grunt to compile them</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="2014-12-23">23 December 2014</time>  on <a href="../tag/grunt/index.html">Grunt</a>, <a href="../tag/javascript/index.html">Javascript</a>, <a href="../tag/handlebars_js/index.html">Handlebars.js</a>, <a href="../tag/js_templates/index.html">Js Templates</a>
+                <time class="post-date" datetime="2014-12-23">23 December 2014</time>  on <a href="/tag/grunt/">Grunt</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/handlebars_js/">Handlebars.js</a>, <a href="/tag/js_templates/">Js Templates</a>
             </section>
         </header>
 
@@ -122,7 +121,7 @@
 <li><a href="http://www.sorescode.com/2010/09/12/benchmarks.html">http://www.sorescode.com/2010/09/12/benchmarks.html</a></li>
 </ul>
 
-<p><img src="http://chart.apis.google.com/chart?chxl=1:|ms&amp;chxp=1,50&amp;chxr=0,0,1000&amp;chxt=y,y&amp;chbh=a,15&amp;chs=500x300&amp;cht=bvg&amp;chco=FFCC33,FF9900,3072F3,224499&amp;chds=0,1000,0,1000,0,1000,0,1000&amp;chd=t:98|202.5|309.2|889.8&amp;chdl=Simple+Handlebars|Simple+Mustache|Loop+Handlebars|Loop+Mustache&amp;chtt=Handlebars.js+%26+Mustache.js+Benchmarks" alt="" title="" /> </p>
+<p><img src="http://chart.apis.google.com/chart?chxl=1:%7Cms&amp;chxp=1,50&amp;chxr=0,0,1000&amp;chxt=y,y&amp;chbh=a,15&amp;chs=500x300&amp;cht=bvg&amp;chco=FFCC33,FF9900,3072F3,224499&amp;chds=0,1000,0,1000,0,1000,0,1000&amp;chd=t:98%7C202.5%7C309.2%7C889.8&amp;chdl=Simple+Handlebars%7CSimple+Mustache%7CLoop+Handlebars%7CLoop+Mustache&amp;chtt=Handlebars.js+%26+Mustache.js+Benchmarks" alt="" title=""> </p>
 
 <p>Its not always that straight forward a decision but if you need close control of your markup then its a great approach. There are many alternative approaches, from utilising client side UI controls like <a href="http://www.telerik.com/kendo-ui">Kendo UI</a> or <a href="http://www.infragistics.com/products/jquery">Infragistics Web Controls</a> to previously mentioned <a href="https://docs.angularjs.org/guide/templates">Angular JS templates</a> or <a href="http://knockoutjs.com/examples/grid.html">Knockout data-binding</a>.</p>
 
@@ -130,7 +129,7 @@
 
 <h4 id="gettingstarted">Getting Started</h4>
 
-<p>The source for this demo can be obtained <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a> I haven't created any grunt tasks, im just bringing it all together to offer a solution for this demo. <br />
+<p>The source for this demo can be obtained <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a> I haven't created any grunt tasks, im just bringing it all together to offer a solution for this demo. <br>
 Using <a href="https://www.npmjs.com/search?q=handlebars">node package manage</a> I install the following packages.</p>
 
 <ul>
@@ -145,7 +144,7 @@ Using <a href="https://www.npmjs.com/search?q=handlebars">node package manage</a
 <pre><code class="language-javascript">npm install  
 </code></pre>
 
-<p>The benefit of using precompiled handlebar templates is that we only now need to use the runtime library. Once minified this is only a 7kb file. <br />
+<p>The benefit of using precompiled handlebar templates is that we only now need to use the runtime library. Once minified this is only a 7kb file. <br>
 Copy the file to your solution directory. The file should be located in the following location. </p>
 
 <pre><code>\node_modules\handlebars\dist\handlebars.runtime.min.js
@@ -161,7 +160,7 @@ echo. 2&gt;templates/demo-list.handlebars
 
 <script src="https://gist.github.com/chris-brown/188ec32bd15ac8878a68.js"></script>
 
-<p>This will now run the handlebars task when a file defined in the watch file pattern is changed and saved. <br />
+<p>This will now run the handlebars task when a file defined in the watch file pattern is changed and saved. <br>
 To test this, run the following command. </p>
 
 <pre><code class="language-javascript">grunt watch  
@@ -181,10 +180,10 @@ To test this, run the following command. </p>
 
 <script src="https://gist.github.com/chris-brown/2f44e86c588240209ff6.js"></script>
 
-<p>All the code for this demo has been added to github so please feel free to pull it down <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a>. <br />
+<p>All the code for this demo has been added to github so please feel free to pull it down <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a>. <br>
 Any queries please let me know and vist my website for more contact details. </p>
 
-<p>Thanks for reading. Always appreciate your thoughts and comments. <br />
+<p>Thanks for reading. Always appreciate your thoughts and comments. <br>
 Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>
         </section>
 
@@ -193,9 +192,9 @@ Checkout my <a href="http://www.zirafon.org">website</a> for further info and co
 
 
             <section class="author">
-                <h4><a href="../author/chris/index.html">Chris Brown</a></h4>
+                <h4><a href="/author/chris/">Chris Brown</a></h4>
 
-                    <p>Read <a href="../author/chris/index.html">more posts</a> by this author.</p>
+                    <p>Read <a href="/author/chris/">more posts</a> by this author.</p>
                 <div class="author-meta">
                     
                     
@@ -205,16 +204,13 @@ Checkout my <a href="http://www.zirafon.org">website</a> for further info and co
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/share?text=Setting%20up%20precompiled%20handlerbars.js%20templates%20and%20using%20grunt%20to%20compile%20them&amp;url=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a class="icon-twitter" href="https://twitter.com/share?text=Setting%20up%20precompiled%20handlerbars.js%20templates%20and%20using%20grunt%20to%20compile%20them&amp;url=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.zirafon.org/setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
             </section>
@@ -225,10 +221,10 @@ Checkout my <a href="http://www.zirafon.org">website</a> for further info and co
 </main>
 
 <aside class="read-next">
-    <a class="read-next-story no-cover" href="../concatenating_multiple_rows_into_one_column_in_t_sql/index.html">
+    <a class="read-next-story no-cover" href="/concatenating_multiple_rows_into_one_column_in_t_sql/">
         <section class="post">
             <h2>Concatenating multiple rows into one column in T-SQL</h2>
-            <p>This post looks at how to deliminate many rows into one single column.  I come across this issue quite&hellip;</p>
+            <p>This post looks at how to deliminate many rows into one single column.  I come across this issue quite…</p>
         </section>
     </a>
 </aside>
@@ -236,16 +232,15 @@ Checkout my <a href="http://www.zirafon.org">website</a> for further info and co
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> &copy; 2016</section>
+            <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
             <section class="poweredby">Proudly design by <a href="https://zirafon.org">Zirafon</a></section>
         </footer>
 
     </div>
 
-    <script src="../public/jquery.min.js@v=4c5cc323aa"></script>
+    <script src="/public/jquery.min.js?v=3124fd2859"></script>
 
-    <script type="text/javascript" src="../assets/js/index.js@v=4c5cc323aa"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3124fd2859"></script>
 
 </body>
-</html>
