@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=8775e77b8b">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=fc9fe2238c">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
 
     <link rel="canonical" href="http:///">
@@ -52,7 +52,8 @@
 </head>
 <body class="home-template nav-closed">
 
-    <div class="nav">
+    <input type="checkbox" id="show-menu" class="show-menu">
+<div class="nav">
     <h3 class="nav-title">Menu</h3>
     <a href="#" class="nav-close">
         <span class="hidden">Close</span>
@@ -65,14 +66,15 @@
 </div>
 <span class="nav-cover"></span>
 
-
     <div class="site-wrapper">
 
         
 <header class="main-header no-cover">
     <nav class="main-nav overlay clearfix">
         
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+            <a class="menu-button icon-menu" href="#">
+                <label for="show-menu" class="word">Menu</label>
+            </a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
@@ -93,7 +95,7 @@
 
 <div class="wrapper">
 <section class="masonry">
-<article class="post">
+<article class="post tag-rx-net tag-presentation">
     <figure class="post-image">
         <a href="/reactive-programming/" class="js-ajax-link"><img src="/content/images/2016/01/reactivex_bg-1-.jpg" alt=""></a>
     </figure>
@@ -106,12 +108,12 @@
     <footer class="post-meta">
         
         <a href="/author/chris/">Chris Brown</a>
-        
+         on <a href="/tag/rx-net/">rx.net</a>, <a href="/tag/presentation/">presentation</a>
         <time class="post-date" datetime="2016-01-19">19 January 2016</time>
     </footer>
 </article>
 
-<article class="post">
+<article class="post tag-test tag-resharper tag-visual-studio">
     <header class="post-header">
         <h2 class="post-title"><a href="/resharper-live-template/">Visual Studio Code Snippets using ReSharper Live Templates</a></h2>
     </header>
@@ -121,12 +123,12 @@
     <footer class="post-meta">
         
         <a href="/author/chris/">Chris Brown</a>
-        
+         on <a href="/tag/test/">test</a>, <a href="/tag/resharper/">ReSharper</a>, <a href="/tag/visual-studio/">visual studio</a>
         <time class="post-date" datetime="2016-01-19">19 January 2016</time>
     </footer>
 </article>
 
-<article class="post">
+<article class="post tag-azure">
     <header class="post-header">
         <h2 class="post-title"><a href="/static-azure-website/">Static Azure Website</a></h2>
     </header>
@@ -136,12 +138,12 @@
     <footer class="post-meta">
         
         <a href="/author/chris/">Chris Brown</a>
-        
+         on <a href="/tag/azure/">azure</a>
         <time class="post-date" datetime="2016-01-04">04 January 2016</time>
     </footer>
 </article>
 
-<article class="post">
+<article class="post tag-ghost-tag tag-github tag-blog">
     <figure class="post-image">
         <a href="/my-new-blog/" class="js-ajax-link"><img src="/content/images/2015/12/ghost-1-.png" alt=""></a>
     </figure>
@@ -154,12 +156,12 @@
     <footer class="post-meta">
         
         <a href="/author/chris/">Chris Brown</a>
-        
+         on <a href="/tag/ghost-tag/">ghost</a>, <a href="/tag/github/">github</a>, <a href="/tag/blog/">blog</a>
         <time class="post-date" datetime="2015-12-26">26 December 2015</time>
     </footer>
 </article>
 
-<article class="post tag-umbraco">
+<article class="post tag-umbraco tag-resharper">
     <header class="post-header">
         <h2 class="post-title"><a href="/conflicts_with_umbraco_7_install_and_re_sharper/">Conflicts with Umbraco 7 install and ReSharper.</a></h2>
     </header>
@@ -169,7 +171,7 @@
     <footer class="post-meta">
         
         <a href="/author/chris/">Chris Brown</a>
-         on <a href="/tag/umbraco/">Umbraco</a>
+         on <a href="/tag/umbraco/">Umbraco</a>, <a href="/tag/resharper/">ReSharper</a>
         <time class="post-date" datetime="2015-03-14">14 March 2015</time>
     </footer>
 </article>
@@ -236,7 +238,7 @@
 
     </div>
 
-    <script src="/public/jquery.js?v=8775e77b8b"></script> <script>
+    <script src="/public/jquery.js?v=fc9fe2238c"></script> <script>
 (function() {
 var d = document, s = d.createElement('script');
 s.src = '//zirafon-blog.disqus.com/embed.js';
@@ -245,6 +247,6 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 
-    <script type="text/javascript" src="/assets/js/index.js?v=8775e77b8b"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=fc9fe2238c"></script>
 
 </body>
