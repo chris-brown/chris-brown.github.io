@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http:///</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 22 Mar 2016 17:24:57 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http:///</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 22 Mar 2016 17:28:33 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
 
 <p><em>An example of what Hex. is not!</em>
 <img src="http:///content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
@@ -64,6 +64,8 @@
 <h3 id="puttingitalltogether">Putting it all together</h3>
 
 <p>It is all glued together using Bob Martin's <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion</a> principal. A modular approach for decoupling module implementation details. Easily allowing us to interchange test harnesses for user interfaces as and when required.</p>
+
+<p>Net result is well made coffee.</p>
 
 <p><img src="http:///content/images/2016/03/coffee-min.jpg" alt="Hexagonal Architecture"></p>
 
@@ -425,4 +427,4 @@ To test this, run the following command. </p>
 Any queries please let me know and vist my website for more contact details. </p>
 
 <p>Thanks for reading. Always appreciate your thoughts and comments. <br>
-Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>]]></content:encoded></item></channel></rss>ent:encoded></item></channel></rss>
+Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>]]></content:encoded></item></channel></rss>t:encoded></item></channel></rss>
