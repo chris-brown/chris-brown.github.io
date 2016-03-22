@@ -1,0 +1,253 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Hexagonal Architecture</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=34bd970496">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http:///hexagonal-architecture/">
+    
+    <meta property="og:site_name" content="Chris Brown">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hexagonal Architecture">
+    <meta property="og:description" content="Hexagonal Architecture was formally penned by Alistair Cockburn in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides. An example...">
+    <meta property="og:url" content="http:///hexagonal-architecture/">
+    <meta property="og:image" content="http:///content/images/2016/03/coffee-min-1.jpg">
+    <meta property="article:published_time" content="2016-03-22T12:31:58.026Z">
+    <meta property="article:modified_time" content="2016-03-22T17:23:07.998Z">
+    <meta property="article:tag" content="architecture">
+    <meta property="article:tag" content="patterns">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hexagonal Architecture">
+    <meta name="twitter:description" content="Hexagonal Architecture was formally penned by Alistair Cockburn in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides. An example...">
+    <meta name="twitter:url" content="http:///hexagonal-architecture/">
+    <meta name="twitter:image:src" content="http:///content/images/2016/03/coffee-min-1.jpg">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Chris Brown",
+    "author": {
+        "@type": "Person",
+        "name": "Chris Brown",
+        "url": "http:///author/chris",
+        "sameAs": null,
+        "description": "Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd."
+    },
+    "headline": "Hexagonal Architecture",
+    "url": "http:///hexagonal-architecture/",
+    "datePublished": "2016-03-22T12:31:58.026Z",
+    "dateModified": "2016-03-22T17:23:07.998Z",
+    "image": "http:///content/images/2016/03/coffee-min-1.jpg",
+    "keywords": "architecture, patterns",
+    "description": "Hexagonal Architecture was formally penned by Alistair Cockburn in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides. An example..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http:///rss/index.rss">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57432835-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template tag-architecture tag-patterns nav-closed">
+
+    <input type="checkbox" id="show-menu" class="show-menu">
+<div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="/">Home</a></li>
+            <li class="nav-about" role="presentation"><a href="/about/">About</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(/content/images/2016/03/coffee-min-1.jpg)">
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-architecture tag-patterns">
+
+        <header class="post-header">
+            <ul class="post-header__breadcrumb">
+                <li><a href="/" title="blog homepage">Home</a></li>
+                <li>-</li>
+                <li>Hexagonal Architecture</li>
+            </ul>
+            <h1 class="post-title">Hexagonal Architecture</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-03-22">22 March 2016</time>  on <a href="/tag/architecture/">architecture</a>, <a href="/tag/patterns/">patterns</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+
+<p><em>An example of what Hex. is not!</em>
+<img src="/content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
+
+<p>But this can be confused for <a href="https://en.wikipedia.org/wiki/Multitier_architecture">nTier</a> architecture. A pattern typically associated with a monolith application and it's important to understand that this is fundamentally a different approach.</p>
+
+<p>The name Hexagonal is a metaphor for elements intersecting  but it is otherwise known as <strong>Ports &amp; Adapters</strong> and for me, better explains the principals and helps us understand the fundamentals.</p>
+
+<p>Known problems with nTier architecture are with dependencies between layers which lead to <a href="https://en.wikipedia.org/wiki/Leaky_abstraction">leaky abstractions</a>. The classic example of this is when we reuse our Domain models over presentation and data layers.</p>
+
+<p>However Hex. Architecture suggests you create your application to work independently of a UI, database or CLI for example. The quote below is taken from Alistair's website and summaries quite well as to how the architecture is defined.</p>
+
+<blockquote>
+  <p>Allow an application to equally be driven by users or programs and to be developed and tested in isolation from its eventual run-time device</p>
+</blockquote>
+
+<p><sub><a href="http://alistair.cockburn.us/Hexagonal+architecture">a. cockburn</a></sub></p>
+
+<p>This approach forces each port to be independently testable and subsequently helps us build <em>reusable software</em>.</p>
+
+<p>This is what makes Hex. so compelling for me. I am currently working for a client who uses a dozen different CM and CRM systems. Using Hex. architecture allows me to build the desired logic independently of either of these systems, write automated tests to validate the behavior and then come the time we want to integrate there will be no surprises.</p>
+
+<p><img src="/content/images/2016/03/hexagonal-architecture.jpg" alt="Hexagonal Architecture done right"></p>
+
+<h3 id="hexbyexample">Hex by Example:</h3>
+
+<p>Im working on doing a lightning talk on Hex. Architecture with an accompanying demo so ill follow up this post with those slides and reference to the repo.</p>
+
+<p>For now, below is designed to help you understand how many ports would be used to create a coffee machine.</p>
+
+<p><em>A coffee machine controller has four natural ports: the <strong>user</strong>, the database containing the <strong>recipes and prices</strong>, the <strong>dispensers</strong>, and the <strong>coin box</strong></em></p>
+
+<p><img src="/content/images/2016/03/coffee-machine.png" alt="Coffee Machine"></p>
+
+<p>Ports and Adapters can further be defines as the following while using Pseudo-code to demonstration the relationship.</p>
+
+<blockquote>
+  <p>Ports are interfaces</p>
+</blockquote>
+
+<pre><code>interface ICoinBox {  
+   bool Insert(IAmAMonetryValue value);
+}
+</code></pre>
+
+<blockquote>
+  <p>Adapters are implementations</p>
+</blockquote>
+
+<pre><code>class GbpCoinBox : ICoinBox {  
+   bool Insert(Gbp value) {
+      ...
+   }
+}
+</code></pre>
+
+<h3 id="puttingitalltogether">Putting it all together</h3>
+
+<p>It is all glued together using Bob Martin's <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion</a> principal. A modular approach for decoupling module implementation details. Easily allowing us to interchange test harnesses for user interfaces as and when required.</p>
+
+<p><img src="/content/images/2016/03/coffee-min.jpg" alt="Beautiful Coffee"></p>
+
+<p>Thats it for now. Thanks for reading. Please leave comments or links to related posts.</p>
+
+<h3 id="links">Links</h3>
+
+<ol>
+<li><a href="http://alistair.cockburn.us/Hexagonal+architecture">http://alistair.cockburn.us/Hexagonal+architecture</a>  </li>
+<li><a href="https://github.com/totheralistair/SmallerWebHexagon">Hexagonal Architecture example</a></li>
+</ol>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/chris/">Chris Brown</a></h4>
+
+                    <p>Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Manchester</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Hexagonal%20Architecture&amp;url=http:///hexagonal-architecture/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http:///hexagonal-architecture/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http:///hexagonal-architecture/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev " style="background-image: url(/content/images/2016/01/reactivex_bg-1-.jpg)" href="/reactive-programming/">
+        <section class="post">
+            <h2>Reactive Programming</h2>
+            <p>I recently did a presentation on reactive programming with examples of Rx.Net. The presentation gives a basic intro…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">Chris Brown</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+            <section class="poweredby">Proudly designed by <a href="https://zirafon.org">Zirafon</a></section>
+        </footer>
+
+    </div>
+
+    <script src="/public/jquery.js?v=34bd970496"></script> <script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = '//zirafon-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+    <script type="text/javascript" src="/assets/js/index.js?v=34bd970496"></script>
+
+</body>
