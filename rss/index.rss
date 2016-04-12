@@ -1,10 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http:///</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 22 Mar 2016 17:28:33 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 12 Apr 2016 12:25:40 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Deleting those dam node_modules on windows]]></title><description><![CDATA[<p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
+
+<blockquote>
+  <p>The specified path, file name, or both are too long</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>The specified path, file name, or both are too</p></blockquote>]]></description><link>http:///deleting-windows-node_modules/</link><guid isPermaLink="false">0420b79e-7679-4f0e-b543-f0a881bfdb96</guid><category><![CDATA[node]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Wed, 30 Mar 2016 09:00:13 GMT</pubDate><content:encoded><![CDATA[<p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
+
+<blockquote>
+  <p>The specified path, file name, or both are too long</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.</p>
+</blockquote>
+
+<p>I previously used various hacks to get round this, including;</p>
+
+<p><code>robocopy new_empty_directory node_modules /MIR</code></p>
+
+<p>Which creates an empty mirror directory that you can then delete.</p>
+
+<p>However, I recently came across the node module <a href="https://github.com/isaacs/rimraf">rimraf</a>, created by NPM founder <a href="http://izs.me/">Isaac Schlueter</a>. Annoyingly this project first started in <a href="https://github.com/isaacs/rimraf/commit/d701679252dad525cb69b4a1f36c5b90a38ee290">Feb 2011</a> which means ive had a few years of unnecessary hurt but that doesn't necessarily mean you have too! :)</p>
+
+<p>Check the <a href="https://github.com/isaacs/rimraf#cli">projects wiki</a> out for better documentation but generally all you will have to do is the following.</p>
+
+<p>Install globally.  </p>
+
+<pre><code>npm install rimraf -g  
+</code></pre>
+
+<p>Then  </p>
+
+<pre><code>rimraf .\node_modules\  
+</code></pre>
+
+<p>will recursively remove all modules and its dependencies.</p>
+
+<p>Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
 
 <p><em>An example of what Hex. is not!</em>
 <img src="http:///content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
 
-<p>But this can be confused</p>]]></description><link>http:///hexagonal-architecture/</link><guid isPermaLink="false">eda2043e-6325-4ab7-8361-c444d2c37e9d</guid><category><![CDATA[architecture]]></category><category><![CDATA[patterns]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 22 Mar 2016 12:31:58 GMT</pubDate><media:content url="http:///content/images/2016/03/coffee-min-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/03/coffee-min-1.jpg" alt="Hexagonal Architecture"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+<p>But this can be confused</p>]]></description><link>http:///hexagonal-architecture/</link><guid isPermaLink="false">eda2043e-6325-4ab7-8361-c444d2c37e9d</guid><category><![CDATA[architecture]]></category><category><![CDATA[patterns]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 22 Mar 2016 12:31:58 GMT</pubDate><media:content url="http:///content/images/2016/03/coffee-min-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/03/coffee-min-1.jpg" alt="Hexagonal Architecture"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
 
 <p><em>An example of what Hex. is not!</em>
 <img src="http:///content/images/2016/03/hex-wrong.png" alt="Hexagonal Architecture"></p>
@@ -82,7 +124,7 @@
   <p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
 </blockquote>
 
-<p>Any queries please let me know. I've included</p>]]></description><link>http:///reactive-programming/</link><guid isPermaLink="false">123fbc36-c48b-49eb-b8b6-7b9b8fda5d48</guid><category><![CDATA[rx.net]]></category><category><![CDATA[presentation]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 19 Jan 2016 20:01:15 GMT</pubDate><media:content url="http:///content/images/2016/01/reactivex_bg-1-.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/01/reactivex_bg-1-.jpg" alt="Reactive Programming"><p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
+<p>Any queries please let me know. I've included</p>]]></description><link>http:///reactive-programming/</link><guid isPermaLink="false">123fbc36-c48b-49eb-b8b6-7b9b8fda5d48</guid><category><![CDATA[rx.net]]></category><category><![CDATA[presentation]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 19 Jan 2016 20:01:15 GMT</pubDate><media:content url="http:///content/images/2016/01/reactivex_bg-1-.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/01/reactivex_bg-1-.jpg" alt="Reactive Programming"><p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
 
 <blockquote>
   <p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
@@ -105,7 +147,7 @@
 
 <p>Its straight forward, and the example below I use almost everyday. Its used to create a unit test stub to support <a href="http://martinfowler.com/bliki/GivenWhenThen.html">GivenWhenThen</a>.</p>
 
-<p>Goto: ReSharper-></p>]]></description><link>http:///resharper-live-template/</link><guid isPermaLink="false">fc533ba0-ac47-4e16-ac54-9b063abd0e84</guid><category><![CDATA[test]]></category><category><![CDATA[ReSharper]]></category><category><![CDATA[visual studio]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 19 Jan 2016 08:58:49 GMT</pubDate><content:encoded><![CDATA[<p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
+<p>Goto: ReSharper-></p>]]></description><link>http:///resharper-live-template/</link><guid isPermaLink="false">fc533ba0-ac47-4e16-ac54-9b063abd0e84</guid><category><![CDATA[test]]></category><category><![CDATA[ReSharper]]></category><category><![CDATA[visual studio]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 19 Jan 2016 08:58:49 GMT</pubDate><content:encoded><![CDATA[<p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
 
 <p>A really useful yet often under-utilised feature of the <a href="https://www.jetbrains.com/resharper/">Resharper</a> toolbelt are <a href="https://www.jetbrains.com/resharper/features/code_templates.html">Live Templates</a>. Its effectively yet another productive time saving technique that using Reharper brings.</p>
 
@@ -134,7 +176,7 @@ public void $Method$_$Scenario$_$Expected$(){
 
 <p>Really simple and incredibly effective. The example above is primitive but <a href="https://www.jetbrains.com/resharper/features/code_templates.html">this</a> shows better examples of how powerful it can be.</p>]]></content:encoded></item><item><title><![CDATA[Static Azure Website]]></title><description><![CDATA[<p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
 
-<p>I've used blob storage before but for its typical use; storing</p>]]></description><link>http:///static-azure-website/</link><guid isPermaLink="false">2b17d336-5df8-4977-b63b-d2944035cbc2</guid><category><![CDATA[azure]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Mon, 04 Jan 2016 01:28:35 GMT</pubDate><content:encoded><![CDATA[<p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
+<p>I've used blob storage before but for its typical use; storing</p>]]></description><link>http:///static-azure-website/</link><guid isPermaLink="false">2b17d336-5df8-4977-b63b-d2944035cbc2</guid><category><![CDATA[azure]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Mon, 04 Jan 2016 01:28:35 GMT</pubDate><content:encoded><![CDATA[<p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
 
 <p>I've used blob storage before but for its typical use; storing website assets with a <a href="https://azure.microsoft.com/en-gb/services/cdn/">CDN</a> in front, but I dont see why this shouldn't work.</p>
 
@@ -176,7 +218,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
 
 <p><img src="http://yuml.me/diagram/scruffy/class/[CDN]->[Site 1],[CDN]->[Site 2],[CDN]->[Site 3],[Request{bg:moccasin}]->[CDN]" alt="site at scale" height="100"></p>
 
-<p>So this becomes a very affordable enterprise solution minus the enterprise prices. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[My new $1 Blog]]></title><description><![CDATA[How I created a blog for next to no money using Ghost Blogging Engine]]></description><link>http:///my-new-blog/</link><guid isPermaLink="false">fd7b3b1e-c466-4bfb-95ac-38d1d5b86314</guid><category><![CDATA[ghost]]></category><category><![CDATA[github]]></category><category><![CDATA[blog]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Sat, 26 Dec 2015 17:44:24 GMT</pubDate><media:content url="http:///content/images/2015/12/ghost-1-.png" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2015/12/ghost-1-.png" alt="My new $1 Blog"><p>As a self employed software developer it is essential to have some form of web presence.</p>
+<p>So this becomes a very affordable enterprise solution minus the enterprise prices. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[My new $1 Blog]]></title><description><![CDATA[How I created a blog for next to no money using Ghost Blogging Engine]]></description><link>http:///my-new-blog/</link><guid isPermaLink="false">fd7b3b1e-c466-4bfb-95ac-38d1d5b86314</guid><category><![CDATA[ghost]]></category><category><![CDATA[github]]></category><category><![CDATA[blog]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Sat, 26 Dec 2015 17:44:24 GMT</pubDate><media:content url="http:///content/images/2015/12/ghost-1-.png" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2015/12/ghost-1-.png" alt="My new $1 Blog"><p>As a self employed software developer it is essential to have some form of web presence.</p>
 
 <p>I previously had a bespoke <a href="http://www.zirafon.org">website</a> using latest tech and hosted on azure used primary as a portfolio piece that was attached to my email domain.</p>
 
@@ -237,7 +279,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
 <li>I've created a new theme which is available <a href="https://github.com/chris-brown/Masonry-Ghost-Theme">here</a>.</li>
 </ul>
 
-<p>Im really pleased with the result so far, it's pretty basic at the moment but its work in progress. Please get in touch i'll be keen to hear your thoughts of the theme. Any issues can be added <a href="https://github.com/chris-brown/Masonry-Ghost-Theme/issues">here</a>. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Conflicts with Umbraco 7 install and ReSharper.]]></title><description><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting</p>]]></description><link>http:///conflicts_with_umbraco_7_install_and_re_sharper/</link><guid isPermaLink="false">51e2966e-03de-4581-a53e-2a9f2a190219</guid><category><![CDATA[Umbraco]]></category><category><![CDATA[ReSharper]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Sat, 14 Mar 2015 21:20:00 GMT</pubDate><content:encoded><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting with the front end. Typically its performance but there are a whole heap of issues that effect large sites that im not going to go into on this particular blog. </p>
+<p>Im really pleased with the result so far, it's pretty basic at the moment but its work in progress. Please get in touch i'll be keen to hear your thoughts of the theme. Any issues can be added <a href="https://github.com/chris-brown/Masonry-Ghost-Theme/issues">here</a>. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Conflicts with Umbraco 7 install and ReSharper.]]></title><description><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting</p>]]></description><link>http:///conflicts_with_umbraco_7_install_and_re_sharper/</link><guid isPermaLink="false">51e2966e-03de-4581-a53e-2a9f2a190219</guid><category><![CDATA[Umbraco]]></category><category><![CDATA[ReSharper]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Sat, 14 Mar 2015 21:20:00 GMT</pubDate><content:encoded><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting with the front end. Typically its performance but there are a whole heap of issues that effect large sites that im not going to go into on this particular blog. </p>
 
 <p>This post is about Umbraco 7 installation. Its an obscure one so I thought I would mention it here to aid folk in the future. </p>
 
@@ -265,7 +307,7 @@ At line:1 char:1
 <p>Firstly, lets start by trying to identify what the specification is. The following text is taken from <a href="http://owin.org/">owin.org</a> pecification is. The following text is taken from <a href="http://owin.org/">owin.org</a>.</p>
 
 <blockquote>
-  <p>OWIN defines a standard interface between .NET web servers and web applications. The goal of</p></blockquote>]]></description><link>http:///intro_into_the_owin_specification_and_a_hello_world_example_of_katana/</link><guid isPermaLink="false">b5152334-6fc5-4c7d-8576-45262cf610c6</guid><category><![CDATA[Aspnet]]></category><category><![CDATA[Owin]]></category><category><![CDATA[Katana]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 03 Mar 2015 22:58:00 GMT</pubDate><content:encoded><![CDATA[<h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
+  <p>OWIN defines a standard interface between .NET web servers and web applications. The goal of</p></blockquote>]]></description><link>http:///intro_into_the_owin_specification_and_a_hello_world_example_of_katana/</link><guid isPermaLink="false">b5152334-6fc5-4c7d-8576-45262cf610c6</guid><category><![CDATA[Aspnet]]></category><category><![CDATA[Owin]]></category><category><![CDATA[Katana]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 03 Mar 2015 22:58:00 GMT</pubDate><content:encoded><![CDATA[<h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
 
 <p>Firstly, lets start by trying to identify what the specification is. The following text is taken from <a href="http://owin.org/">owin.org</a> pecification is. The following text is taken from <a href="http://owin.org/">owin.org</a>.</p>
 
@@ -313,7 +355,7 @@ At line:1 char:1
 
 <p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. </p>
 
-<p>There are many ways to do this but the most</p>]]></description><link>http:///concatenating_multiple_rows_into_one_column_in_t_sql/</link><guid isPermaLink="false">0bfbbb86-60b2-4421-bdb6-253a64c23e54</guid><category><![CDATA[Sql]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Mon, 29 Dec 2014 14:17:00 GMT</pubDate><content:encoded><![CDATA[<p>This post looks at how to deliminate many rows into one single column. </p>
+<p>There are many ways to do this but the most</p>]]></description><link>http:///concatenating_multiple_rows_into_one_column_in_t_sql/</link><guid isPermaLink="false">0bfbbb86-60b2-4421-bdb6-253a64c23e54</guid><category><![CDATA[Sql]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Mon, 29 Dec 2014 14:17:00 GMT</pubDate><content:encoded><![CDATA[<p>This post looks at how to deliminate many rows into one single column. </p>
 
 <p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. </p>
 
@@ -349,7 +391,7 @@ Checkout my <a href="http://www.zirafon.org/">website</a></p>]]></content:encode
 
 <p>Good place to start is to describe what exactly <a href="http://en.wikipedia.org/wiki/JavaScript_templating">JS Templating</a> is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.</p>
 
-<p>Now sure</p>]]></description><link>http:///setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/</link><guid isPermaLink="false">3d62b42d-ad08-4154-a016-cf3a45320cc9</guid><category><![CDATA[Grunt]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Handlebars.js]]></category><category><![CDATA[Js Templates]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 23 Dec 2014 23:46:00 GMT</pubDate><content:encoded><![CDATA[<h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
+<p>Now sure</p>]]></description><link>http:///setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/</link><guid isPermaLink="false">3d62b42d-ad08-4154-a016-cf3a45320cc9</guid><category><![CDATA[Grunt]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Handlebars.js]]></category><category><![CDATA[Js Templates]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 23 Dec 2014 23:46:00 GMT</pubDate><content:encoded><![CDATA[<h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
 
 <p>Good place to start is to describe what exactly <a href="http://en.wikipedia.org/wiki/JavaScript_templating">JS Templating</a> is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.</p>
 
@@ -427,4 +469,4 @@ To test this, run the following command. </p>
 Any queries please let me know and vist my website for more contact details. </p>
 
 <p>Thanks for reading. Always appreciate your thoughts and comments. <br>
-Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>]]></content:encoded></item></channel></rss>t:encoded></item></channel></rss>
+Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>]]></content:encoded></item></channel></rss>/rss>
