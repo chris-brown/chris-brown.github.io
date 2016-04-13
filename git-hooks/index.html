@@ -1,0 +1,271 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Intro to git hooks</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=8ea0fbd36e">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://blog.zirafon.org/git-hooks/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Chris Brown">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Intro to git hooks">
+    <meta property="og:description" content="Git hooks are scripts that Git executes before or after events such as: commit, push, and branch. Git hooks are ran locally and is a native feature so no additional dependencies. Using hooks are really trivial and the scripts themselves are limited only by your imagination. Below is a quick">
+    <meta property="og:url" content="http://blog.zirafon.org/git-hooks/">
+    <meta property="article:published_time" content="2016-04-12T16:45:27.062Z">
+    <meta property="article:modified_time" content="2016-04-13T09:17:00.970Z">
+    <meta property="article:tag" content="git">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Intro to git hooks">
+    <meta name="twitter:description" content="Git hooks are scripts that Git executes before or after events such as: commit, push, and branch. Git hooks are ran locally and is a native feature so no additional dependencies. Using hooks are really trivial and the scripts themselves are limited only by your imagination. Below is a quick">
+    <meta name="twitter:url" content="http://blog.zirafon.org/git-hooks/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Chris Brown">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="git">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Chris Brown",
+    "author": {
+        "@type": "Person",
+        "name": "Chris Brown",
+        "url": "http://blog.zirafon.org/author/chris/",
+        "description": "Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd."
+    },
+    "headline": "Intro to git hooks",
+    "url": "http://blog.zirafon.org/git-hooks/",
+    "datePublished": "2016-04-12T16:45:27.062Z",
+    "dateModified": "2016-04-13T09:17:00.970Z",
+    "keywords": "git",
+    "description": "Git hooks are scripts that Git executes before or after events such as: commit, push, and branch. Git hooks are ran locally and is a native feature so no additional dependencies. Using hooks are really trivial and the scripts themselves are limited only by your imagination. Below is a quick"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http://blog.zirafon.org/rss/index.rss">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57432835-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template tag-git nav-closed">
+
+    <input type="checkbox" id="show-menu" class="show-menu">
+<div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="/">Home</a></li>
+            <li class="nav-about" role="presentation"><a href="/about/">About</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://blog.zirafon.org/rss/index.rss">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-git">
+
+        <header class="post-header">
+            <ul class="post-header__breadcrumb">
+    <li><a href="/" title="blog homepage">Home</a></li>
+    <li>-</li>
+    <li>Intro to git hooks</li>
+</ul>            <h1 class="post-title">Intro to git hooks</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-04-12">12 April 2016</time>  on <a href="/tag/git/">git</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Git hooks are scripts that Git executes before or after events such as: <a href="https://git-scm.com/docs/git-commit">commit</a>, <a href="https://git-scm.com/docs/git-push">push</a>, and <a href="https://git-scm.com/docs/git-branch">branch</a>. Git hooks are ran locally and is a native feature so no additional dependencies.</p>
+
+<p>Using hooks are really trivial and the scripts themselves are limited only by your imagination.</p>
+
+<p>Below is a quick rundown on how to work with git hooks.</p>
+
+<pre><code>mkdir mygit-workflow  
+cd mygit-workflow  
+</code></pre>
+
+<pre><code>git init  
+</code></pre>
+
+<p>Git <a href="https://git-scm.com/docs/git-init">init</a> creates an empty repository and a handful of <strong>example hooks are copied into the <code>.git\hooks</code> directory</strong>. However these are <strong>disabled by default</strong>. Lets take a look at them.</p>
+
+<pre><code>cd .git\hooks\  
+ls  
+</code></pre>
+
+<pre><code>Name  
+----
+applypatch-msg.sample  
+commit-msg.sample  
+post-commit.sample  
+post-receive.sample  
+post-update.sample  
+pre-applypatch.sample  
+pre-commit.sample  
+pre-push.sample  
+pre-rebase.sample  
+prepare-commit-msg.sample  
+update.sample  
+</code></pre>
+
+<p>Now although these are just samples they can be pretty useful out of the box. For example if we take a look at the pre-commit.sample.</p>
+
+<pre><code>cat pre-commit.sample  
+</code></pre>
+
+<p>This basically does a diff on the changed files and prevents you from checking in filenames with non-ascii characters. This can be helpful when a project is running over different platforms.</p>
+
+<blockquote>
+  <p>To enable one of the sample hooks. Just remove <code>.sample</code> from the filename.</p>
+</blockquote>
+
+<pre><code>mv pre-commit.sample pre-commit  
+</code></pre>
+
+<p>These are the current hooks you can write a script to attach to:</p>
+
+<ul>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L32">applypatch-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L48">pre-applypatch</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L63">post-applypatch</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L72">pre-commit</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L89">prepare-commit-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L114">commit-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L131">post-commit</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L140">pre-rebase</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#149">post-checkout</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L167">post-merge</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L181">pre-push</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L211">pre-receive</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L240">update</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L283">post-receive</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L313">post-update</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L344">push-to-checkout</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L374">pre-auto-gc</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L381">post-rewrite</a></li>
+</ul>
+
+<h3 id="usecases">Use cases</h3>
+
+<p>Like i've mentioned the usage of git hooks are limited only by imagination however I would advise to proceed with caution and remember to try and choose the right tool for the job. Just because you can, it doesn't always mean you should.</p>
+
+<p>I've know of scenarios whereby teams use the <a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L283">post-receive</a> hook to publish code to a production environment. Typically this isnt advised as there are better products/ solutions to manage your <a href="https://www.thoughtworks.com/continuous-delivery">CI/CD</a> strategy.</p>
+
+<p>With this in mind, here are a couple.</p>
+
+<ul>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L72">pre-commit</a> - Check commit message and enforce project message rules</li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L131">post-commit</a> - Create a <a href="https://slack.com/">slack</a> notification to notify the team of pending changes to the remote.</li>
+</ul>
+
+<p>Im going to follow this post up with a working example soon, until then you might find this <a href="https://github.com/mroth/lolcommits">one</a> useful to get you started.</p>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/chris/">Chris Brown</a></h4>
+
+                    <p>Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Manchester</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Intro%20to%20git%20hooks&amp;url=http://blog.zirafon.org/git-hooks/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/git-hooks/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.zirafon.org/git-hooks/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="/deleting-windows-node_modules/">
+        <section class="post">
+            <h2>Deleting those dam node_modules on windows</h2>
+            <p>If you use node on windows the chances are that you've come across the following error when trying to…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+            <section class="poweredby">Proudly designed by <a href="https://zirafon.org">Zirafon</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = '//zirafon-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+    <script type="text/javascript" src="/assets/js/index.js?v=8ea0fbd36e"></script>
+    <script type="text/javascript" src="/assets/js/prism.js?v=8ea0fbd36e"></script>
+
+</body>
