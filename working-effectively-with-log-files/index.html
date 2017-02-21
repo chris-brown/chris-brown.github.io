@@ -1,0 +1,261 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Working effectively with log files</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=10f5c16950">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://blog.zirafon.org/working-effectively-with-log-files/">
+    <meta name="referrer" content="origin-when-cross-origin">
+    
+    <meta property="og:site_name" content="Chris Brown">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Working effectively with log files">
+    <meta property="og:description" content='Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version="1.0" ?&amp;gt;   &amp;lt;nlog xmlns="http://www.nlog-project.org/'>
+    <meta property="og:url" content="http://blog.zirafon.org/working-effectively-with-log-files/">
+    <meta property="article:published_time" content="2017-02-21T22:57:14.000Z">
+    <meta property="article:modified_time" content="2017-02-21T23:15:53.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Working effectively with log files">
+    <meta name="twitter:description" content='Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version="1.0" ?&amp;gt;   &amp;lt;nlog xmlns="http://www.nlog-project.org/'>
+    <meta name="twitter:url" content="http://blog.zirafon.org/working-effectively-with-log-files/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Chris Brown">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Chris Brown",
+        "logo": "http://blog.zirafon.org/ghost/img/ghosticon.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Chris Brown",
+        "url": "http://blog.zirafon.org/author/chris/",
+        "sameAs": [
+            "https://twitter.com/cj_browna"
+        ],
+        "description": "Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd."
+    },
+    "headline": "Working effectively with log files",
+    "url": "http://blog.zirafon.org/working-effectively-with-log-files/",
+    "datePublished": "2017-02-21T22:57:14.000Z",
+    "dateModified": "2017-02-21T23:15:53.000Z",
+    "description": "Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version&#x3D;&quot;1.0&quot; ?&amp;gt;   &amp;lt;nlog xmlns&#x3D;&quot;http://www.nlog-project.org/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.9">
+    <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http://blog.zirafon.org/rss/index.rss">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57432835-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template nav-closed">
+
+    <input type="checkbox" id="show-menu" class="show-menu">
+<div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="/">Home</a></li>
+            <li class="nav-about" role="presentation"><a href="/about/">About</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://blog.zirafon.org/rss/index.rss">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <ul class="post-header__breadcrumb">
+    <li><a href="/" title="blog homepage">Home</a></li>
+    <li>-</li>
+    <li>Working effectively with log files</li>
+</ul>            <h1 class="post-title">Working effectively with log files</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-02-21">21 February 2017</time> 
+                <b> - 2 min read</b>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Working with logs in production is made really easy with solutions like the <a href="https://www.elastic.co/videos/introduction-to-the-elk-stack">ELK stack</a>, but working with logs locally can be really cumbersome.</p>
+
+<p>For example, something like the configuration below is very typical for local development;</p>
+
+<pre><code class="language-xml">&lt;?xml version="1.0" ?&gt;  
+&lt;nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"  
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+
+    &lt;targets&gt;
+        &lt;target name="file" xsi:type="File"
+            layout="${longdate} ${logger} ${message}" 
+            fileName="${basedir}/logs/logfile.log" 
+            keepFileOpen="false"
+            encoding="iso-8859-2" /&gt;
+    &lt;/targets&gt;
+
+    &lt;rules&gt;
+        &lt;logger name="*" minlevel="Debug" writeTo="file" /&gt;
+    &lt;/rules&gt;
+&lt;/nlog&gt;  
+</code></pre>
+
+<blockquote>
+  <p>Typically we double click on the file, close, refresh and repeat.</p>
+</blockquote>
+
+<p>Well below are a couple of really simple but effective solutions in working with log files.</p>
+
+<h3 id="1windowsexplorerpreviewpane">1. Windows explorer preview pane</h3>
+
+<ol>
+<li>Open windows explorer.  </li>
+<li>View -&gt; Preview Pane  </li>
+<li>Select the log file.</li>
+</ol>
+
+<p>Great thing is the preview pane refreshes the output everytime the file changes. If the preview pane doesnt show you the log file content its typically because the file extension isn't mapped to a content type.</p>
+
+<pre><code>Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.log]
+@="txtfile"
+"Content Type"="text/plain"
+"PerceivedType"="text"
+</code></pre>
+
+<p>Simply copy the content above and save the file using the <code>.reg</code> file extension. Double click and the key will be added to the registry settings. Try highlighting the file again.</p>
+
+<p>Only problem is the preview pane doesnt show the tail. But that's fine as typically in local development I archive and overwrite the log. In some cases this isnt ideal obviously.</p>
+
+<h3 id="2bashconsole">2. Bash console</h3>
+
+<pre><code class="language-cmd">$ tail -n 0 -f logfile.log
+</code></pre>
+
+<p><img src="/content/images/2017/02/logexample.gif" alt="logfile tail example"></p>
+
+<h3 id="3notepad">3. Notepad++</h3>
+
+<p>There are other text editors but <a href="https://notepad-plus-plus.org/download/">notepad++</a> works best for me.  However out of the box, after a change to the logfile you'l be presented with the following caption.</p>
+
+<p><img src="/content/images/2017/02/autorefresh-disabled.PNG" alt="reload notepadd++"></p>
+
+<p>To enable silent reload of the log file. <code>Settings -&gt; Preferences -&gt; MISC -&gt; Update silently</code></p>
+
+<p>NB. Notepad++ <a href="https://notepad-plus-plus.org/news/notepad-6.9.2-released.html">v6.9.2</a> introduces the tail command which scrolls to the EOF.</p>
+
+<p>Click on <code>eye icon</code> on toolbar or use menu <code>View-&gt;Monitoring (tail -f)</code> to activate/disactivate this command</p>
+
+<p>An honerable mention to the <a href="https://github.com/otros-systems/otroslogviewer">otroslogviewer project</a>, but this is more of a power user tool and I don't need the level of features working with log files locally.</p>
+
+<p>Thanks for reading. Please share your thoughts and alternative approaches.</p>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/chris/">Chris Brown</a></h4>
+
+                    <p>Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Manchester</span>
+                    <span class="author-link icon-link"><a href="https://twitter.com/cj_browna">https://twitter.com/cj_browna</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Working%20effectively%20with%20log%20files&amp;url=http://blog.zirafon.org/working-effectively-with-log-files/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/working-effectively-with-log-files/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.zirafon.org/working-effectively-with-log-files/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="/introduction-to-web-components/">
+        <section class="post">
+            <h2>Introduction to Web Components</h2>
+            <p>Web components were first introduced, I believe in 2011 by Alex Russel. The idea was clear and remains so…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2017</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+            <section class="poweredby">Proudly designed by <a href="https://zirafon.org">Zirafon</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = '//zirafon-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+    <script type="text/javascript" src="/assets/js/index.js?v=10f5c16950"></script>
+    <script type="text/javascript" src="/assets/js/prism.js?v=10f5c16950"></script>
+
+</body>
