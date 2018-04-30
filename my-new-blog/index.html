@@ -8,10 +8,10 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=85ce3d6f47">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=d7b5dfef1a">
 
     <meta name="description" content="How I created a blog for next to no money using Ghost Blogging Engine">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://blog.zirafon.org/my-new-blog/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="amphtml" href="http://blog.zirafon.org/my-new-blog/amp/">
@@ -52,8 +52,8 @@
         "logo": {
             "@type": "ImageObject",
             "url": "http://blog.zirafon.org/favicon.ico",
-            "width": 16,
-            "height": 16
+            "width": 60,
+            "height": 60
         }
     },
     "author": {
@@ -89,7 +89,7 @@
 }
     </script>
 
-    <script src="/public/ghost-sdk.js?v=85ce3d6f47"></script>
+    <script src="/public/ghost-sdk.js?v=d7b5dfef1a"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
@@ -122,8 +122,8 @@ ghost.init({
     <div class="site-nav-left">
                 <a class="site-nav-logo" href="http://blog.zirafon.org">Chris Brown</a>
             <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="http://blog.zirafon.org/">Home</a></li>
-    <li class="nav-about" role="menuitem"><a href="http://blog.zirafon.org/about/">About</a></li>
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
 </ul>
 
     </div>
@@ -149,7 +149,7 @@ ghost.init({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2015-12-26">26 December 2015</time>
-                        <span class="date-divider">/</span> <a href="../tag/ghost-tag/">ghost</a>
+                        <span class="date-divider">/</span> <a href="/tag/ghost-tag/">ghost</a>
                 </section>
                 <h1 class="post-full-title">My new $1 Blog</h1>
             </header>
@@ -165,7 +165,7 @@ ghost.init({
 <blockquote>
 <p>As a developer if you blog, you need to own that content ...</p>
 </blockquote>
-<p>So the next question is, which blog engine do I use. Because I don't know how often I would blog, it needed to be <strong>1. free</strong> and preferably <a href="index.html#opensource"><strong>2. open source</strong></a>. It also needed to be <strong>3. fast</strong> and because im putting my name and reputation as a software developer it needs to be <strong>4. extensible</strong> so I can customize it. The final requirement is that I wanted it to be a <strong>5. markdown</strong> blog engine.</p>
+<p>So the next question is, which blog engine do I use. Because I don't know how often I would blog, it needed to be <strong>1. free</strong> and preferably <a href="#opensource"><strong>2. open source</strong></a>. It also needed to be <strong>3. fast</strong> and because im putting my name and reputation as a software developer it needs to be <strong>4. extensible</strong> so I can customize it. The final requirement is that I wanted it to be a <strong>5. markdown</strong> blog engine.</p>
 <h2 id="blogengine">Blog Engine</h2>
 <h5 id="anamefreea1free"><a name="free"></a> 1. Free</h5>
 <p>As previously mentioned im moving from <a href="http://azure.com">Azure</a> which is a paid product, not expensive but because the blog is effectively a static site then why do I need heavy compute power? I don't and while I already knew of free blog offerings, most platforms have paid plugins. For example having custom domains etc. So I set a challenge for myself to see how cheap I can keep it, and preferably lets keep it free without losing functionality.</p>
@@ -173,7 +173,7 @@ ghost.init({
 <p>...lets keep it free without losing functionality.</p>
 </blockquote>
 <h5 id="anameopensourcea2opensource"><a name="opensource"></a>2. Open Source</h5>
-<p>Im pretty passionate about open source software. I've profited from it previously and contributed where appropriate. But typically open source projects have best community support and starting out on a new project, this is important! And obviously this helps with being <a href="index.html#extensible"><strong>4. extensible</strong></a>.</p>
+<p>Im pretty passionate about open source software. I've profited from it previously and contributed where appropriate. But typically open source projects have best community support and starting out on a new project, this is important! And obviously this helps with being <a href="#extensible"><strong>4. extensible</strong></a>.</p>
 <h5 id="anamefasta3fast"><a name="fast"></a>3. Fast</h5>
 <p>This is an obvious one, it just makes for an awful UX experience. There are various blog engines out there that focus on this as a main feature but they always come at a trade-off.</p>
 <h5 id="anameextensiblea4extensible"><a name="extensible"></a>4. Extensible</h5>
@@ -205,14 +205,14 @@ ghost.init({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
+        <img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/chris/">Chris Brown</a></h4>
-            <p>Read <a href="../author/chris/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="/author/chris/">Chris Brown</a></h4>
+            <p>Read <a href="/author/chris/">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/chris/">Read More</a>
+    <a class="author-card-button" href="/author/chris/">Read More</a>
 </div>
 
 
@@ -247,7 +247,7 @@ ghost.init({
 
                 <article class="post-card post tag-azure no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../static-azure-website/">
+        <a class="post-card-content-link" href="/static-azure-website/">
             <header class="post-card-header">
                     <span class="post-card-tags">azure</span>
                 <h2 class="post-card-title">Static Azure Website</h2>
@@ -265,7 +265,7 @@ ghost.init({
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -277,7 +277,7 @@ ghost.init({
 
                 <article class="post-card post tag-umbraco tag-resharper no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../conflicts_with_umbraco_7_install_and_re_sharper/">
+        <a class="post-card-content-link" href="/conflicts_with_umbraco_7_install_and_re_sharper/">
             <header class="post-card-header">
                     <span class="post-card-tags">Umbraco</span>
                 <h2 class="post-card-title">Conflicts with Umbraco 7 install and ReSharper.</h2>
@@ -295,7 +295,7 @@ ghost.init({
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -343,7 +343,7 @@ ghost.init({
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
                 <nav class="site-footer-nav">
-                    <a href="http://blog.zirafon.org">Latest Posts</a>
+                    <a href="/my-new-blog/">Latest Posts</a>
                     
                     <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
@@ -356,7 +356,7 @@ ghost.init({
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=85ce3d6f47"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=d7b5dfef1a"></script>
 
 
     <script>

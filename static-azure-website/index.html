@@ -8,9 +8,9 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=85ce3d6f47">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=d7b5dfef1a">
 
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://blog.zirafon.org/static-azure-website/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="amphtml" href="http://blog.zirafon.org/static-azure-website/amp/">
@@ -45,8 +45,8 @@
         "logo": {
             "@type": "ImageObject",
             "url": "http://blog.zirafon.org/favicon.ico",
-            "width": 16,
-            "height": 16
+            "width": 60,
+            "height": 60
         }
     },
     "author": {
@@ -76,7 +76,7 @@
 }
     </script>
 
-    <script src="/public/ghost-sdk.js?v=85ce3d6f47"></script>
+    <script src="/public/ghost-sdk.js?v=d7b5dfef1a"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
@@ -109,8 +109,8 @@ ghost.init({
     <div class="site-nav-left">
                 <a class="site-nav-logo" href="http://blog.zirafon.org">Chris Brown</a>
             <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="http://blog.zirafon.org/">Home</a></li>
-    <li class="nav-about" role="menuitem"><a href="http://blog.zirafon.org/about/">About</a></li>
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
 </ul>
 
     </div>
@@ -136,18 +136,18 @@ ghost.init({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2016-01-04">4 January 2016</time>
-                        <span class="date-divider">/</span> <a href="../tag/azure/">azure</a>
+                        <span class="date-divider">/</span> <a href="/tag/azure/">azure</a>
                 </section>
                 <h1 class="post-full-title">Static Azure Website</h1>
             </header>
 
 
             <section class="post-full-content">
-                <div class="kg-card-markdown"><p>So I recently blogged about creating a bespoke <a href="../my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
+                <div class="kg-card-markdown"><p>So I recently blogged about creating a bespoke <a href="/my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
 <p>I've used blob storage before but for its typical use; storing website assets with a <a href="https://azure.microsoft.com/en-gb/services/cdn/">CDN</a> in front, but I dont see why this shouldn't work.</p>
 <p>First of all its important to understand that Azure Blob Storage is not a web server so we immediately loose the benefits IIS brings. For example setting a default document. If I navigate to the root container ill get a <code>404</code>. So we will have to be explicit in referencing our filename, in this case <code>/index.html</code>.</p>
 <p>Another related issue is how will the browser know how to render the blob, seen as its not hosted on a webserver, what would the response headers be? A quick confirmation of this was to simply upload a test page and navigate to it.</p>
-<p><img src="../content/images/2016/01/2016-01-04--3-.png" alt="Azure Explorer"></p>
+<p><img src="/content/images/2016/01/2016-01-04--3-.png" alt="Azure Explorer"></p>
 <p>And Navigating to it returns the following response headers.</p>
 <pre><code>HTTP/1.1 200 OK
 Content-Length: 1492
@@ -180,14 +180,14 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
+        <img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/chris/">Chris Brown</a></h4>
-            <p>Read <a href="../author/chris/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="/author/chris/">Chris Brown</a></h4>
+            <p>Read <a href="/author/chris/">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/chris/">Read More</a>
+    <a class="author-card-button" href="/author/chris/">Read More</a>
 </div>
 
 
@@ -222,23 +222,23 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
                 <article class="read-next-card">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Chris Brown —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/azure/">azure</a></h3>
+                        <h3 class="read-next-card-header-title"><a href="/tag/azure/">azure</a></h3>
                     </header>
                     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../serverless-architecture/">Serverless Architecture</a></li>
+                            <li><a href="/serverless-architecture/">Serverless Architecture</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/azure/">1 post →</a>
+                        <a href="/tag/azure/">1 post →</a>
                     </footer>
                 </article>
 
                 <article class="post-card post tag-test tag-resharper tag-visual-studio no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../resharper-live-template/">
+        <a class="post-card-content-link" href="/resharper-live-template/">
             <header class="post-card-header">
                     <span class="post-card-tags">test</span>
                 <h2 class="post-card-title">Visual Studio Code Snippets using ReSharper Live Templates</h2>
@@ -256,7 +256,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -267,11 +267,11 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
 </article>
 
                 <article class="post-card post tag-ghost-tag tag-github tag-blog">
-        <a class="post-card-image-link" href="../my-new-blog/">
+        <a class="post-card-image-link" href="/my-new-blog/">
             <div class="post-card-image" style="background-image: url(/content/images/2015/12/ghost-1-.png)"></div>
         </a>
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../my-new-blog/">
+        <a class="post-card-content-link" href="/my-new-blog/">
             <header class="post-card-header">
                     <span class="post-card-tags">ghost</span>
                 <h2 class="post-card-title">My new $1 Blog</h2>
@@ -289,7 +289,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -337,7 +337,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
                 <nav class="site-footer-nav">
-                    <a href="http://blog.zirafon.org">Latest Posts</a>
+                    <a href="/static-azure-website/">Latest Posts</a>
                     
                     <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
@@ -350,7 +350,7 @@ Date: Mon, 04 Jan 2016 01:47:42 GMT
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=85ce3d6f47"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=d7b5dfef1a"></script>
 
 
     <script>

@@ -8,9 +8,9 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=85ce3d6f47">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=d7b5dfef1a">
 
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://blog.zirafon.org/serverless-architecture/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="amphtml" href="http://blog.zirafon.org/serverless-architecture/amp/">
@@ -48,8 +48,8 @@
         "logo": {
             "@type": "ImageObject",
             "url": "http://blog.zirafon.org/favicon.ico",
-            "width": 16,
-            "height": 16
+            "width": 60,
+            "height": 60
         }
     },
     "author": {
@@ -79,7 +79,7 @@
 }
     </script>
 
-    <script src="/public/ghost-sdk.js?v=85ce3d6f47"></script>
+    <script src="/public/ghost-sdk.js?v=d7b5dfef1a"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
@@ -112,8 +112,8 @@ ghost.init({
     <div class="site-nav-left">
                 <a class="site-nav-logo" href="http://blog.zirafon.org">Chris Brown</a>
             <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="http://blog.zirafon.org/">Home</a></li>
-    <li class="nav-about" role="menuitem"><a href="http://blog.zirafon.org/about/">About</a></li>
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
 </ul>
 
     </div>
@@ -139,7 +139,7 @@ ghost.init({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2016-07-13">13 July 2016</time>
-                        <span class="date-divider">/</span> <a href="../tag/architecture/">architecture</a>
+                        <span class="date-divider">/</span> <a href="/tag/architecture/">architecture</a>
                 </section>
                 <h1 class="post-full-title">Serverless Architecture</h1>
             </header>
@@ -147,18 +147,18 @@ ghost.init({
 
             <section class="post-full-content">
                 <div class="kg-card-markdown"><p>If you are reading this post in July 2016 (<em>when the post was written</em>), you will probably agree serverless architecture is <strong>H.O.T</strong> right now.</p>
-<p>Although the concept has been well used for quite sometime, we now have an alias and title associated. So as a result we have a <a href="http://www.meetup.com/Serverless-London/">meetup</a> we can now go to, a <a href="http://serverlessconf.io/">conference</a> where we can be preached to and of course this all leads to the proverbial <a href="https://twitter.com/search?h=serverless">bandwagon</a> to jump on. - This is where we are right now, so lets ask the question <mark><a href="index.html#what">What</a> really is Serverless Architecture and <a href="index.html#how">how</a> and <a href="index.html#when">when</a> should we use it.</mark></p>
+<p>Although the concept has been well used for quite sometime, we now have an alias and title associated. So as a result we have a <a href="http://www.meetup.com/Serverless-London/">meetup</a> we can now go to, a <a href="http://serverlessconf.io/">conference</a> where we can be preached to and of course this all leads to the proverbial <a href="https://twitter.com/search?h=serverless">bandwagon</a> to jump on. - This is where we are right now, so lets ask the question <mark><a href="#what">What</a> really is Serverless Architecture and <a href="#how">how</a> and <a href="#when">when</a> should we use it.</mark></p>
 <h3 id="what">What</h3>
 <p>To begin with the name serverless can be a little misleading.  But in short, it's typically a small application or unit of work that itself and its dependencies run on server's that you don't manage or concern yourself about.</p>
 <p>But what's new about that right? Prior to the recent #devops movement, developers never really concerned themselves about consistency, availability and partition tolerance anyway.</p>
-<p>But serverless takes it to the next level in the form of <a href="index.html">BAAS</a> and <a href="index.html#faas">FAAS</a> where there is absolute no consideration to scaling and availability. Your cloud provider takes care of this with a typical 4x9 uptime SLA.</p>
+<p>But serverless takes it to the next level in the form of <a href="">BAAS</a> and <a href="#faas">FAAS</a> where there is absolute no consideration to scaling and availability. Your cloud provider takes care of this with a typical 4x9 uptime SLA.</p>
 <p>But for a better definition and insight to this, <a href="http://martinfowler.com/articles/serverless.html">Martin Fowler and thoughtworks</a> will give you greater detail than I will. - And it really is comprehensive. This in itself suggests the relevance of serverless and its expected impact in future software solutions.</p>
 <h3 id="how">How</h3>
 <h4 id="faas">FAAS</h4>
 <p><strong>Functions as a service</strong> is quite simply a method of executing code, or a unit of work, as a service.</p>
 <p>Serverless can often be better known as FAAS.  Demonstration by the tweet below; it's certainly a common opinion.</p>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Can we please rename <a href="https://twitter.com/hashtag/serverless?src=hash">#serverless</a> to <a href="https://twitter.com/hashtag/faas?src=hash">#faas</a>? Functions as a Service. The term "Serverless" is a misnomer. It's also vendor lock-in.</p>— marak (@marak) <a href="https://twitter.com/marak/status/736357543598002176">May 28, 2016</a></blockquote>
-<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <br>
 I for one first started seeing the term used more often when last year AWS released [API gateway](https://aws.amazon.com/api-gateway/), a managed service that alongside Lambda, offers "serverless" APIs.
 <p>The benefits are obvious, just as <a href="https://azure.microsoft.com/en-gb/overview/what-is-paas/">PAAS</a> has brought cost effective benefits, FAAS gives you a similar model. You pay for how much you use.</p>
@@ -187,14 +187,14 @@ I for one first started seeing the term used more often when last year AWS relea
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
+        <img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/chris/">Chris Brown</a></h4>
-            <p>Read <a href="../author/chris/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="/author/chris/">Chris Brown</a></h4>
+            <p>Read <a href="/author/chris/">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/chris/">Read More</a>
+    <a class="author-card-button" href="/author/chris/">Read More</a>
 </div>
 
 
@@ -229,23 +229,23 @@ I for one first started seeing the term used more often when last year AWS relea
                 <article class="read-next-card">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Chris Brown —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/architecture/">architecture</a></h3>
+                        <h3 class="read-next-card-header-title"><a href="/tag/architecture/">architecture</a></h3>
                     </header>
                     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../hexagonal-architecture/">Hexagonal Architecture</a></li>
+                            <li><a href="/hexagonal-architecture/">Hexagonal Architecture</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/architecture/">1 post →</a>
+                        <a href="/tag/architecture/">1 post →</a>
                     </footer>
                 </article>
 
                 <article class="post-card post no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../introduction-to-web-components/">
+        <a class="post-card-content-link" href="/introduction-to-web-components/">
             <header class="post-card-header">
                 <h2 class="post-card-title">Introduction to Web Components</h2>
             </header>
@@ -262,7 +262,7 @@ I for one first started seeing the term used more often when last year AWS relea
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -274,7 +274,7 @@ I for one first started seeing the term used more often when last year AWS relea
 
                 <article class="post-card post tag-git no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../git-hooks/">
+        <a class="post-card-content-link" href="/git-hooks/">
             <header class="post-card-header">
                     <span class="post-card-tags">git</span>
                 <h2 class="post-card-title">Intro to git hooks</h2>
@@ -292,7 +292,7 @@ I for one first started seeing the term used more often when last year AWS relea
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -340,7 +340,7 @@ I for one first started seeing the term used more often when last year AWS relea
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
                 <nav class="site-footer-nav">
-                    <a href="http://blog.zirafon.org">Latest Posts</a>
+                    <a href="/serverless-architecture/">Latest Posts</a>
                     
                     <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
@@ -353,7 +353,7 @@ I for one first started seeing the term used more often when last year AWS relea
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=85ce3d6f47"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=d7b5dfef1a"></script>
 
 
     <script>

@@ -8,9 +8,9 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=85ce3d6f47">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=d7b5dfef1a">
 
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://blog.zirafon.org/hexagonal-architecture/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="amphtml" href="http://blog.zirafon.org/hexagonal-architecture/amp/">
@@ -50,8 +50,8 @@
         "logo": {
             "@type": "ImageObject",
             "url": "http://blog.zirafon.org/favicon.ico",
-            "width": 16,
-            "height": 16
+            "width": 60,
+            "height": 60
         }
     },
     "author": {
@@ -87,7 +87,7 @@
 }
     </script>
 
-    <script src="/public/ghost-sdk.js?v=85ce3d6f47"></script>
+    <script src="/public/ghost-sdk.js?v=d7b5dfef1a"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
@@ -120,8 +120,8 @@ ghost.init({
     <div class="site-nav-left">
                 <a class="site-nav-logo" href="http://blog.zirafon.org">Chris Brown</a>
             <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="http://blog.zirafon.org/">Home</a></li>
-    <li class="nav-about" role="menuitem"><a href="http://blog.zirafon.org/about/">About</a></li>
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
 </ul>
 
     </div>
@@ -147,7 +147,7 @@ ghost.init({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2016-03-22">22 March 2016</time>
-                        <span class="date-divider">/</span> <a href="../tag/architecture/">architecture</a>
+                        <span class="date-divider">/</span> <a href="/tag/architecture/">architecture</a>
                 </section>
                 <h1 class="post-full-title">Hexagonal Architecture</h1>
             </header>
@@ -158,7 +158,7 @@ ghost.init({
             <section class="post-full-content">
                 <div class="kg-card-markdown"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
 <p><em>An example of what Hex. is not!</em><br>
-<img src="../content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
+<img src="/content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
 <p>But this can be confused for <a href="https://en.wikipedia.org/wiki/Multitier_architecture">nTier</a> architecture. A pattern typically associated with a monolith application and it's important to understand that this is fundamentally a different approach.</p>
 <p>The name Hexagonal is a metaphor for elements intersecting  but it is otherwise known as <strong>Ports &amp; Adapters</strong> and for me, better explains the principals and helps us understand the fundamentals.</p>
 <p>Known problems with nTier architecture are with dependencies between layers which lead to <a href="https://en.wikipedia.org/wiki/Leaky_abstraction">leaky abstractions</a>. The classic example of this is when we reuse our Domain models over presentation and data layers.</p>
@@ -169,12 +169,12 @@ ghost.init({
 <p><sub><a href="http://alistair.cockburn.us/Hexagonal+architecture">a. cockburn</a></sub></p>
 <p>This approach forces each port to be independently testable and subsequently helps us build <em>reusable software</em>.</p>
 <p>This is what makes Hex. so compelling for me. I am currently working for a client who uses a dozen different CM and CRM systems. Using Hex. architecture allows me to build the desired logic independently of either of these systems, write automated tests to validate the behavior and then come the time we want to integrate there will be no surprises.</p>
-<p><img src="../content/images/2016/03/hexagonal-architecture.jpg" alt="Hexagonal Architecture done right"></p>
+<p><img src="/content/images/2016/03/hexagonal-architecture.jpg" alt="Hexagonal Architecture done right"></p>
 <h3 id="hexbyexample">Hex by Example:</h3>
 <p>Im working on doing a lightning talk on Hex. Architecture with an accompanying demo so ill follow up this post with those slides and reference to the repo.</p>
 <p>For now, below is designed to help you understand how many ports would be used to create a coffee machine.</p>
 <p><em>A coffee machine controller has four natural ports: the <strong>user</strong>, the database containing the <strong>recipes and prices</strong>, the <strong>dispensers</strong>, and the <strong>coin box</strong></em></p>
-<p><img src="../content/images/2016/03/coffee-machine.png" alt="Coffee Machine"></p>
+<p><img src="/content/images/2016/03/coffee-machine.png" alt="Coffee Machine"></p>
 <p>Ports and Adapters can further be defines as the following while using Pseudo-code to demonstration the relationship.</p>
 <blockquote>
 <p>Ports are interfaces</p>
@@ -195,7 +195,7 @@ ghost.init({
 <h3 id="puttingitalltogether">Putting it all together</h3>
 <p>It is all glued together using Bob Martin's <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion</a> principal. A modular approach for decoupling module implementation details. Easily allowing us to interchange test harnesses for user interfaces as and when required.</p>
 <p>Net result is well made coffee.</p>
-<p><img src="../content/images/2016/03/coffee-min.jpg" alt="Beautiful Coffee"></p>
+<p><img src="/content/images/2016/03/coffee-min.jpg" alt="Beautiful Coffee"></p>
 <p>Thats it for now. Thanks for reading. Please leave comments or links to related posts.</p>
 <h3 id="links">Links</h3>
 <ol>
@@ -211,14 +211,14 @@ ghost.init({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
+        <img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/chris/">Chris Brown</a></h4>
-            <p>Read <a href="../author/chris/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="/author/chris/">Chris Brown</a></h4>
+            <p>Read <a href="/author/chris/">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/chris/">Read More</a>
+    <a class="author-card-button" href="/author/chris/">Read More</a>
 </div>
 
 
@@ -253,23 +253,23 @@ ghost.init({
                 <article class="read-next-card">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Chris Brown —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/architecture/">architecture</a></h3>
+                        <h3 class="read-next-card-header-title"><a href="/tag/architecture/">architecture</a></h3>
                     </header>
                     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../serverless-architecture/">Serverless Architecture</a></li>
+                            <li><a href="/serverless-architecture/">Serverless Architecture</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/architecture/">1 post →</a>
+                        <a href="/tag/architecture/">1 post →</a>
                     </footer>
                 </article>
 
                 <article class="post-card post tag-node no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../deleting-windows-node_modules/">
+        <a class="post-card-content-link" href="/deleting-windows-node_modules/">
             <header class="post-card-header">
                     <span class="post-card-tags">node</span>
                 <h2 class="post-card-title">Deleting those dam node_modules on windows</h2>
@@ -287,7 +287,7 @@ ghost.init({
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -298,11 +298,11 @@ ghost.init({
 </article>
 
                 <article class="post-card post tag-rx-net tag-presentation">
-        <a class="post-card-image-link" href="../reactive-programming/">
+        <a class="post-card-image-link" href="/reactive-programming/">
             <div class="post-card-image" style="background-image: url(/content/images/2016/01/reactivex_bg-1-.jpg)"></div>
         </a>
     <div class="post-card-content">
-        <a class="post-card-content-link" href="../reactive-programming/">
+        <a class="post-card-content-link" href="/reactive-programming/">
             <header class="post-card-header">
                     <span class="post-card-tags">rx.net</span>
                 <h2 class="post-card-title">Reactive Programming</h2>
@@ -320,7 +320,7 @@ ghost.init({
                         Chris Brown
                     </div>
 
-                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
                 </li>
             </ul>
 
@@ -368,7 +368,7 @@ ghost.init({
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
                 <nav class="site-footer-nav">
-                    <a href="http://blog.zirafon.org">Latest Posts</a>
+                    <a href="/hexagonal-architecture/">Latest Posts</a>
                     
                     <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
@@ -381,7 +381,7 @@ ghost.init({
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=85ce3d6f47"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=d7b5dfef1a"></script>
 
 
     <script>
