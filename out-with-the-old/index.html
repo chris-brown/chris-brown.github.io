@@ -4,30 +4,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Working effectively with log files</title>
+    <title>Out with the old</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=d7b5dfef1a">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="http://blog.zirafon.org/working-effectively-with-log-files/">
+    <link rel="canonical" href="http://blog.zirafon.org/out-with-the-old/">
     <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://blog.zirafon.org/working-effectively-with-log-files/amp/">
+    <link rel="amphtml" href="http://blog.zirafon.org/out-with-the-old/amp/">
     
     <meta property="og:site_name" content="Chris Brown">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Working effectively with log files">
-    <meta property="og:description" content="Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns=&amp;quot;http:">
-    <meta property="og:url" content="http://blog.zirafon.org/working-effectively-with-log-files/">
-    <meta property="article:published_time" content="2017-02-21T22:57:14.000Z">
-    <meta property="article:modified_time" content="2017-02-21T23:22:50.000Z">
+    <meta property="og:title" content="Out with the old">
+    <meta property="og:description" content="I've previously blogged about how I setup my ghost blog but today I have finally updated it to v1, previously from 0.8 and specifically v1.22.4. My previous site, which can be viewed here used my custom ghost theme but I MUCH prefer the new casper theme, so">
+    <meta property="og:url" content="http://blog.zirafon.org/out-with-the-old/">
+    <meta property="article:published_time" content="2018-04-30T10:48:48.000Z">
+    <meta property="article:modified_time" content="2018-04-30T10:51:06.000Z">
+    <meta property="article:tag" content="ghost">
+    
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Working effectively with log files">
-    <meta name="twitter:description" content="Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns=&amp;quot;http:">
-    <meta name="twitter:url" content="http://blog.zirafon.org/working-effectively-with-log-files/">
+    <meta name="twitter:title" content="Out with the old">
+    <meta name="twitter:description" content="I've previously blogged about how I setup my ghost blog but today I have finally updated it to v1, previously from 0.8 and specifically v1.22.4. My previous site, which can be viewed here used my custom ghost theme but I MUCH prefer the new casper theme, so">
+    <meta name="twitter:url" content="http://blog.zirafon.org/out-with-the-old/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Chris Brown">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="ghost">
     <meta name="twitter:site" content="@cj_browna">
     <meta name="twitter:creator" content="@cj_browna">
     
@@ -59,11 +63,12 @@
             "https://twitter.com/cj_browna"
         ]
     },
-    "headline": "Working effectively with log files",
-    "url": "http://blog.zirafon.org/working-effectively-with-log-files/",
-    "datePublished": "2017-02-21T22:57:14.000Z",
-    "dateModified": "2017-02-21T23:22:50.000Z",
-    "description": "Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very typical for local development; &amp;lt;?xml version&#x3D;&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns&#x3D;&amp;quot;http:",
+    "headline": "Out with the old",
+    "url": "http://blog.zirafon.org/out-with-the-old/",
+    "datePublished": "2018-04-30T10:48:48.000Z",
+    "dateModified": "2018-04-30T10:51:06.000Z",
+    "keywords": "ghost",
+    "description": "I&#x27;ve previously blogged about how I setup my ghost blog but today I have finally updated it to v1, previously from 0.8 and specifically v1.22.4. My previous site, which can be viewed here used my custom ghost theme but I MUCH prefer the new casper theme, so",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://blog.zirafon.org/"
@@ -92,7 +97,7 @@ ghost.init({
 </script>
 
 </head>
-<body class="post-template">
+<body class="post-template tag-ghost-tag">
 
     <div class="site-wrapper">
 
@@ -126,69 +131,20 @@ ghost.init({
 <main id="site-main" class="site-main outer">
     <div class="inner">
 
-        <article class="post-full post no-image">
+        <article class="post-full post tag-ghost-tag no-image">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2017-02-21">21 February 2017</time>
+                    <time class="post-full-meta-date" datetime="2018-04-30">30 April 2018</time>
+                        <span class="date-divider">/</span> <a href="/tag/ghost-tag/">ghost</a>
                 </section>
-                <h1 class="post-full-title">Working effectively with log files</h1>
+                <h1 class="post-full-title">Out with the old</h1>
             </header>
 
 
             <section class="post-full-content">
-                <div class="kg-card-markdown"><p>Working with logs in production is made really easy with solutions like the <a href="https://www.elastic.co/videos/introduction-to-the-elk-stack">ELK stack</a>, but working with logs locally can be really cumbersome.</p>
-<p>For example, something like the configuration below is very typical for local development;</p>
-<pre><code class="language-xml">&lt;?xml version="1.0" ?&gt;
-&lt;nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-
-    &lt;targets&gt;
-        &lt;target name="file" xsi:type="File"
-            layout="${longdate} ${logger} ${message}" 
-            fileName="${basedir}/logs/logfile.log" 
-            keepFileOpen="false"
-            encoding="iso-8859-2" /&gt;
-    &lt;/targets&gt;
-
-    &lt;rules&gt;
-        &lt;logger name="*" minlevel="Debug" writeTo="file" /&gt;
-    &lt;/rules&gt;
-&lt;/nlog&gt;
-</code></pre>
-<blockquote>
-<p>Typically we double click on the file, close, refresh and repeat.</p>
-</blockquote>
-<p>Well below are a couple of really simple but effective solutions in working with log files.</p>
-<h3 id="1windowsexplorerpreviewpane">1. Windows explorer preview pane</h3>
-<ol>
-<li>Open windows explorer.</li>
-<li>View -&gt; Preview Pane</li>
-<li>Select the log file.</li>
-</ol>
-<p>Great thing is the preview pane refreshes the output everytime the file changes. If the preview pane doesnt show you the log file content its typically because the file extension isn't mapped to a content type.</p>
-<pre><code>Windows Registry Editor Version 5.00
-
-[HKEY_CLASSES_ROOT\.log]
-@="txtfile"
-"Content Type"="text/plain"
-"PerceivedType"="text"
-</code></pre>
-<p>Simply copy the above and save the file using the <code>.reg</code> file extension. Double click and the key will be added to the registry settings. Try highlighting the file again.</p>
-<p>Only problem is the preview pane doesnt show the tail. But that's fine as typically in local development I archive and overwrite the log. In some cases this isnt ideal obviously.</p>
-<h3 id="2bashconsole">2. Bash console</h3>
-<pre><code class="language-cmd">$ tail -n 0 -f logfile.log
-</code></pre>
-<p><img src="/content/images/2017/02/logexample.gif" alt="logfile tail example"></p>
-<h3 id="3notepad">3. Notepad++</h3>
-<p>There are other text editors but <a href="https://notepad-plus-plus.org/download/">notepad++</a> works best for me.  However out of the box, after a change to the logfile you'l be presented with the following caption.</p>
-<p><img src="/content/images/2017/02/autorefresh-disabled.PNG" alt="reload notepadd++"></p>
-<p>To enable silent reload of the log file. <code>Settings -&gt; Preferences -&gt; MISC -&gt; Update silently</code></p>
-<p>NB. Notepad++ <a href="https://notepad-plus-plus.org/news/notepad-6.9.2-released.html">v6.9.2</a> introduces the tail command which scrolls to the EOF.</p>
-<p>Click on <code>eye icon</code> on toolbar or use menu <code>View-&gt;Monitoring (tail -f)</code> to activate/disactivate this command</p>
-<hr>
-<p>An honorable mention to the <a href="https://github.com/otros-systems/otroslogviewer">otroslogviewer project</a>, but this is more of a power user tool and I have little use for it for local development.</p>
-<p>Thanks for reading. Please share your thoughts and alternative approaches.</p>
+                <div class="kg-card-markdown"><p>I've previously blogged about how I setup my <a href="/my-new-blog/">ghost blog</a> but today I have <em>finally</em> updated it to v1, previously from 0.8 and specifically <a href="https://github.com/TryGhost/Ghost/releases/tag/1.22.4">v1.22.4</a>.</p>
+<p>My previous site, which can be viewed <a href="http://web.archive.org/web/20180422004806/https://blog.zirafon.org">here</a> used my <a href="https://github.com/chris-brown/Masonry-Ghost-Theme">custom ghost theme</a> but I MUCH prefer the new casper theme, so for now im going to stick with it.</p>
 </div>
             </section>
 
@@ -215,8 +171,8 @@ ghost.init({
                 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "http://blog.zirafon.org/working-effectively-with-log-files/";
-        this.page.identifier = "ghost-23";
+        this.page.url = "http://blog.zirafon.org/out-with-the-old/";
+        this.page.identifier = "ghost-5ae6f27d5e520938ec8cf143";
     };
 
     (function() {
@@ -237,45 +193,32 @@ ghost.init({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-
-                <article class="post-card post tag-ghost-tag no-image">
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="/out-with-the-old/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">ghost</span>
-                <h2 class="post-card-title">Out with the old</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>I've previously blogged about how I setup my ghost blog but today I have finally updated it to v1, previously from 0.8 and specifically v1.22.4. My previous site, which can</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Chris Brown
+                <article class="read-next-card">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Chris Brown —</small>
+                        <h3 class="read-next-card-header-title"><a href="/tag/ghost-tag/">ghost</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="/my-new-blog/">My new $1 Blog</a></li>
+                        </ul>
                     </div>
+                    <footer class="read-next-card-footer">
+                        <a href="/tag/ghost-tag/">1 post →</a>
+                    </footer>
+                </article>
 
-                        <a href="/author/chris/" class="static-avatar"><img class="author-profile-image" src="/content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">1 min read</span>
-
-        </footer>
-    </div>
-</article>
 
                 <article class="post-card post no-image">
     <div class="post-card-content">
-        <a class="post-card-content-link" href="/introduction-to-web-components/">
+        <a class="post-card-content-link" href="/working-effectively-with-log-files/">
             <header class="post-card-header">
-                <h2 class="post-card-title">Introduction to Web Components</h2>
+                <h2 class="post-card-title">Working effectively with log files</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>Web components were first introduced, I believe in 2011 by Alex Russel. The idea was clear and remains so today; create reusable UI widgets that can be shared across web applications. This is</p>
+                <p>Working with logs in production is made really easy with solutions like the ELK stack, but working with logs locally can be really cumbersome. For example, something like the configuration below is very</p>
             </section>
         </a>
         <footer class="post-card-meta">
@@ -291,7 +234,7 @@ ghost.init({
                 </li>
             </ul>
 
-            <span class="reading-time">3 min read</span>
+            <span class="reading-time">2 min read</span>
 
         </footer>
     </div>
@@ -308,16 +251,16 @@ ghost.init({
         </a>
     </div>
     <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">Working effectively with log files</div>
+    <div class="floating-header-title">Out with the old</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Working%20effectively%20with%20log%20files&amp;url=http://blog.zirafon.org/working-effectively-with-log-files/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Out%20with%20the%20old&amp;url=http://blog.zirafon.org/out-with-the-old/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/working-effectively-with-log-files/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/out-with-the-old/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
         </a>
     </div>
@@ -335,7 +278,7 @@ ghost.init({
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
                 <nav class="site-footer-nav">
-                    <a href="/working-effectively-with-log-files/">Latest Posts</a>
+                    <a href="/out-with-the-old/">Latest Posts</a>
                     
                     <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
