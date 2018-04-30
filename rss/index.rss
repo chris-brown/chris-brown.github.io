@@ -1,137 +1,315 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 12 Apr 2016 12:25:40 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Deleting those dam node_modules on windows]]></title><description><![CDATA[<p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Chris Brown]]></title><description><![CDATA[Hi my name is chris, im a software developer based in London and Manchester]]></description><link>http:///</link><image><url>http:///favicon.png</url><title>Chris Brown</title><link>http:///</link></image><generator>Ghost 1.22</generator><lastBuildDate>Sun, 29 Apr 2018 19:45:28 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Working effectively with log files]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Working with logs in production is made really easy with solutions like the <a href="https://www.elastic.co/videos/introduction-to-the-elk-stack">ELK stack</a>, but working with logs locally can be really cumbersome.</p>
+<p>For example, something like the configuration below is very typical for local development;</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;nlog xmlns=&quot;http:</code></pre></div>]]></description><link>http:///working-effectively-with-log-files/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb97b</guid><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 21 Feb 2017 22:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Working with logs in production is made really easy with solutions like the <a href="https://www.elastic.co/videos/introduction-to-the-elk-stack">ELK stack</a>, but working with logs locally can be really cumbersome.</p>
+<p>For example, something like the configuration below is very typical for local development;</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;nlog xmlns=&quot;http://www.nlog-project.org/schemas/NLog.xsd&quot;
+      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
 
+    &lt;targets&gt;
+        &lt;target name=&quot;file&quot; xsi:type=&quot;File&quot;
+            layout=&quot;${longdate} ${logger} ${message}&quot; 
+            fileName=&quot;${basedir}/logs/logfile.log&quot; 
+            keepFileOpen=&quot;false&quot;
+            encoding=&quot;iso-8859-2&quot; /&gt;
+    &lt;/targets&gt;
+
+    &lt;rules&gt;
+        &lt;logger name=&quot;*&quot; minlevel=&quot;Debug&quot; writeTo=&quot;file&quot; /&gt;
+    &lt;/rules&gt;
+&lt;/nlog&gt;
+</code></pre>
 <blockquote>
-  <p>The specified path, file name, or both are too long</p>
+<p>Typically we double click on the file, close, refresh and repeat.</p>
 </blockquote>
+<p>Well below are a couple of really simple but effective solutions in working with log files.</p>
+<h3 id="1windowsexplorerpreviewpane">1. Windows explorer preview pane</h3>
+<ol>
+<li>Open windows explorer.</li>
+<li>View -&gt; Preview Pane</li>
+<li>Select the log file.</li>
+</ol>
+<p>Great thing is the preview pane refreshes the output everytime the file changes. If the preview pane doesnt show you the log file content its typically because the file extension isn't mapped to a content type.</p>
+<pre><code>Windows Registry Editor Version 5.00
 
+[HKEY_CLASSES_ROOT\.log]
+@=&quot;txtfile&quot;
+&quot;Content Type&quot;=&quot;text/plain&quot;
+&quot;PerceivedType&quot;=&quot;text&quot;
+</code></pre>
+<p>Simply copy the above and save the file using the <code>.reg</code> file extension. Double click and the key will be added to the registry settings. Try highlighting the file again.</p>
+<p>Only problem is the preview pane doesnt show the tail. But that's fine as typically in local development I archive and overwrite the log. In some cases this isnt ideal obviously.</p>
+<h3 id="2bashconsole">2. Bash console</h3>
+<pre><code class="language-cmd">$ tail -n 0 -f logfile.log
+</code></pre>
+<p><img src="http:///content/images/2017/02/logexample.gif" alt="logfile tail example"></p>
+<h3 id="3notepad">3. Notepad++</h3>
+<p>There are other text editors but <a href="https://notepad-plus-plus.org/download/">notepad++</a> works best for me.  However out of the box, after a change to the logfile you'l be presented with the following caption.</p>
+<p><img src="http:///content/images/2017/02/autorefresh-disabled.PNG" alt="reload notepadd++"></p>
+<p>To enable silent reload of the log file. <code>Settings -&gt; Preferences -&gt; MISC -&gt; Update silently</code></p>
+<p>NB. Notepad++ <a href="https://notepad-plus-plus.org/news/notepad-6.9.2-released.html">v6.9.2</a> introduces the tail command which scrolls to the EOF.</p>
+<p>Click on <code>eye icon</code> on toolbar or use menu <code>View-&gt;Monitoring (tail -f)</code> to activate/disactivate this command</p>
+<hr>
+<p>An honorable mention to the <a href="https://github.com/otros-systems/otroslogviewer">otroslogviewer project</a>, but this is more of a power user tool and I have little use for it for local development.</p>
+<p>Thanks for reading. Please share your thoughts and alternative approaches.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Introduction to Web Components]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Web components were first introduced, I believe in 2011 by <a href="https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell">Alex Russel</a>. The idea was clear and remains so today; create reusable UI widgets that can be shared across web applications.</p>
+<p>This is the 2nd time i've looked at web components as a technical solution to a problem, the first</p></div>]]></description><link>http:///introduction-to-web-components/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb97a</guid><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Thu, 09 Feb 2017 21:12:31 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Web components were first introduced, I believe in 2011 by <a href="https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell">Alex Russel</a>. The idea was clear and remains so today; create reusable UI widgets that can be shared across web applications.</p>
+<p>This is the 2nd time i've looked at web components as a technical solution to a problem, the first was in 2012 and the reason for not adopting it then was the lack of support for it and better alternative approaches.</p>
+<p>5 years on and its slow progress. Google has shown great support, so much so that they built the <a href="https://patents.google.com/">https://patents.google.com/</a> site using it and Chrome is currently the only browser that has full native support.</p>
+<p>Another example is the relative time caption on everyone's favorite site, <a href="https://github.com/github/time-elements">Github</a>.</p>
+<p><img src="http:///content/images/2017/02/github-time-1.PNG" alt="relative-time web component"></p>
+<p>This is used throughout the site and is used to localise the given date depending upon the users browser settings. Notably, if the user has javascript disabled it will also fall back to the value set in the <code>relative-time</code> custom element.</p>
+<pre><code class="language-html">&lt;relative-time datetime=&quot;2017-02-05T06:26:26Z&quot; title=&quot;Feb 5, 2017, 6:26 AM GMT&quot;&gt;9 days ago&lt;/relative-time&gt;
+</code></pre>
+<br>
+#### Clarification and avoiding confusion
+<p>Web components are often confused as a custom element, however as noted in the w3c standards <a href="https://www.w3.org/standards/techs/components#drafts">specification</a>, this is actually just one of four technologies used in the makeup of a web component. Collectively they include;</p>
+<ul>
+<li><a href="https://www.w3.org/TR/2016/WD-custom-elements-20161013/">Custom Elements</a></li>
+</ul>
+<pre><code>&lt;my-navigation&gt;hello world&lt;/my-navigation&gt;
+</code></pre>
+<ul>
+<li><a href="http://www.w3.org/TR/2014/NOTE-html-templates-20140318/">HTML Templates</a></li>
+</ul>
+<pre><code>&lt;template id=&quot;navigation&quot;&gt;
+  ...
+  &lt;li&gt;home&lt;/li&gt;
+  ...
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><a href="https://www.w3.org/TR/2017/WD-shadow-dom-20170116/">Shadow DOM</a></li>
+</ul>
+<pre><code class="language-js">this.createShadowRoot();
+</code></pre>
+<ul>
+<li><a href="http://www.w3.org/TR/2016/WD-html-imports-20160225/">HTML Imports</a></li>
+</ul>
+<pre><code class="language-html">&lt;link rel=&quot;import&quot; href=&quot;navigation.html?v=1&quot; async /&gt;
+</code></pre>
+<p>Now <a href="https://github.com/chris-brown/webcomponent-basic-example">put it all together</a> and you have a native, reusable UI component.</p>
+<hr>
+#### Shadow DOM
+<p>The shaddow DOM allows for encapsulation of a component. As the following example demonstrates, all styles defined inline below will be applied to the given markup and will not effect global scope.</p>
+<pre><code class="language-html">var root = this.createShadowRoot();
+root.innerHtml = '&lt;style&gt; * { color: red; } &lt;/style&gt; &lt;p&gt;Hello&lt;/p&gt;';
+</code></pre>
+<hr>
+<h4 id="browsersupport">Browser support</h4>
+<p><em><strong>Disclaimer:</strong> Today however it is worth noting the web component technical draft is incomplete and has been known to change so follow the draft with caution.</em></p>
+<p>The features above are used to create a web component, however each have there own level of browser support and adoption. Therefore often web components are partially implemented or in most cases are just custom elements.</p>
+<p>I wont spend too much time in detailing browser support as <a href="http://jonrimmer.github.io/are-we-componentized-yet/">better resources</a> can be found elsewhere and I would find it difficult to keep the content up to date.</p>
+<p>There are various <a href="https://www.webcomponents.org/polyfills">pollyfills</a> available to plaster over the holes <em>cautious</em> browsers have left, but they come typically at a performance cost. However, depending on what your use cases are, there are libraries that exist to make the creation of web components easier. These are the most popular;</p>
+<ul>
+<li><a href="https://www.polymer-project.org/">Polymer</a> provides a set of features for creating custom elements.</li>
+<li><a href="https://github.com/skatejs/skatejs">SkateJS</a> is a JavaScript library for writing web components with a small footprint.</li>
+<li><a href="https://x-tag.github.io/">X-Tag</a> is an open source JavaScript library that provides an interface for component development.</li>
+</ul>
+<p>Polymer for example created a lighter weight shim for the shaddow dom called shady dom, more on that <a href="https://www.polymer-project.org/1.0/blog/shadydom">here</a>.</p>
+<hr>
+<h3 id="andfinally">And finally...</h3>
+<p>Web components certainly wont suit all projects and I'm not saying you should adopt blindly. If I were to create a green field SPA I would use a framework like React or Angular and take advantage of how they create re-usable components.</p>
+<p>However the benefits of web components are that they utilise technologies that are native to the browser.  This can be really compelling when working with mirosite's that each require consistant branding but have their own client side frameworks. In this case we're using native behavior and no reason to force additional dependencies upon them.</p>
+<p>Im currently working on a Progressive Web application which will demonstrate real world usages of web components, so once done ill add the link to the post.</p>
+<p>Thanks for reading. Please share any comments, experiences and links to related projects or posts.</p>
+<h4 id="links">Links</h4>
+<ul>
+<li><a href="https://www.polymer-project.org/1.0/">Polymer</a></li>
+<li><a href="https://www.w3.org/standards/techs/components">Web Component W3C Status</a></li>
+<li><a href="https://github.com/chris-brown/webcomponent-basic-example">Example Component shown in demo below</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM">MDN Shaddow DOM draft</a></li>
+<li><a href="https://www.webcomponents.org/">https://www.webcomponents.org/</a></li>
+<li><a href="https://gitter.im/webcomponents/community">Gitter</a></li>
+<li><a href="https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell">https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell</a></li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[Serverless Architecture]]></title><description><![CDATA[<div class="kg-card-markdown"><p>If you are reading this post in July 2016 (<em>when the post was written</em>), you will probably agree serverless architecture is <strong>H.O.T</strong> right now.</p>
+<p>Although the concept has been well used for quite sometime, we now have an alias and title associated. So as a result we have</p></div>]]></description><link>http:///serverless-architecture/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb978</guid><category><![CDATA[architecture]]></category><category><![CDATA[azure]]></category><category><![CDATA[serverless]]></category><category><![CDATA[aws]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Wed, 13 Jul 2016 22:22:12 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>If you are reading this post in July 2016 (<em>when the post was written</em>), you will probably agree serverless architecture is <strong>H.O.T</strong> right now.</p>
+<p>Although the concept has been well used for quite sometime, we now have an alias and title associated. So as a result we have a <a href="http://www.meetup.com/Serverless-London/">meetup</a> we can now go to, a <a href="http://serverlessconf.io/">conference</a> where we can be preached to and of course this all leads to the proverbial <a href="https://twitter.com/search?h=serverless">bandwagon</a> to jump on. - This is where we are right now, so lets ask the question <mark><a href="#what">What</a> really is Serverless Architecture and <a href="#how">how</a> and <a href="#when">when</a> should we use it.</mark></p>
+<h3 id="what">What</h3>
+<p>To begin with the name serverless can be a little misleading.  But in short, it's typically a small application or unit of work that itself and its dependencies run on server's that you don't manage or concern yourself about.</p>
+<p>But what's new about that right? Prior to the recent #devops movement, developers never really concerned themselves about consistency, availability and partition tolerance anyway.</p>
+<p>But serverless takes it to the next level in the form of <a href="http:///serverless-architecture/">BAAS</a> and <a href="#faas">FAAS</a> where there is absolute no consideration to scaling and availability. Your cloud provider takes care of this with a typical 4x9 uptime SLA.</p>
+<p>But for a better definition and insight to this, <a href="http://martinfowler.com/articles/serverless.html">Martin Fowler and thoughtworks</a> will give you greater detail than I will. - And it really is comprehensive. This in itself suggests the relevance of serverless and its expected impact in future software solutions.</p>
+<h3 id="how">How</h3>
+<h4 id="faas">FAAS</h4>
+<p><strong>Functions as a service</strong> is quite simply a method of executing code, or a unit of work, as a service.</p>
+<p>Serverless can often be better known as FAAS.  Demonstration by the tweet below; it's certainly a common opinion.</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Can we please rename <a href="https://twitter.com/hashtag/serverless?src=hash">#serverless</a> to <a href="https://twitter.com/hashtag/faas?src=hash">#faas</a>? Functions as a Service. The term &quot;Serverless&quot; is a misnomer. It&#39;s also vendor lock-in.</p>&mdash; marak (@marak) <a href="https://twitter.com/marak/status/736357543598002176">May 28, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<br>
+I for one first started seeing the term used more often when last year AWS released [API gateway](https://aws.amazon.com/api-gateway/), a managed service that alongside Lambda, offers "serverless" APIs.
+<p>The benefits are obvious, just as <a href="https://azure.microsoft.com/en-gb/overview/what-is-paas/">PAAS</a> has brought cost effective benefits, FAAS gives you a similar model. You pay for how much you use.</p>
+<h4 id="baas">BAAS</h4>
+<p><strong>Backend as a service</strong> is a simlar approach to FAAS but at a larger scale and covers more domains.  A classic example is using authentication as a service. <a href="https://auth0.com/">Auth0</a> for example packages all the complexities involved as a oAuth provider; token persistence, user management, token serialisation and offers it as and when you need it.</p>
+<p>I've come accross many custom implementations of oAuth, open Id and identity providers and all have their own faults. - Due to the complex nature of the topic. - Its a perfect candidate to offload to an expert.</p>
+<p>But there are many more use cases. Consider the regulations you have to oblige to when implementing payment providers or simply taking your end users personal details.</p>
+<p>This isn't just a solution for lazy software developers, this is a smart product decision to offload business value to an expert.</p>
+<h3 id="when">When</h3>
+<p>The problem I have with this architecture, whether we are using AWS Lambdas or Azure functions, blob storage or an S3 Bucket. We are building software driven by a chosen cloud provider.</p>
+<p>My concern with building software <em>cloud first</em> and tying your product to a 3rd party, is less about availability and more about losing control.</p>
+<p>AWS for example sets the minimum supported node runtime for lambdas, what happends when they decide to increase it? All of a sudden your application needs a rewrite.</p>
+<p>Although cloud provider costs are compelling now, what happens if this changes and your tied to a given cloud platform? It quickly becomes unsustainable.</p>
+<p>However, serverless and the adoption of the cloud offers excellent value and current pricing tiers for serverless features/products, allow us to build enterprise solutions on startup budgets.</p>
+<blockquote>
+<p>... enterprise solutions on a startup budget</p>
+</blockquote>
+<p>These are some considerations not to overlook when choosing to adopt serverless architecture. We're currently using it quite successfully but as always there are tradeoffs to consider.  I hope blog a followup, detailing the tradeoffs and disadvantages I have experiences.</p>
+<p><em>Please share your links and examples below and thanks for reading.</em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Intro to git hooks]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Git hooks are scripts that Git executes before or after events such as: <a href="https://git-scm.com/docs/git-commit">commit</a>, <a href="https://git-scm.com/docs/git-push">push</a>, and <a href="https://git-scm.com/docs/git-branch">branch</a>. Git hooks are ran locally and is a native feature so no additional dependencies.</p>
+<p>Using hooks are really trivial and the scripts themselves are limited only by your imagination.</p>
+<p>Below is a quick</p></div>]]></description><link>http:///git-hooks/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb976</guid><category><![CDATA[git]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 12 Apr 2016 16:45:27 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Git hooks are scripts that Git executes before or after events such as: <a href="https://git-scm.com/docs/git-commit">commit</a>, <a href="https://git-scm.com/docs/git-push">push</a>, and <a href="https://git-scm.com/docs/git-branch">branch</a>. Git hooks are ran locally and is a native feature so no additional dependencies.</p>
+<p>Using hooks are really trivial and the scripts themselves are limited only by your imagination.</p>
+<p>Below is a quick rundown on how to work with git hooks.</p>
+<pre><code>mkdir mygit-workflow
+cd mygit-workflow
+</code></pre>
+<pre><code>git init
+</code></pre>
+<p>Git <a href="https://git-scm.com/docs/git-init">init</a> creates an empty repository and a handful of <strong>example hooks are copied into the <code>.git\hooks</code> directory</strong>. However these are <strong>disabled by default</strong>. Lets take a look at them.</p>
+<pre><code>cd .git\hooks\
+ls
+</code></pre>
+<pre><code>Name
+----
+applypatch-msg.sample
+commit-msg.sample
+post-commit.sample
+post-receive.sample
+post-update.sample
+pre-applypatch.sample
+pre-commit.sample
+pre-push.sample
+pre-rebase.sample
+prepare-commit-msg.sample
+update.sample
+</code></pre>
+<p>Now although these are just samples they can be pretty useful out of the box. For example if we take a look at the pre-commit.sample.</p>
+<pre><code>cat pre-commit.sample
+</code></pre>
+<p>This basically does a diff on the changed files and prevents you from checking in filenames with non-ascii characters. This can be helpful when a project is running over different platforms.</p>
+<blockquote>
+<p>To enable one of the sample hooks. Just remove <code>.sample</code> from the filename.</p>
+</blockquote>
+<pre><code>mv pre-commit.sample pre-commit
+</code></pre>
+<p>These are the current hooks you can write a script to attach to:</p>
+<ul>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L32">applypatch-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L48">pre-applypatch</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L63">post-applypatch</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L72">pre-commit</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L89">prepare-commit-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L114">commit-msg</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L131">post-commit</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L140">pre-rebase</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#149">post-checkout</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L167">post-merge</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L181">pre-push</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L211">pre-receive</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L240">update</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L283">post-receive</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L313">post-update</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L344">push-to-checkout</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L374">pre-auto-gc</a></li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L381">post-rewrite</a></li>
+</ul>
+<h3 id="usecases">Use cases</h3>
+<p>Like i've mentioned the usage of git hooks are limited only by imagination however I would advise to proceed with caution and remember to try and choose the right tool for the job. Just because you can, it doesn't always mean you should.</p>
+<p>I've know of scenarios whereby teams use the <a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L283">post-receive</a> hook to publish code to a production environment. Typically this isnt advised as there are better products/ solutions to manage your <a href="https://www.thoughtworks.com/continuous-delivery">CI/CD</a> strategy.</p>
+<p>With this in mind, here are a couple.</p>
+<ul>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L72">pre-commit</a> - Check commit message and enforce project message rules</li>
+<li><a href="https://github.com/git/git/blob/master/Documentation/githooks.txt#L131">post-commit</a> - Create a <a href="https://slack.com/">slack</a> notification to notify the team of pending changes to the remote.</li>
+</ul>
+<p>Im going to follow this post up with a working example soon, until then you might find this <a href="https://github.com/mroth/lolcommits">one</a> useful to get you started.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Deleting those dam node_modules on windows]]></title><description><![CDATA[<div class="kg-card-markdown"><p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
+<blockquote>
+<p>The specified path, file name, or both are too long</p>
+</blockquote>
 <p>or</p>
-
 <blockquote>
-  <p>The specified path, file name, or both are too</p></blockquote>]]></description><link>http:///deleting-windows-node_modules/</link><guid isPermaLink="false">0420b79e-7679-4f0e-b543-f0a881bfdb96</guid><category><![CDATA[node]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Wed, 30 Mar 2016 09:00:13 GMT</pubDate><content:encoded><![CDATA[<p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
-
+<p>The specified path, file name, or both are too</p></blockquote></div>]]></description><link>http:///deleting-windows-node_modules/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb977</guid><category><![CDATA[node]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Wed, 30 Mar 2016 09:00:13 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>If you use node on windows the chances are that you've come across the following error when trying to delete the <code>node_modules</code> directory or any of its parent directories.</p>
 <blockquote>
-  <p>The specified path, file name, or both are too long</p>
+<p>The specified path, file name, or both are too long</p>
 </blockquote>
-
 <p>or</p>
-
 <blockquote>
-  <p>The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.</p>
+<p>The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.</p>
 </blockquote>
-
 <p>I previously used various hacks to get round this, including;</p>
-
-<p><code>robocopy new_empty_directory node_modules /MIR</code></p>
-
+<pre><code>robocopy new_empty_directory node_modules /MIR
+</code></pre>
 <p>Which creates an empty mirror directory that you can then delete.</p>
-
 <p>However, I recently came across the node module <a href="https://github.com/isaacs/rimraf">rimraf</a>, created by NPM founder <a href="http://izs.me/">Isaac Schlueter</a>. Annoyingly this project first started in <a href="https://github.com/isaacs/rimraf/commit/d701679252dad525cb69b4a1f36c5b90a38ee290">Feb 2011</a> which means ive had a few years of unnecessary hurt but that doesn't necessarily mean you have too! :)</p>
-
 <p>Check the <a href="https://github.com/isaacs/rimraf#cli">projects wiki</a> out for better documentation but generally all you will have to do is the following.</p>
-
-<p>Install globally.  </p>
-
-<pre><code>npm install rimraf -g  
+<p>Install globally.</p>
+<pre><code>npm install rimraf -g
 </code></pre>
-
-<p>Then  </p>
-
-<pre><code>rimraf .\node_modules\  
+<p>Then</p>
+<pre><code>rimraf .\node_modules\
 </code></pre>
-
 <p>will recursively remove all modules and its dependencies.</p>
-
-<p>Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
-
-<p><em>An example of what Hex. is not!</em>
+<p>Thanks for reading.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Hexagonal Architecture]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+<p><em>An example of what Hex. is not!</em><br>
 <img src="http:///content/images/2016/03/hex-wrong.png" alt="Misleading assumption of Hexagonal Architecture"></p>
-
-<p>But this can be confused</p>]]></description><link>http:///hexagonal-architecture/</link><guid isPermaLink="false">eda2043e-6325-4ab7-8361-c444d2c37e9d</guid><category><![CDATA[architecture]]></category><category><![CDATA[patterns]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 22 Mar 2016 12:31:58 GMT</pubDate><media:content url="http:///content/images/2016/03/coffee-min-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/03/coffee-min-1.jpg" alt="Hexagonal Architecture"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
-
-<p><em>An example of what Hex. is not!</em>
+<p>But this can be confused</p></div>]]></description><link>http:///hexagonal-architecture/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb975</guid><category><![CDATA[architecture]]></category><category><![CDATA[patterns]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 22 Mar 2016 12:31:58 GMT</pubDate><media:content url="http:///content/images/2016/03/coffee-min-1.jpg" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="http:///content/images/2016/03/coffee-min-1.jpg" alt="Hexagonal Architecture"><p>Hexagonal Architecture was formally penned by <a href="http://alistair.cockburn.us/Hexagonal+architecture">Alistair Cockburn</a> in the late 90s but really the name Hexagonal Architecture is a little misleading; it can lead us to believe that our application should be defined by 6 known sides.</p>
+<p><em>An example of what Hex. is not!</em><br>
 <img src="http:///content/images/2016/03/hex-wrong.png" alt="Hexagonal Architecture"></p>
-
 <p>But this can be confused for <a href="https://en.wikipedia.org/wiki/Multitier_architecture">nTier</a> architecture. A pattern typically associated with a monolith application and it's important to understand that this is fundamentally a different approach.</p>
-
 <p>The name Hexagonal is a metaphor for elements intersecting  but it is otherwise known as <strong>Ports &amp; Adapters</strong> and for me, better explains the principals and helps us understand the fundamentals.</p>
-
 <p>Known problems with nTier architecture are with dependencies between layers which lead to <a href="https://en.wikipedia.org/wiki/Leaky_abstraction">leaky abstractions</a>. The classic example of this is when we reuse our Domain models over presentation and data layers.</p>
-
 <p>However Hex. Architecture suggests you create your application to work independently of a UI, database or CLI for example. The quote below is taken from Alistair's website and summaries quite well as to how the architecture is defined.</p>
-
 <blockquote>
-  <p>Allow an application to equally be driven by users or programs and to be developed and tested in isolation from its eventual run-time device</p>
+<p>Allow an application to equally be driven by users or programs and to be developed and tested in isolation from its eventual run-time device</p>
 </blockquote>
-
 <p><sub><a href="http://alistair.cockburn.us/Hexagonal+architecture">a. cockburn</a></sub></p>
-
 <p>This approach forces each port to be independently testable and subsequently helps us build <em>reusable software</em>.</p>
-
 <p>This is what makes Hex. so compelling for me. I am currently working for a client who uses a dozen different CM and CRM systems. Using Hex. architecture allows me to build the desired logic independently of either of these systems, write automated tests to validate the behavior and then come the time we want to integrate there will be no surprises.</p>
-
 <p><img src="http:///content/images/2016/03/hexagonal-architecture.jpg" alt="Hexagonal Architecture"></p>
-
 <h3 id="hexbyexample">Hex by Example:</h3>
-
 <p>Im working on doing a lightning talk on Hex. Architecture with an accompanying demo so ill follow up this post with those slides and reference to the repo.</p>
-
 <p>For now, below is designed to help you understand how many ports would be used to create a coffee machine.</p>
-
 <p><em>A coffee machine controller has four natural ports: the <strong>user</strong>, the database containing the <strong>recipes and prices</strong>, the <strong>dispensers</strong>, and the <strong>coin box</strong></em></p>
-
 <p><img src="http:///content/images/2016/03/coffee-machine.png" alt="Hexagonal Architecture"></p>
-
 <p>Ports and Adapters can further be defines as the following while using Pseudo-code to demonstration the relationship.</p>
-
 <blockquote>
-  <p>Ports are interfaces</p>
+<p>Ports are interfaces</p>
 </blockquote>
-
-<pre><code>interface ICoinBox {  
+<pre><code class="language-clike">interface ICoinBox {
    bool Insert(IAmAMonetryValue value);
 }
 </code></pre>
-
 <blockquote>
-  <p>Adapters are implementations</p>
+<p>Adapters are implementations</p>
 </blockquote>
-
-<pre><code>class GbpCoinBox : ICoinBox {  
+<pre><code class="language-clike">class GbpCoinBox : ICoinBox {
    bool Insert(Gbp value) {
       ...
    }
 }
 </code></pre>
-
 <h3 id="puttingitalltogether">Putting it all together</h3>
-
 <p>It is all glued together using Bob Martin's <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion</a> principal. A modular approach for decoupling module implementation details. Easily allowing us to interchange test harnesses for user interfaces as and when required.</p>
-
 <p>Net result is well made coffee.</p>
-
 <p><img src="http:///content/images/2016/03/coffee-min.jpg" alt="Hexagonal Architecture"></p>
-
 <p>Thats it for now. Thanks for reading. Please leave comments or links to related posts.</p>
-
 <h3 id="links">Links</h3>
-
 <ol>
-<li><a href="http://alistair.cockburn.us/Hexagonal+architecture">http://alistair.cockburn.us/Hexagonal+architecture</a>  </li>
+<li><a href="http://alistair.cockburn.us/Hexagonal+architecture">http://alistair.cockburn.us/Hexagonal+architecture</a></li>
 <li><a href="https://github.com/totheralistair/SmallerWebHexagon">Hexagonal Architecture example</a></li>
-</ol>]]></content:encoded></item><item><title><![CDATA[Reactive Programming]]></title><description><![CDATA[<p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
-
+</ol>
+</div>]]></content:encoded></item><item><title><![CDATA[Reactive Programming]]></title><description><![CDATA[<div class="kg-card-markdown"><p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
 <blockquote>
-  <p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
+<p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
 </blockquote>
-
-<p>Any queries please let me know. I've included</p>]]></description><link>http:///reactive-programming/</link><guid isPermaLink="false">123fbc36-c48b-49eb-b8b6-7b9b8fda5d48</guid><category><![CDATA[rx.net]]></category><category><![CDATA[presentation]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 19 Jan 2016 20:01:15 GMT</pubDate><media:content url="http:///content/images/2016/01/reactivex_bg-1-.jpg" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2016/01/reactivex_bg-1-.jpg" alt="Reactive Programming"><p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
-
+<p>Any queries please let me know. I've included</p></div>]]></description><link>http:///reactive-programming/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb971</guid><category><![CDATA[rx.net]]></category><category><![CDATA[presentation]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 19 Jan 2016 20:01:15 GMT</pubDate><media:content url="http:///content/images/2016/01/reactivex_bg-1-.jpg" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="http:///content/images/2016/01/reactivex_bg-1-.jpg" alt="Reactive Programming"><p>I recently did a presentation on reactive programming with examples of <a href="https://gitter.im/Reactive-Extensions/Rx.NET">Rx.Net</a>. The presentation gives a basic intro into the key concepts whilst attempting to help you understand what benefits Rx will bring to your life's.</p>
 <blockquote>
-  <p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
+<p><a href="http://slides.com/chrisbrown-3/reactive-programming/#/">http://slides.com/chrisbrown-3/reactive-programming/#/</a></p>
 </blockquote>
-
 <p>Any queries please let me know. I've included some useful links from the presentation so if you dont read the slides and your interested in Rx then please follow them.</p>
-
 <ul>
 <li><a href="http:///reactive-programming/www.reactivemanifesto.org">Reactive Manifesto</a></li>
 <li><a href="https://github.com/AdaptiveConsulting/ReactiveTrader">Demo project</a> from <a href="http://weareadaptive.com/">AdaptiveConsultants</a>.</li>
@@ -140,333 +318,212 @@
 <li><a href="http:///reactive-programming/rxmarbles.com">Rx Marbles</a></li>
 <li>My <a href="mailto:chris@zirafon.org">email</a></li>
 </ul>
-
-<p>Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Visual Studio Code Snippets using ReSharper Live Templates]]></title><description><![CDATA[<p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
-
+<p>Thanks for reading.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Visual Studio Code Snippets using ReSharper Live Templates]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
 <p>A really useful yet often under-utilised feature of the <a href="https://www.jetbrains.com/resharper/">Resharper</a> toolbelt are <a href="https://www.jetbrains.com/resharper/features/code_templates.html">Live Templates</a>. Its effectively yet another productive time saving technique that using Reharper brings.</p>
-
 <p>Its straight forward, and the example below I use almost everyday. Its used to create a unit test stub to support <a href="http://martinfowler.com/bliki/GivenWhenThen.html">GivenWhenThen</a>.</p>
-
-<p>Goto: ReSharper-></p>]]></description><link>http:///resharper-live-template/</link><guid isPermaLink="false">fc533ba0-ac47-4e16-ac54-9b063abd0e84</guid><category><![CDATA[test]]></category><category><![CDATA[ReSharper]]></category><category><![CDATA[visual studio]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 19 Jan 2016 08:58:49 GMT</pubDate><content:encoded><![CDATA[<p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
-
+<p>Goto: ReSharper-&</p></div>]]></description><link>http:///resharper-live-template/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb972</guid><category><![CDATA[test]]></category><category><![CDATA[ReSharper]]></category><category><![CDATA[visual studio]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 19 Jan 2016 08:58:49 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http:///content/images/2016/01/icon_ReSharper-1.png" alt=""></p>
 <p>A really useful yet often under-utilised feature of the <a href="https://www.jetbrains.com/resharper/">Resharper</a> toolbelt are <a href="https://www.jetbrains.com/resharper/features/code_templates.html">Live Templates</a>. Its effectively yet another productive time saving technique that using Reharper brings.</p>
-
 <p>Its straight forward, and the example below I use almost everyday. Its used to create a unit test stub to support <a href="http://martinfowler.com/bliki/GivenWhenThen.html">GivenWhenThen</a>.</p>
-
-<p>Goto: ReSharper->Tools->Templates Explorer...</p>
-
+<p>Goto: ReSharper-&gt;Tools-&gt;Templates Explorer...</p>
 <p>As Highlighted below. If the <em>test</em> scope doesnt exist then select the <strong>New Template</strong> icon on the toolbar. If it does then simply select and edit.</p>
-
 <p><img src="http:///content/images/2016/01/template-explorer-1.png" alt=""></p>
-
 <p>This takes you to the template itself where I added the following.</p>
-
-<pre><code class="language-C#">[Test]
-public void $Method$_$Scenario$_$Expected$(){  
-    // GIVEN:
-    $END$
-    // WHEN:
-    // THEN:
+<pre><code class="language-clike">[Test]
+public void $Method$_$Scenario$_$Expected$(){
+	// GIVEN:
+	$END$
+	// WHEN:
+	// THEN:
 }
 </code></pre>
-
 <p>And thats! This then gives you the following code snippet.</p>
-
 <p><img src="http:///content/images/2016/01/test-template-1.gif" alt=""></p>
-
-<p>Really simple and incredibly effective. The example above is primitive but <a href="https://www.jetbrains.com/resharper/features/code_templates.html">this</a> shows better examples of how powerful it can be.</p>]]></content:encoded></item><item><title><![CDATA[Static Azure Website]]></title><description><![CDATA[<p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
-
-<p>I've used blob storage before but for its typical use; storing</p>]]></description><link>http:///static-azure-website/</link><guid isPermaLink="false">2b17d336-5df8-4977-b63b-d2944035cbc2</guid><category><![CDATA[azure]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Mon, 04 Jan 2016 01:28:35 GMT</pubDate><content:encoded><![CDATA[<p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
-
+<p>Really simple and incredibly effective. The example above is primitive but <a href="https://www.jetbrains.com/resharper/features/code_templates.html">this</a> shows better examples of how powerful it can be.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Static Azure Website]]></title><description><![CDATA[<div class="kg-card-markdown"><p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
+<p>I've used blob storage before but for its typical use; storing</p></div>]]></description><link>http:///static-azure-website/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb970</guid><category><![CDATA[azure]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Mon, 04 Jan 2016 01:28:35 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>So I recently blogged about creating a bespoke <a href="http:///my-new-blog/">blog for next to nothing</a>. It ended up effectively being a static site hosted on github pages. So I thought why couldnt we do something similar with MSFT <a href="https://azure.microsoft.com/en-gb/documentation/articles/storage-introduction/">Azure blob storage</a>?</p>
 <p>I've used blob storage before but for its typical use; storing website assets with a <a href="https://azure.microsoft.com/en-gb/services/cdn/">CDN</a> in front, but I dont see why this shouldn't work.</p>
-
 <p>First of all its important to understand that Azure Blob Storage is not a web server so we immediately loose the benefits IIS brings. For example setting a default document. If I navigate to the root container ill get a <code>404</code>. So we will have to be explicit in referencing our filename, in this case <code>/index.html</code>.</p>
-
 <p>Another related issue is how will the browser know how to render the blob, seen as its not hosted on a webserver, what would the response headers be? A quick confirmation of this was to simply upload a test page and navigate to it.</p>
-
 <p><img src="http:///content/images/2016/01/2016-01-04--3-.png" alt="Azure Explorer"></p>
-
 <p>And Navigating to it returns the following response headers.</p>
-
-<pre><code>HTTP/1.1 200 OK  
-Content-Length: 1492  
-Content-Type: text/html  
-Content-MD5: RWjh1LBpfG99DCHD+W1raQ==  
-Last-Modified: Mon, 04 Jan 2016 01:04:23 GMT  
-ETag: 0x8D314A2FC4F3940  
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0  
-x-ms-request-id: 6e1b9f58-0001-0092-3091-46e306000000  
-x-ms-version: 2009-09-19  
-x-ms-lease-status: unlocked  
-x-ms-blob-type: BlockBlob  
-Date: Mon, 04 Jan 2016 01:47:42 GMT  
+<pre><code>HTTP/1.1 200 OK
+Content-Length: 1492
+Content-Type: text/html
+Content-MD5: RWjh1LBpfG99DCHD+W1raQ==
+Last-Modified: Mon, 04 Jan 2016 01:04:23 GMT
+ETag: 0x8D314A2FC4F3940
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: 6e1b9f58-0001-0092-3091-46e306000000
+x-ms-version: 2009-09-19
+x-ms-lease-status: unlocked
+x-ms-blob-type: BlockBlob
+Date: Mon, 04 Jan 2016 01:47:42 GMT
 </code></pre>
-
 <h4 id="success">Success!</h4>
-
-<p>So why would you want to consider this? Well its not suitable for all projects because of the limitations mentioned above but if the project suits a static site then the infrastructure that <a href="https://azure.microsoft.com" target="_blank">Azure</a> and other <a href="https://aws.amazon.com/s3/">notable </a>cloud providers give you, is certainly worth exploring.</p>
-
-<p>With the example below, I uploaded a static spa site, generated using <a href="https://www.npmjs.com/package/generator-react-static" target="_blank">generator-react-static</a>. This is to demonstrate what is possible.</p>
-
-<p><a href="https://zirafon.blob.core.windows.net/index.html" target="_blank">https://zirafon.blob.core.windows.net/index.html</a></p>
-
+<p>So why would you want to consider this? Well its not suitable for all projects because of the limitations mentioned above but if the project suits a static site then the infrastructure that [Azure](<a href="https://azure.microsoft.com">https://azure.microsoft.com</a>&quot; target=&quot;_blank) and other <a href="https://aws.amazon.com/s3/">notable </a>cloud providers give you, is certainly worth exploring.</p>
+<p>With the example below, I uploaded a static spa site, generated using [generator-react-static](<a href="https://www.npmjs.com/package/generator-react-static">https://www.npmjs.com/package/generator-react-static</a>&quot; target=&quot;_blank). This is to demonstrate what is possible.</p>
+<p>[<a href="https://zirafon.blob.core.windows.net/index.html">https://zirafon.blob.core.windows.net/index.html</a>](<a href="https://zirafon.blob.core.windows.net/index.html">https://zirafon.blob.core.windows.net/index.html</a>&quot; target=&quot;_blank)</p>
 <p>The site will render basic markup and the client will retrieve the data it needs from light weight API's.</p>
-
-<p><img src="http://yuml.me/diagram/scruffy/class/[Site]->[API 1],[Site]->[API 2],[Site]->[API 3]" alt="static site architecture"></p>
-
+<img src="http://yuml.me/diagram/scruffy/class/[Site]->[API 1],[Site]->[API 2],[Site]->[API 3]" alt="static site architecture">
 <p>This can obviously scale as much as you need it to.</p>
-
-<p><img src="http://yuml.me/diagram/scruffy/class/[CDN]->[Site 1],[CDN]->[Site 2],[CDN]->[Site 3],[Request{bg:moccasin}]->[CDN]" alt="site at scale" height="100"></p>
-
-<p>So this becomes a very affordable enterprise solution minus the enterprise prices. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[My new $1 Blog]]></title><description><![CDATA[How I created a blog for next to no money using Ghost Blogging Engine]]></description><link>http:///my-new-blog/</link><guid isPermaLink="false">fd7b3b1e-c466-4bfb-95ac-38d1d5b86314</guid><category><![CDATA[ghost]]></category><category><![CDATA[github]]></category><category><![CDATA[blog]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Sat, 26 Dec 2015 17:44:24 GMT</pubDate><media:content url="http:///content/images/2015/12/ghost-1-.png" medium="image"/><content:encoded><![CDATA[<img src="http:///content/images/2015/12/ghost-1-.png" alt="My new $1 Blog"><p>As a self employed software developer it is essential to have some form of web presence.</p>
-
+<img src="http://yuml.me/diagram/scruffy/class/[CDN]->[Site 1],[CDN]->[Site 2],[CDN]->[Site 3],[Request{bg:moccasin}]->[CDN]" alt="site at scale" height="100">
+<p>So this becomes a very affordable enterprise solution minus the enterprise prices. Thanks for reading.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[My new $1 Blog]]></title><description><![CDATA[How I created a blog for next to no money using Ghost Blogging Engine]]></description><link>http:///my-new-blog/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb96b</guid><category><![CDATA[ghost]]></category><category><![CDATA[github]]></category><category><![CDATA[blog]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Sat, 26 Dec 2015 17:44:24 GMT</pubDate><media:content url="http:///content/images/2015/12/ghost-1-.png" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="http:///content/images/2015/12/ghost-1-.png" alt="My new $1 Blog"><p>As a self employed software developer it is essential to have some form of web presence.</p>
 <p>I previously had a bespoke <a href="http://www.zirafon.org">website</a> using latest tech and hosted on azure used primary as a portfolio piece that was attached to my email domain.</p>
-
 <p>Alongside this I had a technical blog at <a href="http://zirafon-blog.blogspot.co.uk">blogspot</a>. I found keeping both up to date required more time than I had. <em>As a result i decided to amalgamate.</em></p>
-
 <p>Apart from anything, I didn't like the fact my blog was detached from my personal domain. As a developer if you blog, you need to own that content and the obvious way to do so is to ensure it is housed under your personal domain. In my case this was <a href="http://blog.zirafon.org">blog.*</a>.</p>
-
 <blockquote>
-  <p>As a developer if you blog, you need to own that content ...</p>
+<p>As a developer if you blog, you need to own that content ...</p>
 </blockquote>
-
-<p>So the next question is, which blog engine do I use. Because I don't know how often I would blog, it needed to be <strong>1. free</strong> and preferably <a href="http:///my-new-blog/#opensource"><strong>2. open source</strong></a>. It also needed to be <strong>3. fast</strong> and because im putting my name and reputation as a software developer it needs to be <strong>4. extensible</strong> so I can customize it. The final requirement is that I wanted it to be a <strong>5. markdown</strong> blog engine.</p>
-
+<p>So the next question is, which blog engine do I use. Because I don't know how often I would blog, it needed to be <strong>1. free</strong> and preferably <a href="#opensource"><strong>2. open source</strong></a>. It also needed to be <strong>3. fast</strong> and because im putting my name and reputation as a software developer it needs to be <strong>4. extensible</strong> so I can customize it. The final requirement is that I wanted it to be a <strong>5. markdown</strong> blog engine.</p>
 <h2 id="blogengine">Blog Engine</h2>
-
 <h5 id="anamefreea1free"><a name="free"></a> 1. Free</h5>
-
 <p>As previously mentioned im moving from <a href="http://azure.com">Azure</a> which is a paid product, not expensive but because the blog is effectively a static site then why do I need heavy compute power? I don't and while I already knew of free blog offerings, most platforms have paid plugins. For example having custom domains etc. So I set a challenge for myself to see how cheap I can keep it, and preferably lets keep it free without losing functionality.</p>
-
 <blockquote>
-  <p>...lets keep it free without losing functionality.</p>
+<p>...lets keep it free without losing functionality.</p>
 </blockquote>
-
 <h5 id="anameopensourcea2opensource"><a name="opensource"></a>2. Open Source</h5>
-
-<p>Im pretty passionate about open source software. I've profited from it previously and contributed where appropriate. But typically open source projects have best community support and starting out on a new project, this is important! And obviously this helps with being <a href="http:///my-new-blog/#extensible"><strong>4. extensible</strong></a>.</p>
-
+<p>Im pretty passionate about open source software. I've profited from it previously and contributed where appropriate. But typically open source projects have best community support and starting out on a new project, this is important! And obviously this helps with being <a href="#extensible"><strong>4. extensible</strong></a>.</p>
 <h5 id="anamefasta3fast"><a name="fast"></a>3. Fast</h5>
-
 <p>This is an obvious one, it just makes for an awful UX experience. There are various blog engines out there that focus on this as a main feature but they always come at a trade-off.</p>
-
 <h5 id="anameextensiblea4extensible"><a name="extensible"></a>4. Extensible</h5>
-
 <p>It's easy to extend and refactor open source work but once you fork from the source then it's difficult to keep up to date with new versions. I want to be able to use the engine of the blogging platform but I dont want to be tied to the default theme, I want to painlessly make a bespoke solution from a base product.</p>
-
 <blockquote>
-  <p>I want to painlessly make a despoke solution from a base product</p>
+<p>I want to painlessly make a despoke solution from a base product</p>
 </blockquote>
-
 <h5 id="anamemarkdowna5markdown"><a name="markdown"></a>5. Markdown</h5>
-
 <p><a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is the defaco readme language and is something I use daily and im hopeful it will make blogging faster and allow me to create rich content with a small amount of effort.</p>
-
 <blockquote>
-  <p>.. rich content with a small amount of effort.</p>
+<p>.. rich content with a small amount of effort.</p>
 </blockquote>
-
 <p>So to cut a long story short, I choose <a href="https://ghost.org/">Ghost</a>. This blog is less about why than how and you can find lots of writing about the same subject <a href="http://bit.ly/1RX3GPx">here</a>.</p>
-
 <h2 id="solution">Solution</h2>
-
 <p>So the title of this blog is <mark>My new $1 Blog</mark> and this is largely true. Its effectively the cost of a domain, everything else is free.</p>
-
 <ul>
 <li><a href="https://ghost.org/">Ghost Blog Engine</a></li>
 <li>Its hosted on <a href="https://github.com/chris-brown/chris-brown.github.io">github pages</a>.</li>
 <li>I write my blog pages locally and push the changes up using <a href="https://github.com/axitkhurana/buster">ghost-buster</a>, a Ghost static site gen.</li>
 <li>I've created a new theme which is available <a href="https://github.com/chris-brown/Masonry-Ghost-Theme">here</a>.</li>
 </ul>
-
-<p>Im really pleased with the result so far, it's pretty basic at the moment but its work in progress. Please get in touch i'll be keen to hear your thoughts of the theme. Any issues can be added <a href="https://github.com/chris-brown/Masonry-Ghost-Theme/issues">here</a>. Thanks for reading.</p>]]></content:encoded></item><item><title><![CDATA[Conflicts with Umbraco 7 install and ReSharper.]]></title><description><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting</p>]]></description><link>http:///conflicts_with_umbraco_7_install_and_re_sharper/</link><guid isPermaLink="false">51e2966e-03de-4581-a53e-2a9f2a190219</guid><category><![CDATA[Umbraco]]></category><category><![CDATA[ReSharper]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Sat, 14 Mar 2015 21:20:00 GMT</pubDate><content:encoded><![CDATA[<p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting with the front end. Typically its performance but there are a whole heap of issues that effect large sites that im not going to go into on this particular blog. </p>
-
-<p>This post is about Umbraco 7 installation. Its an obscure one so I thought I would mention it here to aid folk in the future. </p>
-
+<p>Im really pleased with the result so far, it's pretty basic at the moment but its work in progress. Please get in touch i'll be keen to hear your thoughts of the theme. Any issues can be added <a href="https://github.com/chris-brown/Masonry-Ghost-Theme/issues">here</a>. Thanks for reading.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Conflicts with Umbraco 7 install and ReSharper.]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting</p></div>]]></description><link>http:///conflicts_with_umbraco_7_install_and_re_sharper/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb96c</guid><category><![CDATA[Umbraco]]></category><category><![CDATA[ReSharper]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Sat, 14 Mar 2015 21:20:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a CMS, its incredibly powerful and functional but these benefits come at a cost for the customers interacting with the front end. Typically its performance but there are a whole heap of issues that effect large sites that im not going to go into on this particular blog.</p>
+<p>This post is about Umbraco 7 installation. Its an obscure one so I thought I would mention it here to aid folk in the future.</p>
 <p>Basically when you install  and you come across the following error.</p>
-
-<pre><code>Install failed. Rolling back...  
-install-package : Expected "$(_PublishProfileSet)" to evaluate to a boolean instead of "", in condition "$(_PublishProfileSet) And '$(PublishProfileName)'  
-=='' And '$(WebPublishProfileFile)'==''". C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\Web\Microsoft.Web.Publishing.targets 
-At line:1 char:1  
+<pre><code>Install failed. Rolling back... 
+install-package : Expected &quot;$(_PublishProfileSet)&quot; to evaluate to a boolean instead of &quot;&quot;, in condition &quot;$(_PublishProfileSet) And '$(PublishProfileName)' 
+=='' And '$(WebPublishProfileFile)'==''&quot;. C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\Web\Microsoft.Web.Publishing.targets 
+At line:1 char:1 
 + install-package umbracocms
 + CategoryInfo : NotSpecified: (:) [Install-Package], InvalidProjectFileException 
 + FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 </code></pre>
-
 <p>It's a known conflict error between Resharper and the install. Further details can be found <a href="https://youtrack.jetbrains.com/issue/RSRP-419513">here</a>. But in brief. <mark>Disable Resharper and try again</mark>.</p>
-
-<p>Worked for me. I believe the issue is resolved in v9 of ReSharper but further comments would be appreciated. </p>
-
-<p>To disable/Suspend ReSharper </p>
-
+<p>Worked for me. I believe the issue is resolved in v9 of ReSharper but further comments would be appreciated.</p>
+<p>To disable/Suspend ReSharper</p>
 <p>Navigate to:  <code>Tools -&gt; Options -&gt; ReSharper -&gt; Suspend Now</code></p>
-
-<p><img src="http://4.bp.blogspot.com/-95XA1XrpPMQ/VQSlozP6pjI/AAAAAAAAA9M/FgNtdlOe9Qc/s1600/resharper-suspend.png" alt="alt"></p>]]></content:encoded></item><item><title><![CDATA[Intro into the OWIN specification and a Hello world example of Katana]]></title><description><![CDATA[<h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
-
+<p><img src="http://4.bp.blogspot.com/-95XA1XrpPMQ/VQSlozP6pjI/AAAAAAAAA9M/FgNtdlOe9Qc/s1600/resharper-suspend.png" alt="alt"></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Intro into the OWIN specification and a Hello world example of Katana]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
 <p>Firstly, lets start by trying to identify what the specification is. The following text is taken from <a href="http://owin.org/">owin.org</a> pecification is. The following text is taken from <a href="http://owin.org/">owin.org</a>.</p>
-
 <blockquote>
-  <p>OWIN defines a standard interface between .NET web servers and web applications. The goal of</p></blockquote>]]></description><link>http:///intro_into_the_owin_specification_and_a_hello_world_example_of_katana/</link><guid isPermaLink="false">b5152334-6fc5-4c7d-8576-45262cf610c6</guid><category><![CDATA[Aspnet]]></category><category><![CDATA[Owin]]></category><category><![CDATA[Katana]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 03 Mar 2015 22:58:00 GMT</pubDate><content:encoded><![CDATA[<h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
-
+<p>OWIN defines a standard interface between .NET web servers and web applications. The goal of</p></blockquote></div>]]></description><link>http:///intro_into_the_owin_specification_and_a_hello_world_example_of_katana/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb96e</guid><category><![CDATA[Aspnet]]></category><category><![CDATA[Owin]]></category><category><![CDATA[Katana]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 03 Mar 2015 22:58:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
 <p>Firstly, lets start by trying to identify what the specification is. The following text is taken from <a href="http://owin.org/">owin.org</a> pecification is. The following text is taken from <a href="http://owin.org/">owin.org</a>.</p>
-
 <blockquote>
-  <p>OWIN defines a standard interface between .NET web servers and web applications. The goal of the OWIN interface is to decouple server and application, encourage the development of simple modules for .NET web development</p>
+<p>OWIN defines a standard interface between .NET web servers and web applications. The goal of the OWIN interface is to decouple server and application, encourage the development of simple modules for .NET web development</p>
 </blockquote>
-
-<p>Or in other words; <a href="http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana">Katana</a>, the Microsoft implementation of OWIN, is basically an answer to <a href="http://nodejs.org/">node.js</a> just like the ASP.NET MVC framework was the answer to <a href="http://rubyonrails.org/">Ruby on Rails</a>** </p>
-
+<p>Or in other words; <a href="http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana">Katana</a>, the Microsoft implementation of OWIN, is basically an answer to <a href="http://nodejs.org/">node.js</a> just like the ASP.NET MVC framework was the answer to <a href="http://rubyonrails.org/">Ruby on Rails</a>**</p>
 <p>This is evident when we compare the two hello world web server implementations;</p>
-
 <h3 id="1nodewebserverinitiation">1. Node Web server initiation</h3>
-
 <script src="https://gist.github.com/chris-brown/23aaad30f8063c1af02b.js"></script>
-
 <h3 id="2katanaselfhostingwebserver">2. Katana self hosting web server</h3>
-
 <script src="https://gist.github.com/chris-brown/598a0010b43dcc605544.js"></script>
-
-<p>Now this is evidently a high level comparison between the 2 but it suggests my point. </p>
-
-<p><strong><u>Katana</u></strong>, is a collection of projects for supporting and implementing the OWIN specification. The value here is that it creates an abstraction between the web server and application. Meaning it completely decouples server dependencies away from our application. This then introduces the concept of, <mark>use what we need and nothing more</mark>. </p>
-
-<p>Significantly it includes OWIN support for System.Web and System.Net.HttpListener. </p>
-
-<p>This is an obvious benefit when you review a typical .NET application and notice the dependent reference <a href="https://msdn.microsoft.com/en-us/library/system.web%28v=vs.113%29.aspx">System.Web.dll</a>; which is over 2.5MB and includes over 10 years of retrofitted development. </p>
-
-<p>Where node uses <a href="https://www.npmjs.com/">Node Package Manager</a>, Microsoft uses <a href="http://www.nuget.org/">NuGet</a> to manage these modules. </p>
-
-<p>For this blog post, this is where the comparison stops between these two technologies. I dont want to dwel upon it, however for further readings checkout this <a href="http://www.salmanq.com/blog/net-and-node-js-performance-comparison/2013/03/">performance comparison article</a>; <em>NB. At the time of this blog publication the article was over a year old so the result will no doubt vary.</em> </p>
-
-<p>MSFT's decision to open source their forthcoming ONE ASP.NET platform has meant the open source community has supported the Katana implementation well. Significant support that you can pull down today includes; </p>
-
+<p>Now this is evidently a high level comparison between the 2 but it suggests my point.</p>
+<p><strong><u>Katana</u></strong>, is a collection of projects for supporting and implementing the OWIN specification. The value here is that it creates an abstraction between the web server and application. Meaning it completely decouples server dependencies away from our application. This then introduces the concept of, <mark>use what we need and nothing more</mark>.</p>
+<p>Significantly it includes OWIN support for System.Web and System.Net.HttpListener.</p>
+<p>This is an obvious benefit when you review a typical .NET application and notice the dependent reference <a href="https://msdn.microsoft.com/en-us/library/system.web%28v=vs.113%29.aspx">System.Web.dll</a>; which is over 2.5MB and includes over 10 years of retrofitted development.</p>
+<p>Where node uses <a href="https://www.npmjs.com/">Node Package Manager</a>, Microsoft uses <a href="http://www.nuget.org/">NuGet</a> to manage these modules.</p>
+<p>For this blog post, this is where the comparison stops between these two technologies. I dont want to dwel upon it, however for further readings checkout this <a href="http://www.salmanq.com/blog/net-and-node-js-performance-comparison/2013/03/">performance comparison article</a>; <em>NB. At the time of this blog publication the article was over a year old so the result will no doubt vary.</em></p>
+<p>MSFT's decision to open source their forthcoming ONE ASP.NET platform has meant the open source community has supported the Katana implementation well. Significant support that you can pull down today includes;</p>
 <ul>
 <li><a href="https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Owin">Web API</a></li>
 <li><a href="https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Owin/">SignalR</a></li>
 <li><a href="https://www.nuget.org/packages/Nancy.Owin/">Nancy</a></li>
 </ul>
-
 <p>I've used a couple of these projects on a basic hello world application. Its a self hosted project running from a console app. But a follow up post will include a Linux host. This is available on GitHub for downloading, forking, or contributing.</p>
-
 <p><a href="https://github.com/chris-brown/katana-web-hello-world-demo">View on GitHub</a></p>
-
-<iframe frameborder="0" height="30px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=chris-brown&amp;repo=katana-web-hello-world-demo&amp;type=watch&amp;count=true&amp;size=large&amp;v=2" width="160px" style="float:left;"></iframe>]]></content:encoded></item><item><title><![CDATA[Concatenating multiple rows into one column in T-SQL]]></title><description><![CDATA[<p>This post looks at how to deliminate many rows into one single column. </p>
-
-<p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. </p>
-
-<p>There are many ways to do this but the most</p>]]></description><link>http:///concatenating_multiple_rows_into_one_column_in_t_sql/</link><guid isPermaLink="false">0bfbbb86-60b2-4421-bdb6-253a64c23e54</guid><category><![CDATA[Sql]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Mon, 29 Dec 2014 14:17:00 GMT</pubDate><content:encoded><![CDATA[<p>This post looks at how to deliminate many rows into one single column. </p>
-
-<p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts. </p>
-
-<p>There are many ways to do this but the most performant way is actually the simplest too. </p>
-
-<p>The most common approach which most people fall back to would be to iterate through the collection using a Cursor and format a string that way. For many reasons this is not a good idea, from memory to potential deadlock issues to name 2. </p>
-
-<p>For this demo im going to comma deliminate all my tables into a single column for me to then copy this value straight into my to then save as a CSV. </p>
-
-<p>My data looks like the following. </p>
-
-<pre><code>ProductReview  
-StoreEventPage  
-AuditLog  
-Author  
-TimeLine  
-TimeLineEvent  
+<iframe frameborder="0" height="30px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=chris-brown&amp;repo=katana-web-hello-world-demo&amp;type=watch&amp;count=true&amp;size=large&amp;v=2" width="160px" style="float:left;"></iframe></div>]]></content:encoded></item><item><title><![CDATA[Concatenating multiple rows into one column in T-SQL]]></title><description><![CDATA[<div class="kg-card-markdown"><p>This post looks at how to deliminate many rows into one single column.</p>
+<p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts.</p>
+<p>There are many ways to do this but the most</p></div>]]></description><link>http:///concatenating_multiple_rows_into_one_column_in_t_sql/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb96f</guid><category><![CDATA[Sql]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Mon, 29 Dec 2014 14:17:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>This post looks at how to deliminate many rows into one single column.</p>
+<p>I come across this issue quite often so I thought I would share my solution. For example it's quite a good solution for quick ad-hoc data extracts.</p>
+<p>There are many ways to do this but the most performant way is actually the simplest too.</p>
+<p>The most common approach which most people fall back to would be to iterate through the collection using a Cursor and format a string that way. For many reasons this is not a good idea, from memory to potential deadlock issues to name 2.</p>
+<p>For this demo im going to comma deliminate all my tables into a single column for me to then copy this value straight into my to then save as a CSV.</p>
+<p>My data looks like the following.</p>
+<pre><code>ProductReview
+StoreEventPage
+AuditLog
+Author
+TimeLine
+TimeLineEvent
 </code></pre>
-
 <p>Now using the <a href="https://gist.github.com/chris-brown/560464dd6ae980c8d41a">gist</a> below. I can combine the result set of these string values and concatinate them to one string variable.</p>
-
 <script src="https://gist.github.com/chris-brown/560464dd6ae980c8d41a.js"></script>
-
 <p>Now again this is commonly done but note the <a href="http://msdn.microsoft.com/en-us/library/ms190349.aspx">COALESCE expression</a>. This avoids having duplicated commas and removes null values. The COALESCE expression is a syntactic shortcut for the CASE expression, when the first argument is NULL, COALESCE returns NULL.</p>
-
-<p>The end result is the following which we can now save as a csv. </p>
-
-<pre><code>ProductReview,StoreEventPage,AuditLog,Author,TimeLine,TimeLineEvent  
+<p>The end result is the following which we can now save as a csv.</p>
+<pre><code>ProductReview,StoreEventPage,AuditLog,Author,TimeLine,TimeLineEvent
 </code></pre>
-
-<p>Thanks for reading. Always appreciate hearing your thoughts and comments. <br>
-Checkout my <a href="http://www.zirafon.org/">website</a></p>]]></content:encoded></item><item><title><![CDATA[Setting up precompiled handlerbars.js templates and using grunt to compile them]]></title><description><![CDATA[<h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
-
+<p>Thanks for reading. Always appreciate hearing your thoughts and comments.<br>
+Checkout my <a href="http://www.zirafon.org/">website</a></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Setting up precompiled handlerbars.js templates and using grunt to compile them]]></title><description><![CDATA[<div class="kg-card-markdown"><h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
 <p>Good place to start is to describe what exactly <a href="http://en.wikipedia.org/wiki/JavaScript_templating">JS Templating</a> is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.</p>
-
-<p>Now sure</p>]]></description><link>http:///setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/</link><guid isPermaLink="false">3d62b42d-ad08-4154-a016-cf3a45320cc9</guid><category><![CDATA[Grunt]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Handlebars.js]]></category><category><![CDATA[Js Templates]]></category><dc:creator><![CDATA[Christo]]></dc:creator><pubDate>Tue, 23 Dec 2014 23:46:00 GMT</pubDate><content:encoded><![CDATA[<h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
-
+<p>Now sure</p></div>]]></description><link>http:///setting_up_precompiled_handlerbars_js_templates_and_using_grunt_to_compile_them/</link><guid isPermaLink="false">5ae4a1b4c8795d6f40ffb96d</guid><category><![CDATA[Grunt]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Handlebars.js]]></category><category><![CDATA[Js Templates]]></category><dc:creator><![CDATA[Chris Brown]]></dc:creator><pubDate>Tue, 23 Dec 2014 23:46:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h3 id="whatisjavascripttemplating">What is Javascript Templating</h3>
 <p>Good place to start is to describe what exactly <a href="http://en.wikipedia.org/wiki/JavaScript_templating">JS Templating</a> is and what a good use-case could be. For me, I have data that I've retrieved client side and I need to transform it into repetitive markup then I use a templating library.</p>
-
 <p>Now sure Angular and Knockout are pretty popular approaches for rich client side data-binding but in alot of cases they are too bloated and overkill for certain scenarios.</p>
-
 <p>Say I have a legacy app that uses a heavy amount of JQuery (pretty common scenario for me!) and im tasked to render data from a REST API endpoint to the UI. I dont want to add a whole new client side dependency just to render the data. JS Templating, in particular <a href="http://handlebarsjs.com/precompilation.html">Handlebars precompiler</a>, is perfect for this scenario.</p>
-
 <p>For more detailed comparisons between templating libraries and performance reviews, please refer to the links below.</p>
-
 <ul>
 <li><a href="http://viget.com/extend/benchmarking-javascript-templating-libraries">http://viget.com/extend/benchmarking-javascript-templating-libraries</a></li>
 <li><a href="http://www.sorescode.com/2010/09/12/benchmarks.html">http://www.sorescode.com/2010/09/12/benchmarks.html</a></li>
 </ul>
-
-<p><img src="http://chart.apis.google.com/chart?chxl=1:|ms&amp;chxp=1,50&amp;chxr=0,0,1000&amp;chxt=y,y&amp;chbh=a,15&amp;chs=500x300&amp;cht=bvg&amp;chco=FFCC33,FF9900,3072F3,224499&amp;chds=0,1000,0,1000,0,1000,0,1000&amp;chd=t:98|202.5|309.2|889.8&amp;chdl=Simple+Handlebars|Simple+Mustache|Loop+Handlebars|Loop+Mustache&amp;chtt=Handlebars.js+%26+Mustache.js+Benchmarks" alt="" title=""> </p>
-
+<p><img src="http://chart.apis.google.com/chart?chxl=1:%7Cms&amp;chxp=1,50&amp;chxr=0,0,1000&amp;chxt=y,y&amp;chbh=a,15&amp;chs=500x300&amp;cht=bvg&amp;chco=FFCC33,FF9900,3072F3,224499&amp;chds=0,1000,0,1000,0,1000,0,1000&amp;chd=t:98%7C202.5%7C309.2%7C889.8&amp;chdl=Simple+Handlebars%7CSimple+Mustache%7CLoop+Handlebars%7CLoop+Mustache&amp;chtt=Handlebars.js+%26+Mustache.js+Benchmarks" alt=""></p>
 <p>Its not always that straight forward a decision but if you need close control of your markup then its a great approach. There are many alternative approaches, from utilising client side UI controls like <a href="http://www.telerik.com/kendo-ui">Kendo UI</a> or <a href="http://www.infragistics.com/products/jquery">Infragistics Web Controls</a> to previously mentioned <a href="https://docs.angularjs.org/guide/templates">Angular JS templates</a> or <a href="http://knockoutjs.com/examples/grid.html">Knockout data-binding</a>.</p>
-
-<p>The UI controls are an opinionated out-of -the-box solution while Angular and Knockout require their sizable libraries. </p>
-
+<p>The UI controls are an opinionated out-of -the-box solution while Angular and Knockout require their sizable libraries.</p>
 <h4 id="gettingstarted">Getting Started</h4>
-
-<p>The source for this demo can be obtained <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a> I haven't created any grunt tasks, im just bringing it all together to offer a solution for this demo. <br>
+<p>The source for this demo can be obtained <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a> I haven't created any grunt tasks, im just bringing it all together to offer a solution for this demo.<br>
 Using <a href="https://www.npmjs.com/search?q=handlebars">node package manage</a> I install the following packages.</p>
-
 <ul>
 <li>grunt</li>
 <li>grunt-handlebars-compilar</li>
 <li>grunt-contrib-watch</li>
 <li>handlebars</li>
 </ul>
-
 <p>Please note im using v1.3.0 of the handlebars package. If you copy the following <strong><a href="https://github.com/chris-brown/handlebarsjs-grunt-setup/blob/master/package.json">Package.json</a></strong> into the root directory, then these packages can be added automatically by running the following command.</p>
-
-<pre><code class="language-javascript">npm install  
+<pre><code class="language-javascript">npm install
 </code></pre>
-
-<p>The benefit of using precompiled handlebar templates is that we only now need to use the runtime library. Once minified this is only a 7kb file. <br>
-Copy the file to your solution directory. The file should be located in the following location. </p>
-
+<p>The benefit of using precompiled handlebar templates is that we only now need to use the runtime library. Once minified this is only a 7kb file.<br>
+Copy the file to your solution directory. The file should be located in the following location.</p>
 <pre><code>\node_modules\handlebars\dist\handlebars.runtime.min.js
 </code></pre>
-
-<p>Im then going to create a directory for my templates to live and then create my first handlebar template file. </p>
-
-<pre><code>mkdir templates  
-echo. 2&gt;templates/demo-list.handlebars  
+<p>Im then going to create a directory for my templates to live and then create my first handlebar template file.</p>
+<pre><code>mkdir templates
+echo. 2&gt;templates/demo-list.handlebars
 </code></pre>
-
 <p>The next step is to configure the grunt file. <a href="http://gruntjs.com/configuring-tasks">This</a> link will give you further details as to how and why we do this. Below configures the handlebars task with the compile target. I then associate this task to the watch task.</p>
-
 <script src="https://gist.github.com/chris-brown/188ec32bd15ac8878a68.js"></script>
-
-<p>This will now run the handlebars task when a file defined in the watch file pattern is changed and saved. <br>
-To test this, run the following command. </p>
-
-<pre><code class="language-javascript">grunt watch  
+<p>This will now run the handlebars task when a file defined in the watch file pattern is changed and saved.<br>
+To test this, run the following command.</p>
+<pre><code class="language-javascript">grunt watch
 </code></pre>
-
-<p>And edit the contents of the template. </p>
-
-<p>This should then create <code>scripts/handlebars-templates.js</code> file. </p>
-
+<p>And edit the contents of the template.</p>
+<p>This should then create <code>scripts/handlebars-templates.js</code> file.</p>
 <h4 id="puttingitalltogether">Putting it all together</h4>
-
 <p>All thats left to do now is to fetch our arbitrary data and render the markup. To do this ive used githubs free api as you can see from the gist of my gist below.</p>
-
 <script src="https://gist.github.com/chris-brown/8d815606f93a483a671d.js"></script>
-
 <p>Finally we add the JS references to our page and the container we want to render the markup inside and were done.</p>
-
 <script src="https://gist.github.com/chris-brown/2f44e86c588240209ff6.js"></script>
-
-<p>All the code for this demo has been added to github so please feel free to pull it down <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a>. <br>
-Any queries please let me know and vist my website for more contact details. </p>
-
-<p>Thanks for reading. Always appreciate your thoughts and comments. <br>
-Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>]]></content:encoded></item></channel></rss>/rss>
+<p>All the code for this demo has been added to github so please feel free to pull it down <a href="https://github.com/chris-brown/handlebarsjs-grunt-setup">here</a>.<br>
+Any queries please let me know and vist my website for more contact details.</p>
+<p>Thanks for reading. Always appreciate your thoughts and comments.<br>
+Checkout my <a href="http://www.zirafon.org">website</a> for further info and contact details.</p>
+</div>]]></content:encoded></item></channel></rss>tails.</p>
+</div>]]></content:encoded></item></channel></rss>

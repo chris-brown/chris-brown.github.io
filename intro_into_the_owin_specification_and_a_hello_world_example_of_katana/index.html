@@ -1,26 +1,24 @@
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Intro into the OWIN specification and a Hello world example of Katana</title>
-    <meta name="description" content="">
-
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=85ce3d6f47">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=d27585c059">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
-
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/">
-    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/amp/">
     
     <meta property="og:site_name" content="Chris Brown">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Intro into the OWIN specification and a Hello world example of Katana">
-    <meta property="og:description" content="Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org.   OWIN defines a standard interface between .NET web servers and web applications. The goal of">
+    <meta property="og:description" content="Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org. OWIN defines a standard interface between .NET web servers and web applications. The goal of">
     <meta property="og:url" content="http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/">
     <meta property="article:published_time" content="2015-03-03T22:58:00.000Z">
     <meta property="article:modified_time" content="2016-01-02T22:50:27.000Z">
@@ -30,12 +28,14 @@
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Intro into the OWIN specification and a Hello world example of Katana">
-    <meta name="twitter:description" content="Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org.   OWIN defines a standard interface between .NET web servers and web applications. The goal of">
+    <meta name="twitter:description" content="Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org. OWIN defines a standard interface between .NET web servers and web applications. The goal of">
     <meta name="twitter:url" content="http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Chris Brown">
     <meta name="twitter:label2" content="Filed under">
     <meta name="twitter:data2" content="Aspnet, Owin, Katana">
+    <meta name="twitter:site" content="@cj_browna">
+    <meta name="twitter:creator" content="@cj_browna">
     
     <script type="application/ld+json">
 {
@@ -44,27 +44,48 @@
     "publisher": {
         "@type": "Organization",
         "name": "Chris Brown",
-        "logo": "http://blog.zirafon.org/ghost/img/ghosticon.jpg"
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://blog.zirafon.org/favicon.ico",
+            "width": 16,
+            "height": 16
+        }
     },
     "author": {
         "@type": "Person",
         "name": "Chris Brown",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://blog.zirafon.org/content/images/2018/04/me6-min-2.jpg",
+            "width": 721,
+            "height": 941
+        },
         "url": "http://blog.zirafon.org/author/chris/",
         "sameAs": [
             "https://twitter.com/cj_browna"
-        ],
-        "description": "Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd."
+        ]
     },
     "headline": "Intro into the OWIN specification and a Hello world example of Katana",
     "url": "http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/",
     "datePublished": "2015-03-03T22:58:00.000Z",
     "dateModified": "2016-01-02T22:50:27.000Z",
     "keywords": "Aspnet, Owin, Katana",
-    "description": "Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org.   OWIN defines a standard interface between .NET web servers and web applications. The goal of"
+    "description": "Getting Started with OWIN and Katana Firstly, lets start by trying to identify what the specification is. The following text is taken from owin.org pecification is. The following text is taken from owin.org. OWIN defines a standard interface between .NET web servers and web applications. The goal of",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://blog.zirafon.org/"
+    }
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.9">
+    <script src="/public/ghost-sdk.js?v=85ce3d6f47"></script>
+<script>
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "5fdfffdec84e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.22">
     <link rel="alternate" type="application/rss+xml" title="Chris Brown" href="http://blog.zirafon.org/rss/index.rss">
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -76,172 +97,308 @@
   ga('send', 'pageview');
 
 </script>
-</head>
-<body class="post-template tag-aspnet tag-owin tag-katana nav-closed">
 
-    <input type="checkbox" id="show-menu" class="show-menu">
-<div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-            <li class="nav-home" role="presentation"><a href="/">Home</a></li>
-            <li class="nav-about" role="presentation"><a href="/about/">About</a></li>
-    </ul>
-    <a class="subscribe-button icon-feed" href="http://blog.zirafon.org/rss/index.rss">Subscribe</a>
-</div>
-<span class="nav-cover"></span>
+</head>
+<body class="post-template tag-aspnet tag-owin tag-katana">
 
     <div class="site-wrapper">
 
         
 
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="http://blog.zirafon.org">Chris Brown</a>
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="http://blog.zirafon.org/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="http://blog.zirafon.org/about/">About</a></li>
+</ul>
 
-<header class="main-header post-head no-cover">
-    <nav class="main-nav  clearfix">
-        
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-    </nav>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            <a class="social-link social-link-fb" href="https://github.com/chris-brown/" target="_blank" rel="noopener"><svg aria-labelledby="simpleicons-github-icon" role="img" viewbox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon">GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>            
+                <a class="social-link social-link-tw" href="https://twitter.com/cj_browna" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+</a>
+        </div>
+            <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://blog.zirafon.org/rss/index.rss" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
 </header>
 
-<main class="content" role="main">
-    <article class="post tag-aspnet tag-owin tag-katana">
 
-        <header class="post-header">
-            <ul class="post-header__breadcrumb">
-    <li><a href="/" title="blog homepage">Home</a></li>
-    <li>-</li>
-    <li>Intro into the OWIN specification and a Hello world example of Katana</li>
-</ul>            <h1 class="post-title">Intro into the OWIN specification and a Hello world example of Katana</h1>
-            <section class="post-meta">
-                <time class="post-date" datetime="2015-03-03">03 March 2015</time>  on <a href="/tag/aspnet/">Aspnet</a>, <a href="/tag/owin/">Owin</a>, <a href="/tag/katana/">Katana</a>
-                <b> - 2 min read</b>
-            </section>
-        </header>
+<main id="site-main" class="site-main outer">
+    <div class="inner">
 
-        <section class="post-content">
-            <h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
+        <article class="post-full post tag-aspnet tag-owin tag-katana no-image">
 
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2015-03-03">3 March 2015</time>
+                        <span class="date-divider">/</span> <a href="../tag/aspnet/">Aspnet</a>
+                </section>
+                <h1 class="post-full-title">Intro into the OWIN specification and a Hello world example of Katana</h1>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><h2 id="gettingstartedwithowinandkatana">Getting Started with OWIN and Katana</h2>
 <p>Firstly, lets start by trying to identify what the specification is. The following text is taken from <a href="http://owin.org/">owin.org</a> pecification is. The following text is taken from <a href="http://owin.org/">owin.org</a>.</p>
-
 <blockquote>
-  <p>OWIN defines a standard interface between .NET web servers and web applications. The goal of the OWIN interface is to decouple server and application, encourage the development of simple modules for .NET web development</p>
+<p>OWIN defines a standard interface between .NET web servers and web applications. The goal of the OWIN interface is to decouple server and application, encourage the development of simple modules for .NET web development</p>
 </blockquote>
-
-<p>Or in other words; <a href="http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana">Katana</a>, the Microsoft implementation of OWIN, is basically an answer to <a href="http://nodejs.org/">node.js</a> just like the ASP.NET MVC framework was the answer to <a href="http://rubyonrails.org/">Ruby on Rails</a>** </p>
-
+<p>Or in other words; <a href="http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana">Katana</a>, the Microsoft implementation of OWIN, is basically an answer to <a href="http://nodejs.org/">node.js</a> just like the ASP.NET MVC framework was the answer to <a href="http://rubyonrails.org/">Ruby on Rails</a>**</p>
 <p>This is evident when we compare the two hello world web server implementations;</p>
-
 <h3 id="1nodewebserverinitiation">1. Node Web server initiation</h3>
-
 <script src="https://gist.github.com/chris-brown/23aaad30f8063c1af02b.js"></script>
-
 <h3 id="2katanaselfhostingwebserver">2. Katana self hosting web server</h3>
-
 <script src="https://gist.github.com/chris-brown/598a0010b43dcc605544.js"></script>
-
-<p>Now this is evidently a high level comparison between the 2 but it suggests my point. </p>
-
-<p><strong><u>Katana</u></strong>, is a collection of projects for supporting and implementing the OWIN specification. The value here is that it creates an abstraction between the web server and application. Meaning it completely decouples server dependencies away from our application. This then introduces the concept of, <mark>use what we need and nothing more</mark>. </p>
-
-<p>Significantly it includes OWIN support for System.Web and System.Net.HttpListener. </p>
-
-<p>This is an obvious benefit when you review a typical .NET application and notice the dependent reference <a href="https://msdn.microsoft.com/en-us/library/system.web%28v=vs.113%29.aspx">System.Web.dll</a>; which is over 2.5MB and includes over 10 years of retrofitted development. </p>
-
-<p>Where node uses <a href="https://www.npmjs.com/">Node Package Manager</a>, Microsoft uses <a href="http://www.nuget.org/">NuGet</a> to manage these modules. </p>
-
-<p>For this blog post, this is where the comparison stops between these two technologies. I dont want to dwel upon it, however for further readings checkout this <a href="http://www.salmanq.com/blog/net-and-node-js-performance-comparison/2013/03/">performance comparison article</a>; <em>NB. At the time of this blog publication the article was over a year old so the result will no doubt vary.</em> </p>
-
-<p>MSFT's decision to open source their forthcoming ONE ASP.NET platform has meant the open source community has supported the Katana implementation well. Significant support that you can pull down today includes; </p>
-
+<p>Now this is evidently a high level comparison between the 2 but it suggests my point.</p>
+<p><strong><u>Katana</u></strong>, is a collection of projects for supporting and implementing the OWIN specification. The value here is that it creates an abstraction between the web server and application. Meaning it completely decouples server dependencies away from our application. This then introduces the concept of, <mark>use what we need and nothing more</mark>.</p>
+<p>Significantly it includes OWIN support for System.Web and System.Net.HttpListener.</p>
+<p>This is an obvious benefit when you review a typical .NET application and notice the dependent reference <a href="https://msdn.microsoft.com/en-us/library/system.web%28v=vs.113%29.aspx">System.Web.dll</a>; which is over 2.5MB and includes over 10 years of retrofitted development.</p>
+<p>Where node uses <a href="https://www.npmjs.com/">Node Package Manager</a>, Microsoft uses <a href="http://www.nuget.org/">NuGet</a> to manage these modules.</p>
+<p>For this blog post, this is where the comparison stops between these two technologies. I dont want to dwel upon it, however for further readings checkout this <a href="http://www.salmanq.com/blog/net-and-node-js-performance-comparison/2013/03/">performance comparison article</a>; <em>NB. At the time of this blog publication the article was over a year old so the result will no doubt vary.</em></p>
+<p>MSFT's decision to open source their forthcoming ONE ASP.NET platform has meant the open source community has supported the Katana implementation well. Significant support that you can pull down today includes;</p>
 <ul>
 <li><a href="https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Owin">Web API</a></li>
 <li><a href="https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Owin/">SignalR</a></li>
 <li><a href="https://www.nuget.org/packages/Nancy.Owin/">Nancy</a></li>
 </ul>
-
 <p>I've used a couple of these projects on a basic hello world application. Its a self hosted project running from a console app. But a follow up post will include a Linux host. This is available on GitHub for downloading, forking, or contributing.</p>
-
 <p><a href="https://github.com/chris-brown/katana-web-hello-world-demo">View on GitHub</a></p>
-
-<iframe frameborder="0" height="30px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=chris-brown&amp;repo=katana-web-hello-world-demo&amp;type=watch&amp;count=true&amp;size=large&amp;v=2" width="160px" style="float:left;"></iframe>
-            <div id="disqus_thread"></div>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-        </section>
-
-        <footer class="post-footer">
-
-
-
-            <section class="author">
-                <h4><a href="/author/chris/">Chris Brown</a></h4>
-
-                    <p>Hi my name is Chris Brown and I am a software developer and director of Zirafon Software Ltd.</p>
-                <div class="author-meta">
-                    <span class="author-location icon-location">Manchester</span>
-                    <span class="author-link icon-link"><a href="https://twitter.com/cj_browna">https://twitter.com/cj_browna</a></span>
-                </div>
+<iframe frameborder="0" height="30px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=chris-brown&amp;repo=katana-web-hello-world-demo&amp;type=watch&amp;count=true&amp;size=large&amp;v=2" width="160px" style="float:left;"></iframe></div>
             </section>
 
 
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/share?text=Intro%20into%20the%20OWIN%20specification%20and%20a%20Hello%20world%20example%20of%20Katana&amp;url=http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
+            <footer class="post-full-footer">
 
-        </footer>
 
-    </article>
+                    
+<section class="author-card">
+        <img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown">
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="../author/chris/">Chris Brown</a></h4>
+            <p>Read <a href="../author/chris/">more posts</a> by this author.</p>
+    </section>
+</section>
+<div class="post-full-footer-right">
+    <a class="author-card-button" href="../author/chris/">Read More</a>
+</div>
+
+
+            </footer>
+
+            <section class="post-full-comments">
+                <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/";
+        this.page.identifier = "ghost-8";
+    };
+
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://zirafon-blog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>            </section>
+            
+
+        </article>
+
+    </div>
 </main>
 
-<aside class="read-next">
-    <a class="read-next-story no-cover" href="/conflicts_with_umbraco_7_install_and_re_sharper/">
-        <section class="post">
-            <h2>Conflicts with Umbraco 7 install and ReSharper.</h2>
-            <p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are…</p>
-        </section>
-    </a>
-    <a class="read-next-story prev no-cover" href="/concatenating_multiple_rows_into_one_column_in_t_sql/">
-        <section class="post">
-            <h2>Concatenating multiple rows into one column in T-SQL</h2>
-            <p>This post looks at how to deliminate many rows into one single column.  I come across this issue quite…</p>
-        </section>
-    </a>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post tag-umbraco tag-resharper no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../conflicts_with_umbraco_7_install_and_re_sharper/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">Umbraco</span>
+                <h2 class="post-card-title">Conflicts with Umbraco 7 install and ReSharper.</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Im currently working on a project that abstracts away from the customer facing UI AKA front end. We are effectively utilising Umbraco as a service rather than as a platform. Because as a</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Chris Brown
+                    </div>
+
+                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                </li>
+            </ul>
+
+            <span class="reading-time">1 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-sql no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../concatenating_multiple_rows_into_one_column_in_t_sql/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">Sql</span>
+                <h2 class="post-card-title">Concatenating multiple rows into one column in T-SQL</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>This post looks at how to deliminate many rows into one single column. I come across this issue quite often so I thought I would share my solution. For example it's quite a</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Chris Brown
+                    </div>
+
+                        <a href="../author/chris/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/04/me6-min-2.jpg" alt="Chris Brown"></a>
+                </li>
+            </ul>
+
+            <span class="reading-time">1 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
 </aside>
 
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="http://blog.zirafon.org">
+            <span>Chris Brown</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">Intro into the OWIN specification and a Hello world example of Katana</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Intro%20into%20the%20OWIN%20specification%20and%20a%20Hello%20world%20example%20of%20Katana&amp;url=http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zirafon.org/intro_into_the_owin_specification_and_a_hello_world_example_of_katana/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
 
 
-        <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2017</section>
-            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
-            <section class="poweredby">Proudly designed by <a href="https://zirafon.org">Zirafon</a></section>
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="http://blog.zirafon.org">Chris Brown</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="http://blog.zirafon.org">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/cj_browna" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
         </footer>
 
     </div>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- You can safely delete this line if your theme does not require jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = '//zirafon-blog.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=85ce3d6f47"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
 </script>
 
-    <script type="text/javascript" src="/assets/js/index.js?v=d27585c059"></script>
-    <script type="text/javascript" src="/assets/js/prism.js?v=d27585c059"></script>
+
+    
 
 </body>
