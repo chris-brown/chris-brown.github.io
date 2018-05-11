@@ -23,7 +23,7 @@
     <meta property="og:url" content="http://blog.zirafon.org/aws-summit-2018/">
     <meta property="og:image" content="http://blog.zirafon.org/content/images/2018/05/aws-summit.jpg">
     <meta property="article:published_time" content="2018-05-11T08:40:40.000Z">
-    <meta property="article:modified_time" content="2018-05-11T12:39:53.000Z">
+    <meta property="article:modified_time" content="2018-05-11T14:02:09.000Z">
     <meta property="article:tag" content="aws">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
     "headline": "AWS Summit 2018 in Review",
     "url": "http://blog.zirafon.org/aws-summit-2018/",
     "datePublished": "2018-05-11T08:40:40.000Z",
-    "dateModified": "2018-05-11T12:39:53.000Z",
+    "dateModified": "2018-05-11T14:02:09.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "http://blog.zirafon.org/content/images/2018/05/aws-summit.jpg",
@@ -161,26 +161,31 @@ ghost.init({
 <p><code>Builders</code> was later defined as pretty much anyone from a data scientist to a marketing manager, but for me the focus was more around the developers and showcasing the tools AWS provide and how to use them.</p>
 <p>The event is often used to announce new products but there was nothing of interest this year. Although hilariously, Gavin delivered the "today were happy to announce" line and presented some tool that streamlines <a href="https://aws.amazon.com/about-aws/whats-new/2018/05/enterprise_contract_for_aws_marketplace_standardizes_software_license_terms_to_simplify_and_streamline_software_procurement_for_enterprise_customers/">enterprise software contracts</a> which passed by without an expected applause.</p>
 <h2 id="highlights">Highlights</h2>
-<p>I've been using AWS intensively for a number of years now so there wasn't an awful lot of sessions and products that were new to me. However there were 3 main topics I got from the event;</p>
+<p>I've been using AWS intensively for a number of years now so there wasn't an awful lot of sessions and products that were new to me. However these are my headlines from the Summit;</p>
+<blockquote>
 <ul>
 <li>We <strong>still</strong> have a major gender in-balance in our industry</li>
 <li>Serverless is what most people are interested in</li>
 <li>There is a huge arms race in the big data space</li>
+<li>Despite EKS <strong>still</strong> being in preview, EKS and fargate looks to be a winning combination</li>
 </ul>
+</blockquote>
 <p>Any gathering of people in our industry usually demonstrates the huge gender disparity we have, but I felt the summit had a larger in-balance than any conference i've been to before. The picture below was one of many taken that sadly demonstrated this.</p>
 <p><img src="/content/images/2018/05/aws-men.jpeg" alt="aws-men"></p>
 <h3 id="serverlesspopularity">Serverless popularity</h3>
-<p>Any breakout session that had serverless in the title was always <em>standing room only</em>. Examples include, how to build an SPA with <a href="https://aws.amazon.com/cloudformation/">cloud formation</a> and how to authenticate using <a href="https://aws.amazon.com/cognito/">Cognito</a> whilst integrating with <a href="https://aws.amazon.com/iam/">IAM</a> roles.</p>
+<p>Despite it being around for a number of years now, any breakout session that had serverless in the title was always <em>standing room only</em>. Examples include, how to build an SPA with <a href="https://aws.amazon.com/cloudformation/">cloud formation</a> and how to authenticate serverless products using <a href="https://aws.amazon.com/cognito/">Cognito</a> and <a href="https://aws.amazon.com/iam/">IAM</a> roles.</p>
 <p><img src="/content/images/2018/05/standing-only.jpg" alt="standing-only"></p>
 <p>The most interesting serverless session for me, was how David Edwards, Solutions Architect at River Island, demonstrated how they changed their core order flow from a platform with difficulties to innovate, to an entirely serverless solution. Mainly using a combination of <a href="https://aws.amazon.com/kinesis/">AWS Kinesis</a>, <a href="https://aws.amazon.com/lambda/">Lambdas</a> and <a href="https://aws.amazon.com/step-functions/">step functions</a>.</p>
 <p><img src="/content/images/2018/05/riverisland-aws.jpg" alt="riverisland-aws"></p>
-<p><a href="https://twitter.com/g_bonfiglio">Giorgio Bonfiglio</a> put together a great slide deck, detailing the infrastructure required to go from 1 user all the way to 10m+.  He ended up with event driven architecture using Kinesis and Lambda's whilst using ECS, S3 and Cloud front for content delivery.</p>
+<p><a href="https://twitter.com/g_bonfiglio">Giorgio Bonfiglio</a> put together a great slide deck, detailing the infrastructure required to go from 1 user, all the way to 10m+.  He ended up with event driven architecture using Kinesis and Lambda's whilst using ECS, S3 and Cloud front for content delivery.</p>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Scaling to 10m+ users /w <a href="https://twitter.com/g_bonfiglio?ref_src=twsrc%5Etfw">@g_bonfiglio</a> <a href="https://twitter.com/hashtag/AWSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#AWSSummit</a> <a href="https://t.co/svrawRM0MT">pic.twitter.com/svrawRM0MT</a></p>— Chris Brown 🇬🇧 ✌️ (@cj_browna) <a href="https://twitter.com/cj_browna/status/994599580623925249?ref_src=twsrc%5Etfw">May 10, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <h3 id="bigdataisbigbusiness">Big data is big business</h3>
-<p>Walking around the exhibition hall whilst TShirt, sock and fidget spinner shopping, it was apparent how many players are in the big data market. I chatted to a couple and it is obvious they all have their own ideas, some even saying data warehousing is dead entirely. Although <a href="https://twitter.com/mikeferguson1">Mike Ferguson</a>, managing director from intelligent business strategies managed to convince me otherwise and that they still have their place.</p>
+<p>Walking around the exhibition hall whilst TShirt, sock and fidget spinner shopping, it was apparent how many players are in the big data market. I chatted to a couple and they all have their own ideas, some even saying data warehousing is dead. Although <a href="https://twitter.com/mikeferguson1">Mike Ferguson</a>, managing director from intelligent business strategies managed to convince me otherwise.</p>
 <p>Although AWS has a clear market lead over the other cloud provides, neither has a product that seems to have taken any sort of ascendancy in the big data space. But I very much feel this race has only just began.</p>
 <p>Saying that I love the simplicity that the combination of <a href="https://aws.amazon.com/s3/">S3</a>, <a href="https://aws.amazon.com/athena/">Athena</a> and <a href="https://aws.amazon.com/glue/">Glue</a> brings to the table.  With the difficulty of finding data scientists with phython experience, this for me is really compelling.</p>
+<h3 id="fargate">Fargate</h3>
+<p>The summit was the first time I had seen AWS <a href="https://aws.amazon.com/fargate/">Fargate</a> in action as <a href="https://twitter.com/abbyfuller">Abby Fuller</a> showed us how fargate can be used to manage the deployment of your containers. Effectively meaning there is even less to manage. I think this should be a feature by default for EKS (if it ever comes out of preview), and if you want more control then revert to the EC2 launch type to define your specific AMI requirements.</p>
 <h3 id="theapp">The app</h3>
 <p>The app had its flaws, as the <a href="https://play.google.com/store/apps/details?id=com.guidebook.apps.AWSSummit.android&amp;hl=en">reviews</a> on the play store prove. However, a feature I would love to see next year is a QR scanner built into the app. Each person had a code round their neck and it would have been a great alternative to swapping business cards.</p>
 <h3 id="summitinsummary">Summit in Summary</h3>
@@ -188,6 +193,7 @@ ghost.init({
 <p><strong>Links</strong></p>
 <p><a href="https://www.twitch.tv/aws/videos/all">https://www.twitch.tv/aws/videos/all</a><br>
 <a href="https://aws.amazon.com/summits/london/">https://aws.amazon.com/summits/london/</a><br>
+<a href="https://github.com/richarvey/bl_docker_to_production_ecs">https://github.com/richarvey/bl_docker_to_production_ecs</a><br>
 <a href="https://twitter.com/search?q=%23AWSSummit">#AWSSummit</a></p>
 </div>
             </section>
