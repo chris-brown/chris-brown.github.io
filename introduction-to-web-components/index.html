@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=a14671fc48" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=656c3cd947" />
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="index.html" />
@@ -81,7 +81,7 @@ lack of support for it and better alternative approaches.
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=a14671fc48"></script>
+    <script src="../public/ghost-sdk.js?v=656c3cd947"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
@@ -241,6 +241,23 @@ root.innerHtml = '&lt;style&gt; * { color: red; } &lt;/style&gt; &lt;p&gt;Hello&
 
             </footer>
 
+            
+            <section class="post-full-comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    var disqus_config = function () {
+                        this.page.url = "https://blog.zirafon.org/introduction-to-web-components/";
+                        this.page.identifier = "ghost-22"
+                    };
+                    (function () {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://zirafon-blog.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+            </section>
+           
 
         </article>
 
@@ -398,7 +415,7 @@ root.innerHtml = '&lt;style&gt; * { color: red; } &lt;/style&gt; &lt;p&gt;Hello&
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=a14671fc48"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=656c3cd947"></script>
 
 
     <script>
